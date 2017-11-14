@@ -1,5 +1,5 @@
 let agregator = document.getElementById("agregator"),
-    main_points = Array.from(document.getElementsByClassName("main-points")),
+    main_points = Array.from(document.getElementsByName("li")),
     agregatorState = true;
 
 agregator.addEventListener("click" ,()=>{
