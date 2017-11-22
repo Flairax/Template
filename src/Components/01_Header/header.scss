@@ -3,7 +3,7 @@
   src: url(./Anton-Regular.ttf);
 }
 
-$font-srack: 'Anton', sans-serif;
+$font-stack: 'Anton', sans-serif;
 $font-color: white;
 $font-size: 18px;
 $bg-color: rgb(26, 24, 24);
@@ -17,7 +17,7 @@ main, footer{
 }
 
 nav{
-  font-family: $font-srack;
+  font-family: $font-stack;
   font-size: $font-size;
   position: fixed;
   width: 100%;
