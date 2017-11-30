@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Home from './01_Home/home';
-import TodoView from './02_Todo/todoView';
-import NotFound from './09_NotFound/notFound';
+import Home from './home';
+import TodoView from './todoList';
+import NotFound from './notFound';
+
+import '../Style/Css/main.scss';
 
 export default class Main extends Component {
   render() {

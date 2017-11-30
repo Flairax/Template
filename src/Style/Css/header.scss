@@ -1,7 +1,4 @@
-@font-face{
-  font-family: 'Anton';
-  src: url(./Anton-Regular.ttf);
-}
+
 
 $font-stack: 'Anton', sans-serif;
 $font-color: white;
@@ -33,6 +30,7 @@ nav{
   display: flex;
   background-color: $bg-color;
   box-shadow: 0px 0px 21px 0px rgba(51, 50, 50, 0.75); 
+  list-style: none;
 }
 
 #main-menu{
@@ -45,6 +43,7 @@ nav{
     
     a{
       color: $font-color;
+      text-decoration: none;
     }
 
   }
