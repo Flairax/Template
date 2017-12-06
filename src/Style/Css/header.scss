@@ -23,6 +23,7 @@ nav{
   position: relative;
   top:0;
   user-select: none;
+  
 }
 
 
@@ -51,8 +52,6 @@ nav{
   z-index: 10;
   transform: translateY(0);
   transition: 0.5s;
-
-  
 
   li{    
     a{
