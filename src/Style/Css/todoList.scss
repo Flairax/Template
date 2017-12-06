@@ -1,0 +1,8 @@
+#todoList li{
+    &:hover{
+        background-color: red;
+        cursor: pointer;
+    }
+    
+    padding: 10px;
+}

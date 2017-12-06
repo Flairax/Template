@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Home from './home';
-import TodoView from './todoList';
+import TodoView from './Todos/todoView';
 import NotFound from './notFound';
 
 import '../Style/Css/main.scss';

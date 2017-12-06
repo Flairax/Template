@@ -14,29 +14,31 @@ const initialState =[
         text: 'WatcafafahSome',
         completed: false,
     },
+    {
+        id: 133,
+        text: 'WatcafafahSome',
+        completed: false,
+    },
 ];
 
+let idCount = 0;
+
 const todos = (state = initialState, action) => {
-    switch (action.type){
+    switch (action.type){      
         case 'ADD_TODO':
+        {
             return [
                 ...state,
                 {
-                    id: action.id,
-                    text: action.text,
-                    completed: false,
+                    id: idCount++,
+                    text: action.payload,
+                    completed: false
                 }
             ];
-        case 'TOGGLE_TODO':
-            return state.map(todo => {
-                if(todo.id !== action.id){
-                    return todo;
-                }
-                return{
-                    ...todo,
-                    completed: !todo.completed
-                };
-            });
+            
+        }
+            
+
         default:
             return state;
     }

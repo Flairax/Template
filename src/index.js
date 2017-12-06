@@ -6,16 +6,12 @@ import { BrowserRouter } from 'react-router-dom';
 
 import registerServiceWorker from './registerServiceWorker';
 
-//------------------STORE---------------------
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducer from './Reducers/reducers';
 
-//------------------COMPONENTS---------------------
 import App from './Components/App';
+import store from './store';
 
-
-const store = createStore(reducer);
+const root = document.getElementById('root');
 
 const render = Component => {
     ReactDOM.render(
@@ -26,7 +22,7 @@ const render = Component => {
           </BrowserRouter>
         </Provider>       
       </AppContainer>,
-      document.getElementById('root'),
+      root
     )
   }
 

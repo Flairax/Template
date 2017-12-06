@@ -4,9 +4,9 @@ import '../Style/Css/notFound.scss';
 export default class Notfound extends Component {
   render() {
     return (
-      <section>
+      <article>
         <h1>Not found</h1>
-      </section>
+      </article>
     );
   }
 }
