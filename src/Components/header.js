@@ -29,15 +29,15 @@ export default class Header extends Component {
         <div id="banner"></div>
         <nav id="navigation">
           <div id="agregator">&#9776;</div>
-          <ul className="main-menu hidden-menu-m">
+          <ul className="main-menu hidden-menus">
             <li><Link to='/'>Home</Link></li>
             <li >
               <Link to='/news'>News</Link>
               <div className="areaGrower sub-Opener">
-                <img src={arrow} alt="arrow" className="arrow "/>
+                <img src={arrow} alt="arrow" className="arrow desktop-arrow"/>
                 <span className="hidden">Expand</span>
               </div>
-              <ul className="sub-menu desktop hidden">
+              <ul className="sub-menu desktop-sub-menu hidden-menus">
                 <li><Link to='/'>Poinczczxczxct</Link></li>
                 <li><Link to='/a'>Point</Link></li>
               </ul>
@@ -46,10 +46,10 @@ export default class Header extends Component {
             <li>
               <Link to='/a'>Point</Link>
               <div className="areaGrower sub-Opener">
-                <img src={arrow} alt="arrow" className="arrow "/>
+                <img src={arrow} alt="arrow" className="arrow desktop-arrow"/>
                 <span className="hidden">Expand</span>
               </div>
-              <ul className="sub-menu desktop hidden">
+              <ul className="sub-menu desktop-sub-menu hidden-menus">
                     <li><Link to='/'>Poifsfsfsfsnt</Link></li>
                     <li><Link to='/a'>Point</Link></li>
                     <li><Link to='/a'>Point</Link></li>
