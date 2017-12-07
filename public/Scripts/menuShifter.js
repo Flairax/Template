@@ -23,29 +23,38 @@ const expand_1 = sub_Opener_1.getElementsByTagName("span")[0];
 
 
 const main = document.getElementsByTagName("main")[0];
-
+let navigation = document.getElementById("navigation").classList;
 /*=============================================
     Not the best solution, but I don't
     know how make "removeEventListener" 
     work without it yet 
   =============================================*/
 /*============SUB-MENU-VISIBILITY-SWITCHERS============*/
-function visibilitySwitcher_0() {
+function visSwitchForSubMenu_0() {
     if(sub_menus_0.classList.contains("hidden-menus"))
         sub_menus_0.classList.remove("hidden-menus");      
     else sub_menus_0.classList.add("hidden-menus");   
 }
 
-function visibilitySwitcher_1() {
+function visSwitchForSubMenu_1() {
     if(sub_menus_1.classList.contains("hidden-menus"))
         sub_menus_1.classList.remove("hidden-menus");
     else sub_menus_1.classList.add("hidden-menus");
 }
 
 /*============hiddeMenu============*/
-function hiddeMenu() {
+function hiddeMainAndSUbMenu() {
     menu_m.classList.add("hidden-menus");
+    sub_menus_0.classList.add("hidden-menus");   
+    sub_menus_1.classList.add("hidden-menus");
+
 }
+
+/**/
+function goUp(){
+    window.scrollTo(0, scrollLimit);
+}
+
 
 let scrollLimit = 200;
 
@@ -61,11 +70,11 @@ function stateShifter(action) {
         case "MAKE_MAIN-MENU_hidden_FOR_MOBILE":
             menu_m.classList.add("hidden-menus");           
         break;
-        case "ADD_LSNR(MAKE_MAIN-MENU_hidden_ON_BODY_CLICK)":
-            main.addEventListener("click", hiddeMenu);      
+        case "ADD_LSNR(MAKE_MAIN&SUB-MENU_hidden_ON_BODY_CLICK)":
+            main.addEventListener("click", hiddeMainAndSUbMenu);      
         break;
-        case "REMOVE_LSNR(MAKE_MAIN-MENU_hidden_ON_BODY_CLICK)":
-            main.removeEventListener("click", hiddeMenu);      
+        case "REMOVE_LSNR(MAKE_MAIN&SUB-MENU_hidden_ON_BODY_CLICK)":
+            main.removeEventListener("click", hiddeMainAndSUbMenu);      
         break;
         /*===============SUB-MENU===============*/       
         case "MAKE_SUB-MENU_VISIBLE_FOR_DESKTOP":
@@ -81,23 +90,23 @@ function stateShifter(action) {
 
         /*===============SUB-OPENERS===============*/ 
         case "ADD_LSNR_(MAKE_SUB-MENU_VISIBLE_ONCLICK)_FOR_MOBILE":
-            sub_Opener_0.addEventListener('click', visibilitySwitcher_0);
-            sub_Opener_1.addEventListener('click', visibilitySwitcher_1);   
+            sub_Opener_0.addEventListener('click', visSwitchForSubMenu_0);
+            sub_Opener_1.addEventListener('click', visSwitchForSubMenu_1);   
         break;
         case "REMOVE_LSNR_(MAKE_SUB-MENU_VISIBLE_ONCLICK)_FOR_DESKTOP":
-            sub_Opener_0.removeEventListener('click', visibilitySwitcher_0);
-            sub_Opener_1.removeEventListener('click', visibilitySwitcher_1);   
+            sub_Opener_0.removeEventListener('click', visSwitchForSubMenu_0);
+            sub_Opener_1.removeEventListener('click', visSwitchForSubMenu_1);   
         break;
 
         /*===============REFS===============*/ 
         case "ADD_LSNR_(CLOSE_MAIN-MENU_ON_REF_CLICK)_FOR_MOBILE":
             refs.forEach(ref => {
-                ref.addEventListener('click', hiddeMenu);
+                ref.addEventListener('click', hiddeMainAndSUbMenu);
             });  
         break;
         case "REMOVE_LSNR_(CLOSE_MAIN-MENU_ON_REF_CLICK)_FOR_DESKTOP":
             refs.forEach(ref => {
-                ref.removeEventListener('click', hiddeMenu);          
+                ref.removeEventListener('click', hiddeMainAndSUbMenu);          
             }); 
         break;
 
@@ -122,7 +131,30 @@ function stateShifter(action) {
             expand_0.classList.add("hidden");
             expand_1.classList.add("hidden");
         break;
-
+        /*===============MOBILE MENU BUTTON===============*/
+        case "ADD_LSTNR(CLICL_ON_MOBILE_MENU_APPEAR'S/DISAPEAR'S_MAIN-MENU)":
+            agregator.addEventListener("click" ,()=>{    
+                if(menu_m.classList.contains("hidden-menus")) 
+                    stateShifter("MAKE_MAIN-MENU_VISIBLE_FOR_DESKTOP");
+                else stateShifter("MAKE_MAIN-MENU_hidden_FOR_MOBILE");  
+            });
+        break;
+        /*===============REFS PORTAL TO TOP===============*/
+        case "GO_TO_THE_TOP_OF_PAGE_ON_REF_CLICK":
+            refs.forEach(ref => {
+                ref.addEventListener('click', goUp);
+            });
+        break;
+        /*===============SCROLL ANALYZER===============*/
+        case "FIX_MENU_WHEN_THE_BANNER_PASSED":
+            window.onscroll = function() {  
+                let scrolled = window.pageYOffset || document.documentElement.scrollTop;
+                if(scrolled > scrollLimit){
+                    navigation.add("fixed");        
+                } 
+                else navigation.remove("fixed");
+            }
+        break;
         /*===============DEFAUL ERROR===============*/
         default: 
             alert(action+" - unrecognized!");
@@ -131,18 +163,13 @@ function stateShifter(action) {
 }
 
 /*=============================================
-                Page load-width detection
+                Page load actions
   =============================================*/
-function goUp(){
-    window.scrollTo(0, scrollLimit);
-}
+stateShifter("GO_TO_THE_TOP_OF_PAGE_ON_REF_CLICK");
+stateShifter("ADD_LSTNR(CLICL_ON_MOBILE_MENU_APPEAR'S/DISAPEAR'S_MAIN-MENU)");
+stateShifter("FIX_MENU_WHEN_THE_BANNER_PASSED");
 
-refs.forEach(ref => {
-    ref.addEventListener('click', goUp);
-});
-
-
-
+/* =============width detection =============*/
 if(document.body.clientWidth>700){
     stateShifter("MAKE_MAIN-MENU_VISIBLE_FOR_DESKTOP"); 
     stateShifter("MAKE_SUB-MENU_VISIBLE_FOR_DESKTOP");   
@@ -152,19 +179,9 @@ if(document.body.clientWidth>700){
     stateShifter("REMOVE_EFFECT_ON_SUBMENU:HOVER_FOR_MOBILE");
     stateShifter("ADD_LSNR_(MAKE_SUB-MENU_VISIBLE_ONCLICK)_FOR_MOBILE");
     stateShifter("MAKE_'EXPANDS'_VISIBLE_FOR_MOBILE");  
-    stateShifter("ADD_LSNR(MAKE_MAIN-MENU_hidden_ON_BODY_CLICK)");
+    stateShifter("ADD_LSNR(MAKE_MAIN&SUB-MENU_hidden_ON_BODY_CLICK)");
 }
 
-/*=============================================
-                Mobile-menu-opener
-  =============================================*/
-agregator.addEventListener("click" ,()=>{    
-    if(menu_m.classList.contains("hidden-menus")) 
-        stateShifter("MAKE_MAIN-MENU_VISIBLE_FOR_DESKTOP");
-    else stateShifter("MAKE_MAIN-MENU_hidden_FOR_MOBILE");  
-});
-
-console.log(Array.from(document.getElementsByTagName("a")))
 /*=============================================
                 Width-change-trigger
   =============================================*/
@@ -179,7 +196,7 @@ adaptive.addListener((changed)=>{
         stateShifter("REMOVE_LSNR_(CLOSE_MAIN-MENU_ON_REF_CLICK)_FOR_DESKTOP");       
         stateShifter("ADD_EFFECT_ON_SUBMENU:HOVER_FOR_DESKTOP");   
         stateShifter("REMOVE_LSNR_(MAKE_SUB-MENU_VISIBLE_ONCLICK)_FOR_DESKTOP");
-        stateShifter("REMOVE_LSNR(MAKE_MAIN-MENU_hidden_ON_BODY_CLICK)");
+        stateShifter("REMOVE_LSNR(MAKE_MAIN&SUB-MENU_hidden_ON_BODY_CLICK)");
     }
 
     if(!changed.matches){
@@ -190,21 +207,6 @@ adaptive.addListener((changed)=>{
         stateShifter("ADD_LSNR_(CLOSE_MAIN-MENU_ON_REF_CLICK)_FOR_MOBILE");        
         stateShifter("REMOVE_EFFECT_ON_SUBMENU:HOVER_FOR_MOBILE");
         stateShifter("ADD_LSNR_(MAKE_SUB-MENU_VISIBLE_ONCLICK)_FOR_MOBILE");
-        stateShifter("ADD_LSNR(MAKE_MAIN-MENU_hidden_ON_BODY_CLICK)");
+        stateShifter("ADD_LSNR(MAKE_MAIN&SUB-MENU_hidden_ON_BODY_CLICK)");
     }  
 });
-
-/*=============================================
-                Scroll-analyzer
-  =============================================*/
-let navigation = document.getElementById("navigation");
-
-
-
-window.onscroll = function() {  
-    let scrolled = window.pageYOffset || document.documentElement.scrollTop;
-    if(scrolled > scrollLimit){
-        navigation.style.position = "fixed";        
-    } 
-    else navigation.style.position = "relative";
-}

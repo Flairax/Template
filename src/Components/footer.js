@@ -2,16 +2,7 @@ import React, { Component } from 'react';
 import '../Style/Css/footer.scss';
 
 export default class Footer extends Component {
-  componentDidMount(){
-    const JQuery = document.createElement("script");
-
-    JQuery.src = "./Scripts/jquery.js";
-    JQuery.async = true;
-    JQuery.type = "text/javascript";
-    JQuery.className = "MountedJQuery";
-
-    document.body.appendChild(JQuery);
-
+  /*componentDidMount(){
     const parallax = document.createElement("script");
 
     parallax.src = "./Scripts/parallax.js";
@@ -23,11 +14,11 @@ export default class Footer extends Component {
   }
   
   componentWillUnmount(){
-    const menuShifter = document.createElement("script");
-    menuShifter.className = "MountedJQuery";
+    const parallax = document.createElement("script");
+    parallax.className = "Mountedparallax";
 
-    document.body.removeChild(menuShifter);
-  }
+    document.body.removeChild(parallax);
+  }*/
 
   render() {
     return (

@@ -24,20 +24,18 @@ const initialState =[
 let idCount = 0;
 
 const todos = (state = initialState, action) => {
+    if(action.payload === "")return state
+
     switch (action.type){      
         case 'ADD_TODO':
-        {
             return [
-                ...state,
+                ...state, 
                 {
                     id: idCount++,
                     text: action.payload,
                     completed: false
                 }
             ];
-            
-        }
-            
 
         default:
             return state;

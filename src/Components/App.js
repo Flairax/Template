@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 /*=============Components===========*/
 import Header from './header';
 import Main from './mainRouter';

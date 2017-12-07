@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 
 import '../Style/Css/header.scss';
 import arrow from '../Style/Images/arrow.svg';
+import cosmos from '../Style/Images/cosm.jpg'
+
+
+
 
 export default class Header extends Component {  
   componentDidMount(){
@@ -26,7 +30,7 @@ export default class Header extends Component {
   render() {
     return (
       <header>
-        <div id="banner"></div>
+        <div id="banner" className="parallax-window" data-parallax="scroll" data-image-src={cosmos}></div>
         <nav id="navigation">
           <div id="agregator">&#9776;</div>
           <ul className="main-menu hidden-menus">
