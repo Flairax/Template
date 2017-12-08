@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import arrow from '../Style/Images/arrow.svg';
+import loomp from '../Style/Images/loomp.svg';
 //import cosmos from '../Style/Images/cosm.jpg';
 
 export default class Header extends Component {
@@ -64,9 +65,13 @@ export default class Header extends Component {
                   </li>
                   <li><Link to='/a' className="unExpandable">Point</Link></li>
                </ul>
-               <aside>
-                  <form>
-                     <input type="text" className="searcher" />
+               <aside >                 
+                  <button className="srch-box-rvlr">
+                     <img src={loomp} alt="loomp" />
+                  </button>
+                  <form className="search-box">
+                     <input type="submit" id="submit" value="Search"/>
+                     <input type="text" id="searcher" placeholder="Enter query"/>
                   </form>
                </aside>
             </nav>

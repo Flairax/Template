@@ -6,6 +6,8 @@ const menu_m = document.getElementsByClassName("main-menu")[0]
 const agregator = document.getElementById("agregator")
 const menu_s = Array.from(document.getElementsByClassName("sub-menu"))
 const refs = Array.from(menu_m.getElementsByTagName("a"))
+const expandableS = Array.from(menu_m.getElementsByClassName("expandable"))
+
 const main = document.getElementsByTagName("main")[0]
 const navigation = document.getElementsByClassName("navigation")[0].classList
 
@@ -27,10 +29,10 @@ const annotationS = menu_m.getElementsByTagName("span")
 let annotation_0 = annotationS[0]
 let annotation_1 = annotationS[1]
 
+const searcher = document.getElementsByTagName("header")[0].getElementsByClassName("search-box")[0]
+const srch_rvlr = document.getElementsByClassName("srch-box-rvlr")[0]
 
-const expandableS = Array.from(menu_m.getElementsByClassName("expandable"))
 
-console.log(expandableS)
 /*============Scroller values============*/
 const bannerHeight = parseInt(document.getElementById("banner").clientHeight, 10)
 
@@ -47,10 +49,12 @@ let scrolled = 0
 function visSwitchForSubMenu_0() {
    if(sub_menus_0.classList.contains("hidden-menus")){
       sub_menus_0.classList.remove("hidden-menus") 
+      sub_Opener_0.classList.add("sub-Opener-opened") 
       arrow_0.add("arrow-mobile")
       annotation_0.innerText = "Narrow"      
    }else{
       sub_menus_0.classList.add("hidden-menus") 
+      sub_Opener_0.classList.remove("sub-Opener-opened") 
       arrow_0.remove("arrow-mobile") 
       annotation_0.innerText = "Expand"
    }  
@@ -59,10 +63,13 @@ function visSwitchForSubMenu_0() {
 function visSwitchForSubMenu_1() {
    if(sub_menus_1.classList.contains("hidden-menus")){
       sub_menus_1.classList.remove("hidden-menus")
+      sub_Opener_1.classList.add("sub-Opener-opened") 
       arrow_1.add("arrow-mobile")
       annotation_1.innerText = "Narrow"      
+
    }else{
       sub_menus_1.classList.add("hidden-menus")
+      sub_Opener_1.classList.remove("sub-Opener-opened") 
       arrow_1.remove("arrow-mobile")
       annotation_1.innerText = "Expand"
    } 
@@ -166,13 +173,26 @@ function stateShifter(action) {
       case "ADD_LSTNR(FIX_MENU_WHEN_THE_BANNER_PASSED)-DESKTOP":             
          window.addEventListener('scroll', scroller)
          scrollLimit = bannerHeight
-         if(window.pageYOffset || document.documentElement.scrollTop >= scrollLimit) 
-            navigation.add("fixed-nav") 
-         else navigation.remove("fixed-nav")             
+         console.log(scrolled)
+         if(window.pageYOffset || document.documentElement.scrollTop >= scrollLimit){
+            navigation.add("fixed-nav")   
+         }                     
       break
       case "REMOVE_LSTNR(FIX_MENU_WHEN_THE_BANNER_PASSED)-MOBILE":                               
          window.removeEventListener('scroll', scroller)
          scrollLimit = 0
+      break   
+      /*===============SEARCHER OPENER===============*/
+      case "ADD_LSTNR(SEARCHER_OPENS_ON_CLICK)":                               
+         srch_rvlr.addEventListener("click", () => {
+            if(searcher.classList.contains("search-box-visible")){
+               searcher.classList.remove("search-box-visible")
+               srch_rvlr.classList.remove("srch-box-rvlr-opened")
+            }else{
+               searcher.classList.add("search-box-visible")
+               srch_rvlr.classList.add("srch-box-rvlr-opened")
+            } 
+         })
       break   
       /*===============DEFAUL ERROR===============*/
       default: 
@@ -185,6 +205,7 @@ function stateShifter(action) {
   =============================================*/
 stateShifter("ADD_LSTNR(GO_TO_THE_TOP_OF_PAGE_ON_ANY_REF_CLICK)")
 stateShifter("ADD_LSTNR(CLICL_ON_MOBILE_MENU_APPEAR'S/DISAPEAR'S_MAIN-MENU)")
+stateShifter("ADD_LSTNR(SEARCHER_OPENS_ON_CLICK)")
 
 /* =============width detection =============*/
 if(document.body.clientWidth>700){

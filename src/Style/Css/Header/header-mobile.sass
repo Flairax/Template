@@ -20,7 +20,7 @@ main
 
    &:hover
       background-color: $hover-color
-      transition: $trans-ref-dur
+      transition: $trans-dur
       cursor: pointer
 
 $href-border-w: 10px
@@ -55,27 +55,34 @@ $main-menu-width: 280px
 
 
 
-$arGrowPadding-right: 10px
-$arGrowPadding-left: 25px
-$arGrowBorderWidth: 1px
-.areaGrower
-   padding-right: $arGrowPadding-right
-   padding-left: $arGrowPadding-left
+$sub-O-pad-right: 10px
+$sub-O-pad-left: 25px
+$sub-O-Be-Wth: 1px
+$sub-O-width: $main-menu-width/2 - $sub-O-pad-right - $sub-O-pad-left - $sub-O-Be-Wth
+.sub-Opener
+   padding-right: $sub-O-pad-right
+   padding-left: $sub-O-pad-left
    padding-top: 11.5px
    padding-bottom: 14px
-   background-color: #1f6468
+   background-color: $sub-menu-color //#1f6468
    border-bottom-left-radius: 50%
    border-top-left-radius: 50%
    position: relative
-   left: 10px
-   border: $arGrowBorderWidth solid $bg-color
-   width: $main-menu-width/2 - $arGrowPadding-right - $arGrowPadding-left - $arGrowBorderWidth
+   left: 11px
+   border: $sub-O-Be-Wth solid $bg-color
+   width: $sub-O-width
+   transition: $trans-dur
 
    &:hover
-      background-color: $sub-menu-color
+      background-color: $hover-color
       cursor: pointer
       @extend %box-shadow-media
 
+.sub-Opener-opened
+   border-right-width: $sub-O-Be-Wth + 10px
+   border-right-color: #1f6468
+   width: $sub-O-width - 10px 
+   
 
 #banner
    transform: scale(0)
@@ -95,7 +102,7 @@ $arGrowBorderWidth: 1px
    border: 1px dashed $bg-color
    background-color: $sub-menu-color
    overflow-y: auto
-   transition: $trans-menu-dur 
+   transition: $trans-dur 
 
    &::-webkit-scrollbar
       width: 40px
@@ -107,8 +114,6 @@ $arGrowBorderWidth: 1px
    a
       width: 75%
       border-left: $href-border-w solid $sub-menu-color
-   li
-      border-radius: 0
         
         
 

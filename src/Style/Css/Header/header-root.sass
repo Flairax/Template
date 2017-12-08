@@ -3,17 +3,24 @@ $font-color: white
 $font-size: 18px
 $bg-color: rgb(26, 24, 24)
 $hover-color: rgb(14, 155, 155)
+$srch-btn-clr: #1e5457
 $padding-h: 20px
 $padding-v: 15px
-$trans-menu-dur: 0.7s
-$trans-ref-dur: 0.7s
+$trans-dur: 0.7s
 
 %box-shadow
    box-shadow: 0px 0px 21px 0px rgba(51, 50, 50, 0.75)
 
+%bg-color
+   background-color: $bg-color
 /* =========================
           Banner
    =========================
+header
+   font-family: $font-stack
+   font-size: $font-size
+   color: $font-color
+
 #banner
    height: 400px
    background-image: url("../Images/cosm.jpg") 
@@ -21,10 +28,7 @@ $trans-ref-dur: 0.7s
    background-color: azure
    z-index: 11
 
-.navigation
-   font-family: $font-stack
-   font-size: $font-size
-   color: $font-color
+.navigation 
    width: 100%
    position: relative
    top: 0
@@ -41,7 +45,7 @@ $trans-ref-dur: 0.7s
    display: grid
    justify-content: center
    align-content: center 
-   transition: $trans-menu-dur
+   transition: $trans-dur
    @extend %box-shadow
   
 /* =========================
@@ -49,20 +53,20 @@ $trans-ref-dur: 0.7s
    =========================
 .main-menu
    @extend %menu-template   
-   background-color: $bg-color
+   @extend %bg-color
   
    a
       display: inline-block
       padding: $padding-v $padding-h
       color: $font-color    
-      transition: $trans-ref-dur
+      transition: $trans-dur
 
     
 
 .parrentChange
    background-color: $hover-color
    cursor: pointer
-   transition: $trans-ref-dur
+   transition: $trans-dur
 
 .arrow
    background-color: white
@@ -74,9 +78,7 @@ $trans-ref-dur: 0.7s
    position: relative
    top: 3px
 
-
-
-.areaGrower
+.sub-Opener
    display: inline-block
 
 /* =========================
@@ -95,27 +97,114 @@ $trans-ref-dur: 0.7s
    border-bottom-right-radius: 35%
 
    li
-      border-radius: 35%
-      transition: $trans-menu-dur
+      
+      transition: $trans-dur
 
       &:hover
          background-color: $hover-color
-     
-
+ 
 /* =========================
-         Mobile-tools
+        Searcher
    ========================= 
-.hidden
-  display: none
+.search-box
+   display: flex
+   position: absolute
+   @extend %box-shadow
+   transform-origin: right top
+   width: 100%
+   transform: scale(0)
+   transition: $trans-dur
+   z-index: 10
+   
+.search-box-visible
+   transform: scale(1)
 
+#submit, #searcher
+   height: 50px
+   font-size: 150%
+   
+   
+   
+%search-style
+   border: none
+   outline: 0px
+   transition: $trans-dur
+
+
+#submit
+   @extend %search-style  
+   @extend %bg-color
+   color: $font-color
+   width: 20%
+
+#searcher 
+   @extend %search-style
+   width: 75%
+   color: $bg-color
+   padding-left: 5% 
+   
+
+#submit, .srch-box-rvlr
+   &:hover
+      background-color: $hover-color
+      cursor: pointer
+      @extend %box-shadow
+
+.srch-box-rvlr
+   @extend %search-style
+   @extend %box-shadow
+   display: flex
+
+   font-size: $font-size
+   color: $font-color
+   justify-content: center
+   align-content: center
+   position: absolute
+   z-index: 11
+   left: 85%  
+   top: 10px
+   background-color: white
+   border-bottom-right-radius: 50%
+   border-bottom-left-radius: 50%
+   border: 2px solid $bg-color
+   padding: 20px
+   height: 80px
+
+   >img
+      transform: translateY(-5px)
+      transition: $trans-dur
+
+   &:hover+#search-hint
+      transform: scale(1)
+
+.srch-box-rvlr-opened
+   border-top-right-radius: 50%
+   border-top-left-radius: 50%  
+   border-bottom-right-radius: 0%
+   border-bottom-left-radius: 0% 
+
+   >img
+      transform: translateY(0)
+  
 /* =========================
          Media-Desktop
    =========================
 @media screen and (min-width: 700px)
-  @import './header-desktop.sass'
+   @import './header-desktop.sass'
   
+   
 /* =========================
          Media-Mobile
    =========================
-@media screen and (min-width:300px) and (max-width: 700px)
-  @import './header-mobile.sass'  
+@media screen and (max-width: 700px)
+   @import './header-mobile.sass'  
+
+@media screen and (max-width: 550px)
+   .srch-box-rvlr
+      left: 75%
+   .search-box
+      flex-direction: column-reverse
+   
+   #submit, #searcher 
+      width: 100%
+      height: 70px 
