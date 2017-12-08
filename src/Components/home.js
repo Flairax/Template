@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../Style/Css/home.scss';
 
 export default class Home extends Component {
   constructor(props) {

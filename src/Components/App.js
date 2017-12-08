@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import '../Style/Css/root'
+
 /*=============Components===========*/
 import Header from './header';
 import Main from './mainRouter';

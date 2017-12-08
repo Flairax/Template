@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 
-
-import '../../Style/Css/todoList.scss';
-
-
 import TodoForm from './todoForm';
 import TodoList from './todoList';
 import TodoDetails from './todoDetails';

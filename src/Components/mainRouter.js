@@ -5,7 +5,6 @@ import Home from './home';
 import TodoView from './Todos/todoView';
 import NotFound from './notFound';
 
-import '../Style/Css/main.scss';
 
 export default class Main extends Component {
   render() {
