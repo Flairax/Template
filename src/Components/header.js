@@ -17,7 +17,7 @@ export default class Header extends Component {
             <li>
               <Link to='/news' className="expandable">News</Link>
               <div className="areaGrower sub-Opener">
-                <img src={arrow} alt="arrow" className="arrow desktop-arrow"/>
+                <img src={arrow} alt="arrow" className="arrow"/>
                 <span>Expand</span>
               </div>
               <ul className="sub-menu">
@@ -29,7 +29,7 @@ export default class Header extends Component {
             <li>
               <Link to='/a' className="expandable">Point</Link>
               <div className="areaGrower sub-Opener">
-                <img src={arrow} alt="arrow" className="arrow desktop-arrow"/>
+                <img src={arrow} alt="arrow" className="arrow"/>
                 <span>Expand</span>
               </div>
               <ul className="sub-menu">

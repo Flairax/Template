@@ -58,7 +58,7 @@ $arGrowBorderWidth: 1px
 .areaGrower
     padding-right: $arGrowPadding-right
     padding-left: $arGrowPadding-left
-    padding-top: 12px
+    padding-top: 11.5px
     padding-bottom: 14px
     background-color: #1f6468
     border-bottom-left-radius: 50%
@@ -75,7 +75,8 @@ $arGrowBorderWidth: 1px
 
 
 #banner
-    display: none
+    transform: scale(0)
+    position: absolute
 
 .sub-menu
     display: flex
@@ -106,6 +107,9 @@ $arGrowBorderWidth: 1px
 
     li
         border-radius: 0
+
+.arrow-mobile
+    transform: rotate(270deg)   
 
 .hidden-menus
     transform: translateX(-105%)

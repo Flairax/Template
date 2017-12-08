@@ -9,7 +9,6 @@ const refs = Array.from(menu_m.getElementsByTagName("a"))
 const main = document.getElementsByTagName("main")[0]
 const navigation = document.getElementsByClassName("navigation")[0].classList
 
-
 /*============SUB-MENU============*/
 const sub_menusS =  Array.from(menu_m.getElementsByClassName("sub-menu"))
 const sub_menus_0 = sub_menusS[0]
@@ -20,12 +19,17 @@ const sub_OpenerS = Array.from(menu_m.getElementsByClassName("sub-Opener"))
 const sub_Opener_0 = sub_OpenerS[0]
 const sub_Opener_1 = sub_OpenerS[1]
 
+const arrowS = menu_m.getElementsByClassName("arrow")
+const arrow_0 = arrowS[0].classList
+const arrow_1 = arrowS[1].classList
+
 /*============Scroller values============*/
 const bannerHeight = parseInt(document.getElementById("banner").clientHeight, 10)
 
-let scrollLimit = bannerHeight
+let scrollLimit = 0
 let scrolled = 0
 
+console.log(scrollLimit)
 /*=============================================
     Not the best solution, but I don't
     know how make "removeEventListener" 
@@ -33,15 +37,23 @@ let scrolled = 0
   =============================================*/
 /*============SUB-MENU-VISIBILITY-SWITCHERS============*/
 function visSwitchForSubMenu_0() {
-    if(sub_menus_0.classList.contains("hidden-menus"))
-        sub_menus_0.classList.remove("hidden-menus")      
-    else sub_menus_0.classList.add("hidden-menus")   
+    if(sub_menus_0.classList.contains("hidden-menus")){
+        sub_menus_0.classList.remove("hidden-menus") 
+        arrow_0.add("arrow-mobile")
+    }else{
+        sub_menus_0.classList.add("hidden-menus") 
+        arrow_0.remove("arrow-mobile") 
+    }  
 }
 
 function visSwitchForSubMenu_1() {
-    if(sub_menus_1.classList.contains("hidden-menus"))
+    if(sub_menus_1.classList.contains("hidden-menus")){
         sub_menus_1.classList.remove("hidden-menus")
-    else sub_menus_1.classList.add("hidden-menus")
+        arrow_1.add("arrow-mobile")
+    }else{
+        sub_menus_1.classList.add("hidden-menus")
+        arrow_1.remove("arrow-mobile")
+    } 
 }
 
 /*============hiddeMenu============*/
@@ -49,6 +61,8 @@ function hiddeMainAndSUbMenu() {
     menu_m.classList.add("hidden-menus")
     sub_menus_0.classList.add("hidden-menus")   
     sub_menus_1.classList.add("hidden-menus")
+    arrow_0.remove("arrow-mobile")
+    arrow_1.remove("arrow-mobile")
 }
 
 /*============Scroller============*/
@@ -130,17 +144,17 @@ function stateShifter(action) {
             })
         break
         /*===============SCROLL ANALYZER===============*/
-        case "ADD_LSTNR(FIX_MENU_WHEN_THE_BANNER_PASSED)-DESKTOP":           
-            scrollLimit = 200      
+        case "ADD_LSTNR(FIX_MENU_WHEN_THE_BANNER_PASSED)-DESKTOP":             
             window.addEventListener('scroll', scroller)
+            scrollLimit = bannerHeight
             if(window.pageYOffset || document.documentElement.scrollTop >= scrollLimit) 
                 navigation.add("fixed-nav") 
-            else navigation.remove("fixed-nav") 
-            scrollLimit = bannerHeight   
+            else navigation.remove("fixed-nav")             
         break
         case "REMOVE_LSTNR(FIX_MENU_WHEN_THE_BANNER_PASSED)-MOBILE":                               
             window.removeEventListener('scroll', scroller)
-        break
+            scrollLimit = 0
+        break   
         /*===============DEFAUL ERROR===============*/
         default: 
             alert(action+" - unrecognized!")
