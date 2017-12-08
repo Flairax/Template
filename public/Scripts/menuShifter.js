@@ -94,8 +94,7 @@ function stateShifter(action) {
                 ref.addEventListener("mouseover", () => ref.parentElement.classList.add("parrentChange"))
                 ref.addEventListener("mouseout", () => ref.parentElement.classList.remove("parrentChange"))
             })
-        break
-        
+        break       
         /*===============SUB-OPENERS===============*/ 
         case "ADD_LSNR_(MAKE_SUB-MENU_VISIBLE_ONCLICK)-MOBILE":          
             sub_Opener_0.addEventListener('click', visSwitchForSubMenu_0)
@@ -105,7 +104,6 @@ function stateShifter(action) {
             sub_Opener_0.removeEventListener('click', visSwitchForSubMenu_0)
             sub_Opener_1.removeEventListener('click', visSwitchForSubMenu_1)   
         break
-
         /*===============REFS===============*/ 
         case "ADD_LSNR_(CLOSE_MAIN-MENU_ON_REF_CLICK)-MOBILE":
             refs.forEach(ref => {
@@ -117,7 +115,6 @@ function stateShifter(action) {
                 ref.removeEventListener('click', hiddeMainAndSUbMenu)          
             }) 
         break
-
         /*===============MOBILE MENU BUTTON===============*/
         case "ADD_LSTNR(CLICL_ON_MOBILE_MENU_APPEAR'S/DISAPEAR'S_MAIN-MENU)":
             agregator.addEventListener("click" , () => {    
