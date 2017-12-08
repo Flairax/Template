@@ -1,54 +1,57 @@
 $sub-menu-color: #2f878d
 
 %box-shadow-media
-  box-shadow: 0px 0px 21px 0px rgba(51, 50, 50, 0.75)
+   box-shadow: 0px 0px 21px 0px rgba(51, 50, 50, 0.75)
 
 .navigation
-    position: fixed
+   position: fixed
 
 main
-    position: relative
-    top: $padding-v * 2 + $font-size + 9
+   position: relative
+   top: $padding-v * 2 + $font-size + 9
 
 #agregator
-    color: $font-color
-    background-color: $bg-color
-    padding: $padding-v $padding-h
-    user-select: none
-    display: block
-    opacity: 0.95
+   color: $font-color
+   background-color: $bg-color
+   padding: $padding-v $padding-h
+   user-select: none
+   display: block
+   opacity: 0.95
 
-    &:hover
-        background-color: $hover-color
-        transition: $trans-ref-dur
-        cursor: pointer
+   &:hover
+      background-color: $hover-color
+      transition: $trans-ref-dur
+      cursor: pointer
 
 $href-border-w: 10px
-$main-menu-width: 250px
+$main-menu-width: 280px
 .main-menu
-    grid-template-columns: 1fr
-    grid-template-rows: repeat(6, auto)
-    width: $main-menu-width
-    position: absolute
-    border-bottom-right-radius: 20%
-    border-right: 3px solid $sub-menu-color
-    border-bottom: 3px solid$sub-menu-color
+   grid-template-columns: 1fr
+   grid-template-rows: repeat(6, auto)
+   width: $main-menu-width
+   position: absolute
+   border-bottom-right-radius: 20%
+   border-right: 3px solid $sub-menu-color
+   border-bottom: 3px solid$sub-menu-color
 
-    a:hover
-        border-left-color: #1f6468
+   a:hover
+      border-left-color: #1f6468
+    
+   .unExpandable:hover
+      background-color: $hover-color
 
 
 
 .expandable, .unExpandable
-    padding: $padding-h
-    border-left: $href-border-w solid $bg-color
+   padding: $padding-h
+   border-left: $href-border-w solid $bg-color
     
 .unExpandable
-    width: 80%
+   width: 82%
 
 .expandable
-    width: $main-menu-width/2 - 2*$padding-h -2px - $href-border-w
-    height: 100%
+   width: $main-menu-width/2 - 2*$padding-h -2px - $href-border-w
+   height: 100%
 
 
 
@@ -56,60 +59,61 @@ $arGrowPadding-right: 10px
 $arGrowPadding-left: 25px
 $arGrowBorderWidth: 1px
 .areaGrower
-    padding-right: $arGrowPadding-right
-    padding-left: $arGrowPadding-left
-    padding-top: 11.5px
-    padding-bottom: 14px
-    background-color: #1f6468
-    border-bottom-left-radius: 50%
-    border-top-left-radius: 50%
-    position: relative
-    left: 10px
-    border: $arGrowBorderWidth solid $bg-color
-    width: $main-menu-width/2 - $arGrowPadding-right - $arGrowPadding-left - $arGrowBorderWidth
+   padding-right: $arGrowPadding-right
+   padding-left: $arGrowPadding-left
+   padding-top: 11.5px
+   padding-bottom: 14px
+   background-color: #1f6468
+   border-bottom-left-radius: 50%
+   border-top-left-radius: 50%
+   position: relative
+   left: 10px
+   border: $arGrowBorderWidth solid $bg-color
+   width: $main-menu-width/2 - $arGrowPadding-right - $arGrowPadding-left - $arGrowBorderWidth
 
-    &:hover
-        background-color: $sub-menu-color
-        cursor: pointer
-        @extend %box-shadow-media
+   &:hover
+      background-color: $sub-menu-color
+      cursor: pointer
+      @extend %box-shadow-media
 
 
 #banner
-    transform: scale(0)
-    position: absolute
+   transform: scale(0)
+   position: absolute
 
 .sub-menu
-    display: flex
-    flex-direction: column
-    justify-content: start
+   display: flex
+   flex-direction: column
+   justify-content: start
+   position: absolute
+   left: 0
+   z-index: 11
+   width: 100%
+   max-height: 230px
+   border-bottom-left-radius: 0
+   border-bottom-right-radius: 0
+   border: 1px dashed $bg-color
+   background-color: $sub-menu-color
+   overflow-y: auto
+   transition: $trans-menu-dur 
 
-    position: absolute
-    left: 0
-    z-index: 11
+   &::-webkit-scrollbar
+      width: 40px
 
-    width: 100%
-    max-height: 230px
+   &::-webkit-scrollbar-thumb 
+      border-bottom-left-radius: 25%
+      background-color: #6dc0c8
 
-    border-bottom-left-radius: 0
-    border-bottom-right-radius: 0
-
-    background-color: $sub-menu-color
-    @extend %box-shadow-media
-    overflow-y: auto
-    transition: $trans-menu-dur 
-
-    &::-webkit-scrollbar
-        width: 40px
-
-    a
-        width: 75%
-        border-left: $href-border-w solid $sub-menu-color
-
-    li
-        border-radius: 0
+   a
+      width: 75%
+      border-left: $href-border-w solid $sub-menu-color
+   li
+      border-radius: 0
+        
+        
 
 .arrow-mobile
-    transform: rotate(270deg)   
+   transform: rotate(270deg)   
 
 .hidden-menus
-    transform: translateX(-105%)
+   transform: translateX(-105%)

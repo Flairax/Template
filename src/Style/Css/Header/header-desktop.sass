@@ -1,19 +1,22 @@
 .main-menu
-  li:hover    
-    background-color: $hover-color
-  
-    .sub-menu
-      transform:  skew(0) scale(1.0)
+   grid-template-columns: repeat(6, auto)
+   grid-template-rows: 1fr
 
-    .arrow
-      transform: rotate(270deg)   
+   li:hover    
+      background-color: $hover-color
+   
+      .sub-menu
+         transform:  skew(0) scale(1.0)
+
+      .arrow
+         transform: rotate(270deg)   
   
      
       
 .areaGrower span
-  display: none
+   display: none
 
 .sub-menu
-  transform-origin: center top
-  transform: skew(-60deg) scale(0)
+   transform-origin: center top
+   transform: skew(-60deg) scale(0)
 

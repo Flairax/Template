@@ -9,122 +9,113 @@ $trans-menu-dur: 0.7s
 $trans-ref-dur: 0.7s
 
 %box-shadow
-  box-shadow: 0px 0px 21px 0px rgba(51, 50, 50, 0.75)
+   box-shadow: 0px 0px 21px 0px rgba(51, 50, 50, 0.75)
 
-/*=========================
+/* =========================
           Banner
-/*=========================
+   =========================
 #banner
-  height: 200px
-  background: transparent
-  background-color: azure
-  z-index: 11
+   height: 400px
+   background-image: url("../Images/cosm.jpg") 
+   background-attachment: fixed
+   background-color: azure
+   z-index: 11
 
 .navigation
-  font-family: $font-stack
-  font-size: $font-size
-  color: $font-color
-  width: 100%
-  position: relative
-  top: 0
-  user-select: none
-  z-index: 10
+   font-family: $font-stack
+   font-size: $font-size
+   color: $font-color
+   width: 100%
+   position: relative
+   top: 0
+   user-select: none
+   z-index: 10
   
 .fixed-nav
-  position: fixed
+   position: fixed
 
-/*=========================
-          Menu-template
-/*=========================
+/* =========================
+         Menu-template
+   =========================
 %menu-template
-  display: grid
-  justify-content: center
-  align-content: center 
-  transition: $trans-menu-dur
-  @extend %box-shadow
+   display: grid
+   justify-content: center
+   align-content: center 
+   transition: $trans-menu-dur
+   @extend %box-shadow
   
-/*=========================
-          Main-menu
-/*=========================
+/* =========================
+         Main-menu
+   =========================
 .main-menu
-  @extend %menu-template   
-  background-color: $bg-color
+   @extend %menu-template   
+   background-color: $bg-color
   
-  grid-template-columns: repeat(6, auto)
-  grid-template-rows: 1fr
-  
-  a
-    display: inline-block
-    padding: $padding-v $padding-h
-    color: $font-color    
-    transition: $trans-ref-dur
+   a
+      display: inline-block
+      padding: $padding-v $padding-h
+      color: $font-color    
+      transition: $trans-ref-dur
 
     
 
 .parrentChange
-  background-color: $hover-color
-  cursor: pointer
-  @extend %box-shadow
-  transition: $trans-ref-dur
+   background-color: $hover-color
+   cursor: pointer
+   transition: $trans-ref-dur
 
 .arrow
-  background-color: white
-  border-radius: 100%
-  border: 3px solid white
-  transition: 0.5s
-  margin-right: 10px
-  transform: rotate(90deg)
-  position: relative
-  top: 3px
+   background-color: white
+   border-radius: 100%
+   border: 3px solid white
+   transition: 0.5s
+   margin-right: 10px
+   transform: rotate(90deg)
+   position: relative
+   top: 3px
 
 
 
 .areaGrower
-  display: inline-block
+   display: inline-block
 
-/*=========================
-          Sub-menu
-/*=========================
+/* =========================
+         Sub-menu
+   =========================
 .sub-menu
-  @extend %menu-template
-  grid-template-columns: repeat(4, auto)
- 
-  position: absolute
-  left: 10%
-  right: 10%
+   @extend %menu-template
+   grid-template-columns: repeat(4, auto)
+   
+   position: absolute
+   left: 10%
+   right: 10%
 
-  background-color: rgba(26, 24, 24, 0.8)
-  border-bottom-left-radius: 35%
-  border-bottom-right-radius: 35%
+   background-color: rgba(26, 24, 24, 0.8)
+   border-bottom-left-radius: 35%
+   border-bottom-right-radius: 35%
 
-  li
-    border-radius: 35%
-    transition: $trans-menu-dur
+   li
+      border-radius: 35%
+      transition: $trans-menu-dur
 
-    &:hover
-      background-color: $hover-color
-      @extend  %box-shadow
-    
-.desktop-sub-menu
-  
+      &:hover
+         background-color: $hover-color
+     
 
-/*=========================
-          Mobile-tools
-/*=========================
-#agregator
-  display: none
-  
+/* =========================
+         Mobile-tools
+   ========================= 
 .hidden
   display: none
 
-/*=========================
-          Media-Desktop
-/*=========================
+/* =========================
+         Media-Desktop
+   =========================
 @media screen and (min-width: 700px)
   @import './header-desktop.sass'
   
-/*=========================
-          Media-Mobile
-/*=========================
+/* =========================
+         Media-Mobile
+   =========================
 @media screen and (min-width:300px) and (max-width: 700px)
   @import './header-mobile.sass'  

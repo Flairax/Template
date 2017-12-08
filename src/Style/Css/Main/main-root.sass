@@ -36,6 +36,7 @@ main
 body
     background-image: radial-gradient(black 1px, #6dc0c8 1px)
     background-size: 10px 10px
+    scroll-behavior: smooth
 
 
 @media screen and (max-width: 700px)
@@ -44,29 +45,30 @@ body
     
 
 
-::-webkit-scrollbar-button 
+
+body::-webkit-scrollbar-button 
     width: 5px
     height: 0px
 
   
-::-webkit-scrollbar-track 
+body::-webkit-scrollbar-track 
     background-color: #ecedee
 
   
-::-webkit-scrollbar-thumb 
+body::-webkit-scrollbar-thumb 
     -webkit-border-radius: 0px
     border-radius: 0px
     background-color: #6dc0c8
 
   
-::-webkit-scrollbar-thumb:hover
+body::-webkit-scrollbar-thumb:hover
     background-color: #56999f
 
   
-::-webkit-resizer
+body::-webkit-resizer
     width: 4px
     height: 0px
 
   
-::-webkit-scrollbar
+body::-webkit-scrollbar
     width: 5px
