@@ -1,0 +1,147 @@
+/*=============================
+           Navigation
+  =============================*/
+.navigation{
+   position: fixed;
+}
+
+#content{
+   position: relative;
+   top: 65px;
+}
+/*=============================
+           Aggregator
+  =============================*/
+.agregator{
+   font-size: 120%;
+   background-color: $bg-cl;
+   padding: 20px;
+   &:hover{
+      background-color: $hover-cl;
+   }    
+} 
+
+/*=============================
+            Menu-main
+  =============================*/
+.menu-main{
+   position: absolute;
+   flex-direction: column;
+   width: 250px;
+   border-bottom-right-radius: 25%;
+   border-bottom: 5px solid $hover-cl;
+   border-right: 5px solid $hover-cl;
+   transform: translateX(-120%);
+}
+
+.points-main{
+   position: relative;
+}
+
+.points-main:last-child>.refs-main{
+   width: 80%;
+   border-radius: 0 70% 15% 0;
+}
+
+/*=============================
+           Sub-opener
+  =============================*/
+.sub-opener{
+   position: absolute;
+   align-self: stretch;
+   background-color: $click-cl;
+   border: 2px solid $bg-cl;
+   left: 155px;
+   padding: 13px 10px 14px 15px;
+   border-radius: 50% 0 0 50%;     
+   span{
+      transition: $transition;
+      &::before{content: 'Expand';}
+   }   
+   &:hover>span{
+      color: $hover-cl;
+   }
+}
+
+/*=============================
+               Refs
+  =============================*/
+%refs-mob{
+   padding-left: 15px;
+   height: 55px;         
+}
+
+.refs-main{      
+   @extend %refs-mob;
+   border-left: 10px solid $bg-cl;
+   width: 100%;
+   &:hover{
+      background-color: $hover-cl;
+      border-left-color: $click-cl;
+   }
+}
+
+.refs-sub{
+   @extend %refs-mob;
+   align-items: center;
+   border-left: 10px solid $click-cl;
+   &:hover{
+      background-color: $hover-cl;
+      border-left: 10px solid $bg-cl;
+   }
+}
+
+/*=============================
+            Menu-sub
+  =============================*/
+.menu-sub{
+   background-color: $click-cl;
+   flex-direction: column;
+   top: 100%;
+   width: 100%;
+   z-index: 11;
+   max-height: 200px;
+   overflow-y: auto; 
+   border: 1px dashed $bg-cl;
+   transform: translateX(-100%);
+   &::-webkit-scrollbar{
+      width: 40px;
+   }
+   &::-webkit-scrollbar-thumb{
+      border-bottom-left-radius: 25%;
+      background-color: #6dc0c8;
+   }   
+}
+
+/*=============================
+            Searcher
+  =============================*/
+.search-box{
+   flex-direction: column-reverse;
+}
+
+#submit{
+   width: 100%;
+}
+
+#field {
+   width: calc(100% - 40px); 
+}
+/*=============================
+            Animation
+  =============================*/
+.opened-menu{
+   transform: translateX(0);
+}
+
+.opener-clicked{
+   border-right: 10px solid $hover-cl;
+   span::before{
+      content: 'Narrow';
+   }     
+   .arrow{
+      background-color: $hover-cl;
+      border-color: $hover-cl;
+      transform: rotate(270deg);
+   }  
+}

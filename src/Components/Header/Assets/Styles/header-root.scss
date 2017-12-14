@@ -1,0 +1,157 @@
+$bg-cl: rgb(19, 17, 17);
+$hover-cl: rgb(14, 155, 155);
+$click-cl: rgb(10, 70, 70);
+$font-cl: white;
+$transition: 0.7s;
+$shadow: 0px 0px 21px 0px rgba(51, 50, 50, 0.75);
+
+@font-face{
+   src: url("../Fonts/Anton-Regular.ttf");
+   font-family: 'Anton';
+}
+
+.navigation{
+   position: relative;
+   width: 100%;
+   user-select: none;
+   z-index: 10;
+}
+
+/*=============================
+            Flex-template
+  =============================*/
+%flex-template{
+   display: flex;
+   transition: $transition;
+   color: $font-cl;
+}
+
+%flex-template-refs{
+   @extend %flex-template;
+   align-items: center; 
+}
+
+/*=============================
+            Menu-main
+  =============================*/
+.menu-main{
+   @extend %flex-template;  
+   font-family: 'Anton';
+   background-color: $bg-cl;
+}
+
+.points-main, .agregator{
+   @extend %flex-template;  
+   &:hover{
+      cursor: pointer;
+   } 
+}
+
+.sub-opener{
+   @extend %flex-template-refs;
+   justify-content: center;  
+}
+
+/*=============================
+            Refs
+  =============================*/
+.refs-main, .refs-sub{
+   @extend %flex-template-refs;
+}
+
+.arrow{
+   background-color: $font-cl;
+   border-radius: 100%;
+   border: 3px solid $font-cl;
+   transform: rotate(90deg);
+   margin-right: 15px;
+   transition: $transition;
+}
+
+/*=============================
+      Menu-sub + Searcher
+  =============================*/
+.menu-sub, .search-revealer, .search-box{ 
+   @extend %flex-template;
+   position: absolute;
+}
+
+/* =========================
+        Searcher
+   =========================*/ 
+.search-revealer{
+   justify-content: center;
+   width: 60px;
+   height: 80px;
+   top: 20px;
+   left: calc(100% - 100px) ;
+   border-radius: 0 0 50% 50%;
+   border: 2px solid $bg-cl;
+   background-color: $font-cl;
+   box-shadow: $shadow;
+   z-index: 11;
+   outline: 0px;
+   &:hover{
+      background-color: $hover-cl;
+      cursor: pointer;
+   }
+}
+
+.search-box{
+   transform-origin: right top;
+   width: 100%;
+   transform: scale(0);
+}
+
+#field, #submit{
+   @extend %flex-template;
+   font-size: 110%;   
+   border: none;
+   height: 60px;
+}
+
+#field{   
+   color: $bg-cl;
+   padding-left: 40px;
+   outline: 0px;
+}
+
+#submit{
+   font-family: 'Anton';
+   justify-content: center;
+   background-color: $bg-cl;
+   &:hover{
+      background-color: $hover-cl;
+      cursor: pointer;
+      box-shadow: $shadow;
+   }
+}
+
+/*=============================
+            Media
+  =============================*/
+@media screen and (min-width: 800px){
+   @import './header-desktop';
+}
+
+@media screen and (min-width: 1300px){
+   .refs-main{
+      padding: 5px 40px 0;
+      font-size: 110%;
+   }
+}
+
+@media screen and (min-width: 200px)and(max-width: 800px){
+   @import './header-mobile';
+}
+
+/* =========================
+        Animation
+   =========================*/ 
+.search-opened{
+   transform: scale(1);   
+}
+
+.search-revealer-opened{
+   border-radius: 50% 50% 0 0;
+}

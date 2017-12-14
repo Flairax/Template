@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 
-import '../Style/Css/root'
-
 /*=============Components===========*/
-import Header from './header';
-import Main from './mainRouter';
-import Footer from './footer';
+import Header from './Header/header';
+import Main from './Main/mainRouter';
+import Footer from './Footer/footer';
 
-
-export default class App extends Component {
+export default class App extends Component {  
    render() {
       return (
          <div id="AppWrapper">
