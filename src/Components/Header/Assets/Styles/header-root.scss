@@ -7,6 +7,10 @@
    z-index: 10;
 }
 
+#content, footer{
+   position: relative;
+}
+
 /*=============================
             Flex-template
   =============================*/
@@ -91,6 +95,7 @@
    transform-origin: right top;
    width: 100%;
    transform: scale(0);
+   z-index: 12;
 }
 
 #field, #submit{
@@ -127,6 +132,7 @@
    width: 65px;
    height: 180px; 
    opacity: 0.8;
+
 }
 
 /*=============================
@@ -157,11 +163,11 @@
    transition: $transition;
    transform: translateX(-110%);
    opacity: 0.95;
+   z-index: 14;
    h1{
       padding: 10px 0;
       transform: translateX(100px);
-   }
-   
+   }  
 }
 
 .summary-products{
@@ -227,6 +233,7 @@
    transform: translateX(310px);
    transition: $transition;
    opacity: 0.95;
+   z-index: 14;
    button{
       border-radius: 15px;
       font-weight: bold;

@@ -95,9 +95,9 @@ function hideMenus() {
 function scroller() {
    scrolled = window.pageYOffset || document.documentElement.scrollTop;
 
-   if (scrolled > scrollLimit && scrolled < scrollLimit + 10) {
+   if (scrolled > scrollLimit && scrolled < scrollLimit + 5) {
       navigation.addClass("navigation-fixed");
-   } else if (scrolled < scrollLimit && scrolled < scrollLimit - 10) {
+   } else if (scrolled < scrollLimit && scrolled < scrollLimit - 5) {
       navigation.removeClass("navigation-fixed");
    }
 }

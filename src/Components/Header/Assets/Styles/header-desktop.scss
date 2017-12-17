@@ -10,7 +10,12 @@
 }
 
 .navigation{
+   position: absolute;
+}
+
+#content, footer{
    position: relative;
+   top: 60px;
 }
 
 .agregator{
