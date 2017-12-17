@@ -2,8 +2,11 @@
             Banner
   =============================*/
 .banner{
-   height: 300px;
+   height: 400px;
    background-color: $font-cl;
+   background-image: url("../Images/logo.svg");
+   background-repeat: no-repeat;
+   background-position: center center;
 }
 
 .navigation{
@@ -98,6 +101,10 @@
    width: 20%;
 }
 
+.summary-sidebar, .adder-product{
+   top: 60%;
+}
+
 /*=============================
             Animation
   =============================*/
@@ -111,6 +118,9 @@
    .revealer-search{
       top: 10px;
    }
+   .summary-sidebar, .adder-product{
+      top: 25%;
+   }
    #Spinner{
       width: 25px;
       height: 25px;
@@ -119,6 +129,7 @@
 
 #Spinner{
    display: flex;
+   left: 49%;
    justify-content: center;
    align-content: center;
    align-self: center;
@@ -128,6 +139,8 @@
    border-radius: 100%;
    animation: spin 8s linear infinite;
 }
+
+
 
 @keyframes spin{
    from { transform: rotate(0); }

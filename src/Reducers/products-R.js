@@ -44,8 +44,7 @@ const products = (state = initialState, action) => {
          return {
             productVault: [],
             restoreVault: 
-               state.restoreVault.concat(state.restoreVault, state.productVault)
-            
+               state.restoreVault.concat(state.productVault)           
          };
       }
 
@@ -66,7 +65,7 @@ const products = (state = initialState, action) => {
       case 'RESTORE_ALL_PRODUCTS': {
          if (state.restoreVault.length) {
             return {
-               productVault: state.productVault.concat(state.restoreVault.slice(0, state.restoreVault.length))//state.restoreVault.slice(0, state.restoreVault.length-1)
+               productVault: state.restoreVault.slice(0, state.restoreVault.length)//state.restoreVault.slice(0, state.restoreVault.length-1)
                ,
                restoreVault: []
             }

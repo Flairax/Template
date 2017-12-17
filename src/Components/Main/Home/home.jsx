@@ -5,6 +5,14 @@ import { bindActionCreators } from 'redux';
 import { enterAsAdmin, quitAdmin } from '../../../Reducers/roles-Action';
 
 class Home extends Component {
+   constructor(){
+      super();
+      this.state = {
+         adminPass: "",
+      }
+      console.log(this.state.validation);
+   }
+
    render() {
       return (
          <article>
@@ -15,7 +23,7 @@ class Home extends Component {
                   <button onClick={this.handleQuitAdmin}>Quit admin mode</button>
                   :
                   <form onSubmit={this.handleAdmin}>
-                     <input className="input"  type="password" required placeholder="password" onChange={(event) => { this.setState({ adminPass: event.target.value }) }} />
+                     <input className={this.props.validation ? "input" : "input invalid"}  type="password" required placeholder="password" onChange={(event) => { this.setState({ adminPass: event.target.value }) }} />
                      <button type="submit">Enter admin mode</button>
                   </form>
                }
@@ -66,4 +74,5 @@ function matchDispatchToProps(dispatch) {
 export default connect(
    state => ({
       acces: state.roles.accesability,
+      validation: state.roles.passwordValidation,
    }), matchDispatchToProps)(Home);

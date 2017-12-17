@@ -29,7 +29,7 @@ class Header extends Component {
    render() {
       return (
          <header>
-            <div id="Banner" className="banner" data-height="300">
+            <div id="Banner" className="banner" data-height="400">
             </div>
             <nav id="Navigation" className="navigation">
                <aside id="Aggregator" className="agregator" onClick={aggregatorShifter}>&#9776;</aside>
