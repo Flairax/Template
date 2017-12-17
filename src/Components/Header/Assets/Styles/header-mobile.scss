@@ -6,22 +6,7 @@
    top: 0;
 }
 
-#content, footer{
-   top: 65px;
-}
-/*=============================
-           Aggregator
-  =============================*/
-.agregator{
-   opacity: 0.95;
-   font-size: 120%;
-   background-color: $bg-cl;
-   padding: 20px;
-   border-bottom: 3px solid $bg-cl;
-   &:hover{
-      background-color: $hover-cl;
-   }    
-} 
+
 
 /*=============================
             Menu-main
@@ -35,7 +20,7 @@
    border-bottom: 5px solid $hover-cl;
    border-right: 5px solid $hover-cl;
    transform: translateX(-120%);
-   z-index: 11;
+   z-index: 12;
 }
 
 .points-main{
@@ -63,7 +48,7 @@
       &::before{content: 'Expand';}
    }   
    &:hover>span{
-      color: $hover-cl;
+      color: rgb(155, 155, 155);
    }
 }
 
@@ -132,11 +117,13 @@
 /*=============================
            Summary, Adder
   =============================*/
-.summary-sidebar, .adder-product{
-   top: 25%;
-}
 .summary-sidebar{
-   top: 25.5%;
+   top: 25.2%;
+   z-index: 11;
+}
+.adder-product{
+   top: 25%;
+   z-index: 11;
 }
 /*=============================
             Animation
@@ -151,8 +138,8 @@
       content: 'Narrow';
    }     
    .arrow{
-      background-color: $hover-cl;
-      border-color: $hover-cl;
+      background-color: rgb(155, 155, 155);
+      border-color: rgb(155, 155, 155);
       transform: rotate(270deg);
    }  
 }

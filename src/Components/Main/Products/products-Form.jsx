@@ -44,7 +44,7 @@ class TodoForm extends Component {
                </div>
                <input className="input" required type="text" placeholder="Name" onChange={(event) => this.setState({ name: event.target.value })} value={this.state.name} />
                <input className="input" type="url" placeholder="URL to image" onChange={(event) => this.setState({ image_ref: event.target.value })} value={this.state.image_ref} />
-               <input className="input" required type="number" placeholder="price" onChange={(event) => this.setState({ price: event.target.value })} value={this.state.price} />
+               <input className="input" required type="number" placeholder="Price" onChange={(event) => this.setState({ price: event.target.value })} value={this.state.price} />
                <input className="input" type="text" placeholder="Description" onChange={(event) => this.setState({ description: event.target.value })} value={this.state.description} />
                <button type="submit">Add product</button>
             </form>

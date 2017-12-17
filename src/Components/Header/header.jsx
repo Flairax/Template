@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import './Assets/Styles/header-root.scss';
 import Gear from './Assets/Images/gear.svg';
+import Ager from './Assets/Images/ager.png';
 
 import Searcher from './searcher';
 import MenuSubFirst from './menu-sub-first';
@@ -32,7 +33,9 @@ class Header extends Component {
             <div id="Banner" className="banner" data-height="400">
             </div>
             <nav id="Navigation" className="navigation">
-               <aside id="Aggregator" className="agregator" onClick={aggregatorShifter}>&#9776;</aside>
+               <aside id="Aggregator" className="agregator" onClick={aggregatorShifter}>
+                  <img src={Ager} alt="ager"/>
+               </aside>
                <ul id="Menu" className="menu-main" >
                   <li className="points-main">
                      <Link to='/' className="refs-main">Home</Link>
@@ -51,9 +54,13 @@ class Header extends Component {
                      <SubOpenerSecond />
                      <MenuSubSecond />
                   </li>
-                  {this.props.acces &&
+                  {this.props.acces ?
                      <li id="AdminPage" className="points-main" >
                         <Link to='/AdminPage' className="refs-main" >Administrator tools</Link>
+                     </li>
+                     :
+                     <li className="points-main" >
+                        <Link to='/CustomerSuppot' className="refs-main" >Customer support</Link>
                      </li>
                   }
                </ul>

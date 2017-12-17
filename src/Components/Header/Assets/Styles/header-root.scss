@@ -1,6 +1,9 @@
 @import '../../../SharedAssets/variables.scss';
 @import '../../../SharedAssets/fonts.scss';
 
+/*=============================
+           Navigation
+  =============================*/
 .navigation{
    width: 100%;
    user-select: none;
@@ -9,7 +12,27 @@
 
 #content, footer{
    position: relative;
+   top: 60px;
 }
+
+/*=============================
+           Aggregator
+  =============================*/
+.agregator{
+   opacity: 0.95;
+   font-size: 120%;
+   background-color: $bg-cl;
+   border-bottom: 3px solid $bg-cl;
+   height: 60px;
+   &:hover{
+      background-color: $hover-cl;
+   }    
+   img{
+      height: 30px;
+      width: 30px;
+      margin: 15px;
+   }
+} 
 
 /*=============================
             Flex-template
@@ -140,13 +163,13 @@
   =============================*/
 .revealer-summary{
    @extend %side-revealer-template;
-   top: 11.5%;
+   top: 12%;
    left: 90%;
    border-radius: 0 20px 20px 0;
    transform: translateX(24px);
    border-left: 4px solid $bg-cl;
    img{
-      transform: rotate(90deg) translate(-3px,-9px);  
+      transform: rotate(90deg) translate(-3px,-8px);  
    }
 }
 
@@ -288,7 +311,7 @@
 }
 
 .summary-opened{
-   border-radius: 50% 0 0 50% ;
+   border-radius: 50% 5px 5px 50% ;
    transform: translateX(-10px);
 }
 
@@ -297,6 +320,6 @@
 }
 
 .adder-opened{
-   border-radius: 0 50% 50% 0;
+   border-radius: 5px 50% 50% 5px;
    transform: translateX(10px);
 }
