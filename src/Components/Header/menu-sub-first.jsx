@@ -5,8 +5,8 @@ export default class MenuSubFirst extends Component{
    render(){
       return(
          <ul id="sub-first" className="menu-sub">
-            <li ><Link to='/' className="refs-sub">Poinczczxczxct</Link></li>
-            <li><Link to='/a' className="refs-sub">Point</Link></li>
+            <li ><Link to='/' className="refs-sub">Lorem</Link></li>
+            <li><Link to='/a' className="refs-sub">Lorem</Link></li>
          </ul>
       );
    }

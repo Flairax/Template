@@ -1,17 +1,7 @@
-$bg-cl: rgb(19, 17, 17);
-$hover-cl: rgb(14, 155, 155);
-$click-cl: rgb(10, 70, 70);
-$font-cl: white;
-$transition: 0.7s;
-$shadow: 0px 0px 21px 0px rgba(51, 50, 50, 0.75);
-
-@font-face{
-   src: url("../Fonts/Anton-Regular.ttf");
-   font-family: 'Anton';
-}
+@import '../../../SharedAssets/variables.scss';
+@import '../../../SharedAssets/fonts.scss';
 
 .navigation{
-   position: relative;
    width: 100%;
    user-select: none;
    z-index: 10;
@@ -20,11 +10,6 @@ $shadow: 0px 0px 21px 0px rgba(51, 50, 50, 0.75);
 /*=============================
             Flex-template
   =============================*/
-%flex-template{
-   display: flex;
-   transition: $transition;
-   color: $font-cl;
-}
 
 %flex-template-refs{
    @extend %flex-template;
@@ -71,7 +56,7 @@ $shadow: 0px 0px 21px 0px rgba(51, 50, 50, 0.75);
 /*=============================
       Menu-sub + Searcher
   =============================*/
-.menu-sub, .search-revealer, .search-box{ 
+.menu-sub, %revealer-template, .search-box{ 
    @extend %flex-template;
    position: absolute;
 }
@@ -79,22 +64,27 @@ $shadow: 0px 0px 21px 0px rgba(51, 50, 50, 0.75);
 /* =========================
         Searcher
    =========================*/ 
-.search-revealer{
-   justify-content: center;
-   width: 60px;
-   height: 80px;
-   top: 20px;
-   left: calc(100% - 100px) ;
-   border-radius: 0 0 50% 50%;
-   border: 2px solid $bg-cl;
+%revealer-template{
+   justify-content: center;  
    background-color: $font-cl;
    box-shadow: $shadow;
+   border: 2px solid $bg-cl;   
    z-index: 11;
-   outline: 0px;
+   outline: 0px;  
    &:hover{
       background-color: $hover-cl;
       cursor: pointer;
    }
+}
+
+.revealer-search{
+   @extend %revealer-template;
+   width: 60px;
+   height: 80px;
+   left: calc(100% - 100px) ;
+   top: 20px; 
+   border-radius: 0 0 50% 50%;
+   z-index: 13;
 }
 
 .search-box{
@@ -108,6 +98,7 @@ $shadow: 0px 0px 21px 0px rgba(51, 50, 50, 0.75);
    font-size: 110%;   
    border: none;
    height: 60px;
+   border-bottom: 1px solid $bg-cl;
 }
 
 #field{   
@@ -124,6 +115,140 @@ $shadow: 0px 0px 21px 0px rgba(51, 50, 50, 0.75);
       background-color: $hover-cl;
       cursor: pointer;
       box-shadow: $shadow;
+   }
+}
+
+/*=============================
+      Side Revealer Template
+  =============================*/
+%side-revealer-template{
+   @extend %revealer-template;   
+   align-items: center;
+   width: 65px;
+   height: 180px;
+   color: $bg-cl;  
+}
+
+/*=============================
+            Summary
+  =============================*/
+.revealer-summary{
+   @extend %side-revealer-template;
+   top: 11.5%;
+   left: 90%;
+   border-radius: 0 20px 20px 0;
+   transform: translateX(24px);
+   border-left: 4px solid $bg-cl;
+   img{
+      transform: rotate(90deg) translate(-3px,-9px);  
+   }
+}
+
+.summary-sidebar{
+   font-family: 'Roboto';
+   padding: 10px;
+   position: fixed;
+   top: 30%;
+   left: 1%;
+   display: flex;
+   flex-direction: column;
+   background-color: white;
+   border-radius: 10%;
+   box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+   transition: $transition;
+   transform: translateX(-110%);
+   h1{
+      padding: 10px 0;
+      transform: translateX(100px);
+   }
+   
+}
+
+.summary-products{
+   display: grid;
+   grid-template-columns: 120px 100px;
+   grid-template-rows: repeat(3, 1fr) ;
+   grid-row-gap: 15px;
+   align-items: center;
+   width: 260px;
+   height: 210px;
+   p{
+      padding: 10px;
+      background-color: #fafafa;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+   }   
+}
+
+.productActions{
+   display: flex;
+   flex-direction: column;
+   button{
+      margin: 5px;
+      font-weight: bold;
+      color: $bg-cl;
+      border-radius: 15px;
+   }
+   button:first-child{     
+      background-color: rgba(112, 5, 126, 0.815);   
+      &:hover{
+         background-color: rgba(153, 7, 167, 0.815);
+      }
+   }
+   button:nth-child(2){
+      background-color: rgba(49, 146, 10, 0.815);   
+      &:hover{
+         background-color: rgba(9, 223, 38, 0.815);
+      }
+   }
+   button:last-child{
+      background-color: rgba(133, 4, 4, 0.815);   
+      &:hover{
+         background-color: rgba(204, 6, 6, 0.815);
+      }
+   }
+}
+
+/*=============================
+            adder-product
+  =============================*/
+.adder-product{
+   font-family: 'Cuprum';
+
+   position: fixed;
+   top: 30%;
+   right: 10px;
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-template-rows: repeat(4, 1fr);
+   width: 270px;
+   box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+   border-radius: 20px;
+   background-color: $font-cl;
+   padding: 1em;
+   margin: 10px 0;
+   transform: translateX(310px);
+   transition: $transition;
+   button{
+      border-radius: 15px;
+      font-weight: bold;
+      color: $bg-cl;
+      background-color: rgba(32, 4, 133, 0.815);   
+      &:hover{
+         background-color: rgba(53, 10, 206, 0.815);   
+      }
+   }
+}
+
+.revealer-adder-product{
+   @extend %side-revealer-template;
+   top: 15%;
+   left: -20%;
+   border-radius: 20px 0 0 20px;
+   border-right: 4px solid $bg-cl;
+   transform: translateX(-15px);
+   img{
+      transform: rotate(90deg) translate(-3px,+9px);  
    }
 }
 
@@ -149,9 +274,23 @@ $shadow: 0px 0px 21px 0px rgba(51, 50, 50, 0.75);
         Animation
    =========================*/ 
 .search-opened{
+   border-radius: 50% 50% 0 0;
+}
+
+.search-block-opened{
    transform: scale(1);   
 }
 
-.search-revealer-opened{
-   border-radius: 50% 50% 0 0;
+.summary-opened{
+   border-radius: 50% 0 0 50% ;
+   transform: translateX(-10px);
+}
+
+.summary-block-opened, .adder-block-opened{
+   transform: translateX(0);
+}
+
+.adder-opened{
+   border-radius: 0 50% 50% 0;
+   transform: translateX(10px);
 }

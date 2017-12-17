@@ -1,15 +1,13 @@
-@font-face{
-   src: url("../Fonts/Cuprum-Regular.ttf");
-   font-family: 'Cuprum';
-}
-
-
 /*=============================
             Banner
   =============================*/
 .banner{
    height: 300px;
-   background-color: red;
+   background-color: $font-cl;
+}
+
+.navigation{
+   position: relative;
 }
 
 .agregator{
@@ -40,6 +38,15 @@
    }
 }
 
+#AdminPage{
+   background-color: $click-cl;
+   border-bottom-color: $click-cl;
+   &:hover{
+      border-bottom-color: $hover-cl;
+   }
+}
+
+
 .refs-main{
    padding: 5px 20px 0;
 }
@@ -58,7 +65,7 @@
    top: 100%;
    left: 10%;
    right: 10%;
-   width:500px;
+   width: 600px;
    margin: auto;
    padding: 10px 130px;
    border-radius: 0 0 25% 25%;
@@ -68,7 +75,7 @@
 
 .refs-sub{
    padding: 10px 20px;
-   width: 80px;
+   width: 120px;
    border-radius: 10%;
    &:hover{
       box-shadow: $shadow;
@@ -84,7 +91,7 @@
 }
 
 #field{
-   width: calc(80% - 40px);  
+   width: 80%;  
 }
 
 #submit{
@@ -94,13 +101,14 @@
 /*=============================
             Animation
   =============================*/
-.fixed-nav{
+.navigation-fixed{
    position: fixed;
    top: 0;
    .menu-main{
       height: 47px;
+      opacity: 0.95;
    } 
-   .search-revealer{
+   .revealer-search{
       top: 10px;
    }
    #Spinner{
