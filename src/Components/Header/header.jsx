@@ -71,4 +71,4 @@ class Header extends Component {
 export default connect(
    state => ({
       acces: state.roles.accesability,
-}))(Header);
+   }))(Header);

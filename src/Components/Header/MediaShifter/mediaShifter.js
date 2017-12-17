@@ -10,6 +10,8 @@ let searcher = null;
 let revealer_searcher = null;
 let summary = null;
 let summary_revealer = null;
+let adder_product = null;
+let adder_producty_revealer = null;
 
 let scrollLimit;
 let scrolled;
@@ -69,9 +71,14 @@ export function summaryProductShifter() {
 }
 
 /*==========Product adder==========*/
+export function adderProductShifterInit() {
+   adder_product =  $("#Adder-product");
+   adder_producty_revealer =  $("#Revealer-adder-product");
+}
+
 export function adderProductShifter() {
-   $("#Adder-product").toggleClass("adder-block-opened");
-   $("#Revealer-adder-product").toggleClass("adder-opened");
+   adder_product.toggleClass("adder-block-opened");
+   adder_producty_revealer.toggleClass("adder-opened");
 }
 
 /*==========Utility==========*/
@@ -105,10 +112,8 @@ export function scrollWatcher() {
       if (changes.matches) {
          window.addEventListener('scroll', scroller);
          document.documentElement.scrollTop = scrolled;
-         console.log("Adaptive add scrollWatcher")
       } else {
          window.removeEventListener('scroll', scroller);
-         console.log("Adaptive remove scrollWatcher")
       }
    });
 

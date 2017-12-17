@@ -9,13 +9,13 @@ const adminPassword = "1111";
 const roles = (state = initialState, action) => {
    switch (action.type) {
       case "ENTER_ADMIN_MODE": {
-         if (action.payload === adminPassword){
+         if (action.payload === adminPassword) {
             return {
                name: "Admin",
                accesability: true,
                passwordValidation: true,
             }
-         }else{
+         } else {
             return {
                name: "User",
                accesability: false,

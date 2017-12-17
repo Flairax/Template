@@ -43,8 +43,8 @@ const products = (state = initialState, action) => {
       case 'REMOVE_ALL_PRODUCTS': {
          return {
             productVault: [],
-            restoreVault: 
-               state.restoreVault.concat(state.productVault)           
+            restoreVault:
+               state.restoreVault.concat(state.productVault)
          };
       }
 
@@ -55,8 +55,8 @@ const products = (state = initialState, action) => {
                productVault: [
                   ...state.productVault, state.restoreVault.pop()
                ],
-               restoreVault: 
-                  state.restoreVault.slice(0, state.restoreVault.length)                 
+               restoreVault:
+                  state.restoreVault.slice(0, state.restoreVault.length)
             }
          }
          alert("No elemts have been removed yet / restore vault is empty");
@@ -65,7 +65,7 @@ const products = (state = initialState, action) => {
       case 'RESTORE_ALL_PRODUCTS': {
          if (state.restoreVault.length) {
             return {
-               productVault: state.restoreVault.slice(0, state.restoreVault.length)//state.restoreVault.slice(0, state.restoreVault.length-1)
+               productVault: state.productVault.concat(state.restoreVault.slice(0, state.restoreVault.length))
                ,
                restoreVault: []
             }

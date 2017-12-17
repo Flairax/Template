@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import loomp from './Assets/Images/loomp.svg';
 
-import { searcherShifter} from './MediaShifter/mediaShifter';
+import { searcherShifter } from './MediaShifter/mediaShifter';
 
-export default class Searcher extends Component {  
+export default class Searcher extends Component {
    render() {
       return (
          <aside >

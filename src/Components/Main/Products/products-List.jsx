@@ -11,14 +11,14 @@ class ProductList extends Component {
       return this.props.productStore.map(product => {
          return (
             <li key={product.id} className="listItem">
-               {  this.props.acces && 
+               {this.props.acces &&
                   <img src={deleter} alt="deleter" className="deleter"
                      onClick={() => this.props.removeProduct(product)}>
-                  </img> 
+                  </img>
                }
                <h1>{product.name}</h1>
                <img src={product.image} alt={product.name} className="productImage" />
-               <h4 className="prodPrice">Price:</h4><p> {product.price}</p>
+               <h4 className="prodPrice">Price:</h4><p> {parseInt(product.price, 10)}</p>
                <h4 >Decription:</h4><p className="prodDesc">{product.description}</p>
             </li>
          );
@@ -27,7 +27,7 @@ class ProductList extends Component {
 
    render() {
       return (
-         <ul id="todoList">
+         <ul id="ProductList">
             {this.showList()}
          </ul>
       );
@@ -44,4 +44,4 @@ export default connect(
    state => ({
       productStore: state.products.productVault,
       acces: state.roles.accesability,
-}), matchDispatchToProps)(ProductList);
+   }), matchDispatchToProps)(ProductList);

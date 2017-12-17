@@ -1,13 +1,13 @@
 export const enterAsAdmin = (password) => {
-   return{
+   return {
       type: "ENTER_ADMIN_MODE",
       payload: password
-   } 
-   
+   }
+
 }
 
 export const quitAdmin = () => {
-   return{
+   return {
       type: "QUIT_ADMIN_MODE"
    }
 }
