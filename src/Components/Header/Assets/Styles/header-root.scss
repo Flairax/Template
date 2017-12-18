@@ -64,6 +64,14 @@
    justify-content: center;  
 }
 
+#AdminPage{
+   background-color: $click-cl;
+   border-bottom-color: $click-cl;
+   &:hover{
+      background-color: $hover-cl;
+   }
+}
+
 /*=============================
             Refs
   =============================*/

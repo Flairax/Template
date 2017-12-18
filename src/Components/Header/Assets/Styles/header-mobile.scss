@@ -6,8 +6,6 @@
    top: 0;
 }
 
-
-
 /*=============================
             Menu-main
   =============================*/
@@ -16,20 +14,22 @@
    position: absolute;
    flex-direction: column;
    width: 250px;
-   border-bottom-right-radius: 25%;
+   border-bottom-right-radius: 5%;
    border-bottom: 5px solid $hover-cl;
    border-right: 5px solid $hover-cl;
    transform: translateX(-120%);
    z-index: 12;
+
 }
 
 .points-main{
    position: relative;
 }
 
-.points-main:last-child>.refs-main{
-   width: 86%;
-   border-radius: 0 60% 13% 0;
+#AdminPage{
+   a{
+      border-left-color: $click-cl;
+   }  
 }
 
 /*=============================

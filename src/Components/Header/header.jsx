@@ -50,7 +50,7 @@ class Header extends Component {
                   </li>
                   <li id="Spinner" hidden><img src={Gear} alt="gear" /></li>
                   <li className="points-main">
-                     <Link to='/a' className="refs-main">MultumLorems</Link>
+                     <Link to='/a' className="refs-main">Lorems</Link>
                      <SubOpenerSecond />
                      <MenuSubSecond />
                   </li>
