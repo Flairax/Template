@@ -15,6 +15,10 @@ import SubOpenerSecond from './sub-opener-second';
 import ProductsSummary from '../Main/Products/products-Summary';
 import ProductsForm from '../Main/Products/products-Form';
 
+import RefMain from './ref-main';
+import MenuSub from './Menu-sub/menu-sub';
+import { SubInfoOne, SubInfoTwo } from './sub-menu-INFO';
+
 import {
    initHeaderCashes, aggregatorShifter,
    allRefsLeaderTop, scrollWatcher,
@@ -34,34 +38,19 @@ class Header extends Component {
             </div>
             <nav id="Navigation" className="navigation">
                <aside id="Aggregator" className="agregator" onClick={aggregatorShifter}>
-                  <img src={Ager} alt="ager"/>
+                  <img src={Ager} alt="ager" />
                </aside>
                <ul id="Menu" className="menu-main" >
-                  <li className="points-main">
-                     <Link to='/' className="refs-main">Home</Link>
-                  </li>
-                  <li className="points-main">
-                     <Link to='/a' className="refs-main">Lormolis</Link>
-                     <SubOpenerFirst />
-                     <MenuSubFirst />
-                  </li>
-                  <li className="points-main">
-                     <Link to='/products' className="refs-main">Products</Link>
-                  </li>
+                  <RefMain name="Home" link="/" />
+                  <MenuSub name="MulLorem" link="/a" order="1" subPoints={SubInfoOne} />
+                  <RefMain name="Products" link="/products" />
                   <li id="Spinner" hidden><img src={Gear} alt="gear" /></li>
-                  <li className="points-main">
-                     <Link to='/a' className="refs-main">Lorems</Link>
-                     <SubOpenerSecond />
-                     <MenuSubSecond />
-                  </li>
+                  <MenuSub name="MulLorem" link="/a" order="2" subPoints={SubInfoTwo} />
+
                   {this.props.acces ?
-                     <li id="AdminPage" className="points-main" >
-                        <Link to='/AdminPage' className="refs-main" >Administrator tools</Link>
-                     </li>
+                     <RefMain id="AdminPage" name="Administrator tools" link="/AdminPage" />
                      :
-                     <li className="points-main" >
-                        <Link to='/CustomerSuppot' className="refs-main" >Customer support</Link>
-                     </li>
+                     <RefMain id="AdminPage" name="CustomerSuppot" link="/CustomerSuppot" />
                   }
                </ul>
                <Searcher />
@@ -69,6 +58,8 @@ class Header extends Component {
                {this.props.acces &&
                   <ProductsForm />
                }
+
+
             </nav>
          </header>
       );

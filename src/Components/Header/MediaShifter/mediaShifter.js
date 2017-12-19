@@ -44,6 +44,13 @@ export function aggregatorShifter() {
    hideMenus();
 }
 
+/*==============Sub--opener==============*/
+export function subOpener(attachedTo) {
+   sub_opener_first.toggleClass("opener-clicked");
+   sub_first.toggleClass("opened-menu");
+}
+
+
 /*==============Sub--opener first==============*/
 export function subOpenerFirstShifter() {
    sub_opener_first.toggleClass("opener-clicked");
