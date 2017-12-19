@@ -20,8 +20,9 @@ export default class Main extends Component {
          <main id="content" onClick={() => {}}>
             <Switch>
                <Route exact path='/' component={Home} />
-               <Route path='/products' component={ProductsView} />
-               <Route path='/AdminPage' component={AdminPage} />
+               <Route exact path='/Home' component={Home} />
+               <Route exact path='/products' component={ProductsView} />
+               <Route exact path='/AdminPage' component={AdminPage} />
                <Route component={NotFound} />
             </Switch>
          </main>

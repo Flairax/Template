@@ -23,7 +23,7 @@ export default class Menu_sub extends Component {
    render() {
       return (
          <li className="points-main-openable">
-            <Link to={this.props.link} className="refs-main">{this.props.name}</Link>
+            <Link to={`/`+this.props.name} className="ref-main">{this.props.name}</Link>
             <div id={"Rvlr-sub-" + this.props.order} className="sub-opener" onClick={this.handleRvlrClick}>
                <img src={arrow} alt="arrow" className="arrow" />
                <span></span>

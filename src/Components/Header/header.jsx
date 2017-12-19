@@ -34,6 +34,7 @@ class Header extends Component {
       initCashes();
       scrollWatcher();
       allRefsLeaderTop();
+      console.log(true && undefined)
    }
 
    aggregatorClick = () => {
@@ -50,18 +51,18 @@ class Header extends Component {
                   <img src={Ager} alt="ager" />
                </aside>
                <ul id="Menu" className="menu-main" >
-                  <Ref name="Home" link="/" type="ref-main"/>
-                  <MenuSub name="MulLorem" link="/a" order="1" subPoints={SubInfoOne} />
-                  <Ref name="Products" link="/products" type="ref-main"/>
+                  <Ref name="Home" type="ref-main"/>
+                  <MenuSub name="MulLorem" order="1" subPoints={SubInfoOne} />
+                  <Ref name="Products" type="ref-main"/>
                   <li className="spinner-box" hidden>
                      <img id="Spinner"  src={Gear} alt="gear" />
                   </li>
-                  <MenuSub name="MulLorem" link="/a" order="2" subPoints={SubInfoTwo} />
-                  <Ref name="Lorem" link="/a" type="ref-main"/>
+                  <MenuSub name="MulLorem" order="2" subPoints={SubInfoTwo} />
+                  <Ref name="Lorem" type="ref-main"/>
                   {this.props.acces ?
-                     <Ref name="Admin tools" link="/AdminPage" type="ref-main"/>
+                     <Ref name="Admin tools" type="ref-main" />
                      :
-                     <Ref name="CustomerSuppot" link="/CustomerSuppot" type="ref-main" />
+                     <Ref name="Support"  type="ref-main" />
                   }
                </ul>
                <Searcher />

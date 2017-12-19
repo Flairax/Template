@@ -24,20 +24,25 @@
 
 .points-main-openable{
    position: relative;
+   display: flex;
 }
 
-#AdminPage{
-   a{
-      border-left-color: $click-cl;
-   }  
-}
 
+.points-main:last-child{
+   .ref-main{ 
+      border: none;
+   }
+  
+   background-color: $click-cl;
+   &:hover{
+      background-color: $hover-cl;
+   }
+}
 /*=============================
            Sub-opener
   =============================*/
 .sub-opener{
    position: absolute;
-   align-self: stretch;
    background-color: $click-cl;
    border: 2px solid $bg-cl;
    left: 155px;
@@ -65,7 +70,7 @@
    height: 55px;         
 }
 
-.refs-main{      
+.ref-main{      
    @extend %refs-mob;
    border-left: 10px solid $bg-cl;
    width: 100%;
@@ -75,7 +80,7 @@
    }
 }
 
-.refs-sub{
+.ref-sub{
    @extend %refs-mob;
    align-items: center;
    border-left: 10px solid $click-cl;
@@ -91,9 +96,9 @@
 .menu-sub{
    background-color: $click-cl;
    flex-direction: column;
-   margin-top: 55px;
    width: 100%;
    z-index: 11;
+   top: 100%;
    max-height: 200px;
    overflow-y: auto; 
    border: 1px dashed $bg-cl;
