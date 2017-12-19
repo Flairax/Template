@@ -1,0 +1,326 @@
+@import '../../../SharedAssets/variables.scss';
+@import '../../../SharedAssets/fonts.scss';
+
+/*=============================
+           Navigation
+  =============================*/
+.navigation{
+   width: 100%;
+   user-select: none;
+   z-index: 10;
+}
+
+#content, footer{
+   position: relative;
+   top: 60px;
+}
+
+/*=============================
+           Aggregator
+  =============================*/
+.agregator{
+   opacity: 0.95;
+   font-size: 120%;
+   background-color: $bg-cl;
+   border-bottom: 3px solid $bg-cl;
+   height: 60px;
+   &:hover{
+      background-color: $hover-cl;
+   }    
+   img{
+      height: 30px;
+      width: 30px;
+      margin: 15px;
+   }
+} 
+
+/*=============================
+            Flex-template
+  =============================*/
+
+%flex-template-refs{
+   @extend %flex-template;
+   align-items: center; 
+}
+
+/*=============================
+            Menu-main
+  =============================*/
+.menu-main{
+   @extend %flex-template;  
+   font-family: 'Anton';
+   background-color: $bg-cl;
+}
+
+.points-main, .agregator{
+   @extend %flex-template;  
+   &:hover{
+      cursor: pointer;
+   } 
+}
+
+.sub-opener{
+   @extend %flex-template-refs;
+   justify-content: center;  
+}
+
+#AdminPage{
+   background-color: $click-cl;
+   border-bottom-color: $click-cl;
+   &:hover{
+      background-color: $hover-cl;
+   }
+}
+
+/*=============================
+            Refs
+  =============================*/
+.refs-main, .refs-sub{
+   @extend %flex-template-refs;
+}
+
+.arrow{
+   background-color: $font-cl;
+   border-radius: 100%;
+   border: 3px solid $font-cl;
+   transform: rotate(90deg);
+   margin-right: 15px;
+   transition: $transition;
+}
+
+/*=============================
+      Menu-sub + Searcher
+  =============================*/
+.menu-sub, %revealer-template, .search-box{ 
+   @extend %flex-template;
+   position: absolute;
+}
+
+/* =========================
+        Searcher
+   =========================*/ 
+%revealer-template{
+   justify-content: center;  
+   background-color: $font-cl;
+   box-shadow: $shadow;
+   border: 2px solid $bg-cl;   
+   z-index: 11;
+   outline: 0px;  
+   &:hover{
+      background-color: $hover-cl;
+      cursor: pointer;
+   }
+}
+
+.revealer-search{
+   @extend %revealer-template;
+   width: 60px;
+   height: 80px;
+   left: calc(100% - 100px) ;
+   top: 20px; 
+   border-radius: 0 0 50% 50%;
+   z-index: 13;
+}
+
+.search-box{
+   transform-origin: right top;
+   width: 100%;
+   transform: scale(0);
+   z-index: 12;
+}
+
+#field, #submit{
+   @extend %flex-template;
+   font-size: 110%;   
+   border: none;
+   height: 60px;
+   border-bottom: 1px solid $bg-cl;
+}
+
+#field{   
+   color: $bg-cl;
+   padding-left: 40px;
+   outline: 0px;
+}
+
+#submit{
+   font-family: 'Anton';
+   justify-content: center;
+   background-color: $bg-cl;
+   &:hover{
+      background-color: $hover-cl;
+      cursor: pointer;
+      box-shadow: $shadow;
+   }
+}
+
+/*=============================
+      Side Revealer Template
+  =============================*/
+%side-revealer-template{
+   @extend %revealer-template;   
+   align-items: center;
+   width: 65px;
+   height: 180px; 
+   opacity: 0.8;
+
+}
+
+/*=============================
+            Summary
+  =============================*/
+.revealer-summary{
+   @extend %side-revealer-template;
+   top: 12%;
+   left: 90%;
+   border-radius: 0 20px 20px 0;
+   transform: translateX(24px);
+   border-left: 4px solid $bg-cl;
+   img{
+      transform: rotate(90deg) translate(-3px,-8px);  
+   }
+}
+
+.summary-sidebar{
+   font-family: 'Roboto';
+   padding: 10px;
+   position: fixed;
+   left: 10px;
+   display: flex;
+   flex-direction: column;
+   background-color: white;
+   border-radius: 10%;
+   box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+   transition: $transition;
+   transform: translateX(-110%);
+   opacity: 0.95;
+   z-index: 14;
+   h1{
+      padding: 10px 0;
+      transform: translateX(100px);
+   }  
+}
+
+.summary-products{
+   display: grid;
+   grid-template-columns: 120px 100px;
+   grid-template-rows: repeat(3, 1fr) ;
+   grid-row-gap: 15px;
+   align-items: center;
+   width: 260px;
+   height: 210px;
+   p{
+      padding: 10px;
+      background-color: #fafafa;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+   }   
+}
+
+@mixin button($bg-color, $hov-color){
+   background-color: $bg-color;   
+   &:hover{
+      background-color: $hov-color;
+   }
+}
+
+.productActions{
+   display: flex;
+   flex-direction: column;
+   button{
+      margin: 5px;
+      font-weight: bold;
+      color: $bg-cl;
+      border-radius: 15px;
+   }
+  
+   button:first-child{     
+      @include button( rgba(112, 5, 126, 0.815), rgba(153, 7, 167, 0.815));
+   }
+   button:nth-child(2){
+      @include button(rgba(49, 146, 10, 0.815), rgba(9, 223, 38, 0.815));
+   }
+   button:last-child{
+      @include button(rgba(133, 4, 4, 0.815), rgba(204, 6, 6, 0.815));
+   }
+}
+
+/*=============================
+            adder-product
+  =============================*/
+.adder-product{
+   font-family: 'Cuprum';
+   position: fixed;
+   right: 10px;
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-template-rows: repeat(4, 1fr);
+   width: 270px;
+   box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+   border-radius: 20px;
+   background-color: $font-cl;
+   padding: 1em;
+   margin: 10px 0;
+   transform: translateX(310px);
+   transition: $transition;
+   opacity: 0.95;
+   z-index: 14;
+   button{
+      border-radius: 15px;
+      font-weight: bold;
+      color: $bg-cl;
+      background-color: rgba(32, 4, 133, 0.815);   
+      &:hover{
+         background-color: rgba(53, 10, 206, 0.815);   
+      }
+   }
+}
+
+.revealer-adder-product{
+   @extend %side-revealer-template;
+   top: 15%;
+   left: -20%;
+   border-radius: 20px 0 0 20px;
+   border-right: 4px solid $bg-cl;
+   transform: translateX(-15px);
+
+   img{
+      transform: rotate(90deg) translate(-3px,+9px);  
+   }
+}
+
+/*=============================
+            Media
+  =============================*/
+@media screen and (min-width: 800px){
+   @import './header-desktop';
+}
+
+@media screen and (min-width: 200px)and(max-width: 800px){
+   @import './header-mobile';
+}
+
+/* =========================
+        Animation
+   =========================*/ 
+.search-opened{
+   border-radius: 50% 50% 0 0;
+}
+
+.search-block-opened{
+   transform: scale(1);   
+}
+
+.summary-opened{
+   border-radius: 50% 5px 5px 50% ;
+   transform: translateX(-10px);
+}
+
+.summary-block-opened, .adder-block-opened{
+   transform: translateX(0);
+}
+
+.adder-opened{
+   border-radius: 5px 50% 50% 5px;
+   transform: translateX(10px);
+}

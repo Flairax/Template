@@ -1,0 +1,12 @@
+$bg-cl: rgb(19, 17, 17);
+$hover-cl: rgb(10, 124, 124);
+$click-cl: rgb(10, 70, 70);
+$font-cl: white;
+$transition: 0.7s;
+$shadow: 0px 0px 21px 0px rgba(51, 50, 50, 0.75);
+
+%flex-template{
+   display: flex;
+   transition: $transition;
+   color: $font-cl;
+}
