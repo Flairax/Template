@@ -1,34 +1,43 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import './Assets/Styles/header-root.scss';
 import Gear from './Assets/Images/gear.svg';
 import Ager from './Assets/Images/ager.png';
 
-import Searcher from './searcher';
-import MenuSubFirst from './menu-sub-first';
-import MenuSubSecond from './menu-sub-second';
-import SubOpenerFirst from './sub-opener-first';
-import SubOpenerSecond from './sub-opener-second';
+import Ref from './ref';
+import MenuSub from './menu-sub';
+import { SubInfoOne, SubInfoTwo } from './sub-menu-INFO';
 
+import Searcher from './searcher';
 import ProductsSummary from '../Main/Products/products-Summary';
 import ProductsForm from '../Main/Products/products-Form';
 
-import RefMain from './ref-main';
-import MenuSub from './Menu-sub/menu-sub';
-import { SubInfoOne, SubInfoTwo } from './sub-menu-INFO';
+import { initCashes, allRefsLeaderTop, scrollWatcher } from './MediaShifter/mediaShifter';
 
-import {
-   initHeaderCashes, aggregatorShifter,
-   allRefsLeaderTop, scrollWatcher,
-} from './MediaShifter/mediaShifter';
+
+import $ from "jquery";
 
 class Header extends Component {
    componentDidMount() {
-      initHeaderCashes();
+      this.setState({
+         navigation: $("#Navigation"),
+         menu_main:  $("#Menu"),
+         menu_subS: $(".menu-sub"),
+         sub_rvlrS: $(".sub-opener"),
+         hideAllMenus() {
+            this.menu_main.toggleClass("opened-menu");
+            this.menu_subS.removeClass("opened-menu");
+            this.sub_rvlrS.removeClass("opener-clicked");
+         }
+      });
+      initCashes();
       scrollWatcher();
       allRefsLeaderTop();
+   }
+
+   aggregatorClick = () => {
+      this.state.hideAllMenus();   
    }
 
    render() {
@@ -37,20 +46,22 @@ class Header extends Component {
             <div id="Banner" className="banner" data-height="400">
             </div>
             <nav id="Navigation" className="navigation">
-               <aside id="Aggregator" className="agregator" onClick={aggregatorShifter}>
+               <aside id="Aggregator" className="agregator" onClick={this.aggregatorClick}>
                   <img src={Ager} alt="ager" />
                </aside>
                <ul id="Menu" className="menu-main" >
-                  <RefMain name="Home" link="/" />
+                  <Ref name="Home" link="/" type="ref-main"/>
                   <MenuSub name="MulLorem" link="/a" order="1" subPoints={SubInfoOne} />
-                  <RefMain name="Products" link="/products" />
-                  <li id="Spinner" hidden><img src={Gear} alt="gear" /></li>
+                  <Ref name="Products" link="/products" type="ref-main"/>
+                  <li className="spinner-box" hidden>
+                     <img id="Spinner"  src={Gear} alt="gear" />
+                  </li>
                   <MenuSub name="MulLorem" link="/a" order="2" subPoints={SubInfoTwo} />
-
+                  <Ref name="Lorem" link="/a" type="ref-main"/>
                   {this.props.acces ?
-                     <RefMain id="AdminPage" name="Administrator tools" link="/AdminPage" />
+                     <Ref name="Admin tools" link="/AdminPage" type="ref-main"/>
                      :
-                     <RefMain id="AdminPage" name="CustomerSuppot" link="/CustomerSuppot" />
+                     <Ref name="CustomerSuppot" link="/CustomerSuppot" type="ref-main" />
                   }
                </ul>
                <Searcher />
@@ -58,8 +69,6 @@ class Header extends Component {
                {this.props.acces &&
                   <ProductsForm />
                }
-
-
             </nav>
          </header>
       );

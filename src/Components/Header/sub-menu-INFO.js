@@ -1,65 +1,60 @@
 export const SubInfoOne =  [
    {
       id: 1,
-      name: "Lorem",
+      name: "Lorem1",
       link: "/a"
    }, 
    {
       id: 2,
-      name: "Lorem",
+      name: "Lorem2",
       link: "/a"
    },
    {
       id: 3,
-      name: "Lorem",
+      name: "Lorem3",
       link: "/a"
    },
-   {
-      id: 4,
-      name: "Lorem",
-      link: "/a"
-   }
 ];
 
 export const SubInfoTwo =  [
    {
       id: 1,
-      name: "Lorem",
+      name: "Lorem1",
       link: "/a"
    }, 
    {
       id: 2,
-      name: "Lorem",
+      name: "Lorem2",
       link: "/a"
    },
    {
       id: 3,
-      name: "Lorem",
+      name: "Lorem3",
       link: "/a"
    },
    {
       id: 4,
-      name: "Lorem",
+      name: "Lorem4",
       link: "/a"
    },
    {
       id: 5,
-      name: "Lorem",
+      name: "Lorem5",
       link: "/a"
    }, 
    {
       id: 6,
-      name: "Lorem",
+      name: "Lorem6",
       link: "/a"
    },
    {
       id: 7,
-      name: "Lorem",
+      name: "Lorem7",
       link: "/a"
    },
    {
       id: 8,
-      name: "Lorem",
+      name: "Lorem8",
       link: "/a"
    }
 ]

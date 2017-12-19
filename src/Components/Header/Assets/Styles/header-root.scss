@@ -296,13 +296,6 @@
    @import './header-desktop';
 }
 
-@media screen and (min-width: 1300px){
-   .refs-main{
-      padding: 5px 40px 0;
-      font-size: 110%;
-   }
-}
-
 @media screen and (min-width: 200px)and(max-width: 800px){
    @import './header-mobile';
 }

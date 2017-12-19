@@ -22,7 +22,7 @@
 
 }
 
-.points-main{
+.points-main-openable{
    position: relative;
 }
 
@@ -43,12 +43,17 @@
    left: 155px;
    padding: 13px 10px 14px 15px;
    border-radius: 50% 0 0 50%;     
+   z-index: 12;
    span{
       transition: $transition;
       &::before{content: 'Expand';}
    }   
    &:hover>span{
       color: rgb(155, 155, 155);
+      
+   }
+   &:hover{
+      cursor: pointer;
    }
 }
 
@@ -86,13 +91,14 @@
 .menu-sub{
    background-color: $click-cl;
    flex-direction: column;
-   top: 100%;
+   margin-top: 55px;
    width: 100%;
    z-index: 11;
    max-height: 200px;
    overflow-y: auto; 
    border: 1px dashed $bg-cl;
    transform: translateX(-100%);
+   z-index: 14;
    &::-webkit-scrollbar{
       width: 40px;
    }

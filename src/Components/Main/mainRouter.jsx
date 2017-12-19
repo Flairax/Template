@@ -10,12 +10,14 @@ import './Assets/Styles/main.scss';
 import '../SharedAssets/root.scss';
 
 
-import { windowsHider } from '../Header/MediaShifter/mediaShifter';
-
 export default class Main extends Component {
+   closeAllMenus(){
+      
+   }
+   
    render() {
       return (
-         <main id="content" onClick={windowsHider}>
+         <main id="content" onClick={() => {}}>
             <Switch>
                <Route exact path='/' component={Home} />
                <Route path='/products' component={ProductsView} />

@@ -5,10 +5,50 @@ import { bindActionCreators } from 'redux';
 import { removeAllProduct, restoreAllProduct, restoreLastProduct } from './products-Actions';
 
 import circles from '../Assets/Images/circles.svg';
-
-import { summaryProductShifter } from '../../Header/MediaShifter/mediaShifter';
+import $ from 'jquery';
 
 class productsummary extends Component {
+   componentDidMount() {
+      this.setState({
+         revealer: $("#Revealer-summary"),
+         form: $("#Summary-sidebar"),
+      });
+   }
+
+   reveal = () => {
+      this.state.revealer.toggleClass("summary-opened");
+      this.state.form.toggleClass("summary-block-opened");
+   }
+
+   render() {
+      return (
+         <aside id="Summary-sidebar" className="summary-sidebar">
+            <h1>Summary</h1><hr />
+            <section className="summary-products">
+               <h4>Products available:</h4><p>{this.summaryCounter("totalProducts")}</p>
+               <h4>Total price:</h4><p>{this.summaryCounter("totalPrice")}</p>
+               <h4>Average price:</h4><p>{this.summaryCounter("averagePrice")}</p>
+            </section>
+            {this.props.acces &&
+               <div className="productActions">
+                  <button onClick={this.props.restoreLastProduct}>
+                     Restore last
+                  </button>
+                  <button onClick={this.props.restoreAllProduct}>
+                     Restore All
+                  </button>
+                  <button onClick={this.props.removeAllProduct}>
+                     Delete All
+                  </button>
+               </div>
+            }
+            <div id="Revealer-summary" className="revealer-summary" onClick={this.reveal}>
+               <img src={circles} alt="circles" />
+            </div>
+         </aside>
+      );
+   }
+
    summaryCounter(request) {
       let totalPrice = 0;
       let averagePrice = 0;
@@ -35,35 +75,6 @@ class productsummary extends Component {
 
          default: throw new Error("No such value have been found!");
       }
-   }
-
-   render() {
-      return (
-         <aside id="Summary-sidebar" className="summary-sidebar">
-            <h1>Summary</h1><hr />
-            <section className="summary-products">
-               <h4>Products available:</h4><p>{this.summaryCounter("totalProducts")}</p>
-               <h4>Total price:</h4><p>{this.summaryCounter("totalPrice")}</p>
-               <h4>Average price:</h4><p>{this.summaryCounter("averagePrice")}</p>
-            </section>
-            {this.props.acces &&
-               <div className="productActions">
-                  <button onClick={this.props.restoreLastProduct}>
-                     Restore last
-                  </button>
-                  <button onClick={this.props.restoreAllProduct}>
-                     Restore All
-                  </button>
-                  <button onClick={this.props.removeAllProduct}>
-                     Delete All
-                  </button>
-               </div>
-            }
-            <div id="Revealer-summary" className="revealer-summary" onClick={summaryProductShifter}>
-               <img src={circles} alt="circles" />
-            </div>
-         </aside>
-      );
    }
 }
 
