@@ -12,7 +12,7 @@ class Home extends Component {
          <article>
             <h1>Home</h1>
             <section className="switcherRole">
-               <h4>Switch role</h4>
+              
                {this.props.logined ?
                   <button onClick={this.exit}>Quit</button>
                   :
@@ -27,7 +27,7 @@ class Home extends Component {
                      <input className={this.props.passwordVal ? "input" : "input invalid"} 
                         type="password" required placeholder="Password" ref="Password" />
                      <p  className={!this.props.passwordVal && "notValidDesc"}>password</p>
-                     <button type="submit">Enter admin mode</button>
+                     <button type="submit">Sign in</button>
                   </form>
                }
             </section>

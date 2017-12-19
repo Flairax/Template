@@ -29,13 +29,13 @@
 
 
 .points-main:last-child{
-   .ref-main{ 
-      border: none;
-   }
-  
    background-color: $click-cl;
    &:hover{
       background-color: $hover-cl;
+   }
+   .ref-main{ 
+      border: none;
+      padding-left: 25px;
    }
 }
 /*=============================
@@ -129,7 +129,7 @@
            Summary, Adder
   =============================*/
 .summary-sidebar{
-   top: 25.2%;
+   top: 26.9%;
    z-index: 11;
 }
 .adder-product{

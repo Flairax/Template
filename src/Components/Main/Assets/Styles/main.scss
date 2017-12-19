@@ -29,11 +29,12 @@ main{
    font-family: 'Roboto';
    padding: 20px;
    line-height: 25px;
+   padding: 40px;
    h4{
       margin: 10px;
    }
    ul{
-      margin: 10px 0 10px 80px;
+      margin: 10px 0 10px 25px;
    }
    >ul{
       list-style-type: decimal;      
@@ -110,6 +111,7 @@ main{
    p{
       transform: scale(0);
       transition: 0.4s;
+      font-size: 70%;
    }
 
    .notValidDesc{
@@ -147,7 +149,7 @@ main{
    border: 1px solid lightgray;
    border-radius: 5px;
    outline: none;
-   margin: 10px;
+   margin: 7px;
     
 }
 
