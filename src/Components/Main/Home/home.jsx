@@ -26,7 +26,7 @@ class Home extends Component {
                      login</p>
                      <input className={this.props.passwordVal ? "input" : "input invalid"} 
                         type="password" required placeholder="Password" ref="Password" />
-                     <p  className={!this.props.passwordVal && "notValidDesc"}>password</p>
+                     <p  className={!this.props.passwordVal ? "notValidDesc" : ""}>password</p>
                      <button type="submit">Sign in</button>
                   </form>
                }
@@ -37,9 +37,9 @@ class Home extends Component {
                <ul>
                   <li>Чтобы перейти на страницу товаров нажмите на пункт "Products" (3).</li>
                   <li>Общая информация о продукции находиться в левом меню, чтобы открыть его наведите курсор на 3 кружка и кликните.</li>
-                  <li>Сверху находиться форма для перехода в режим администратора, пароль "1111".
+                  <li>Сверху находиться форма для перехода в режим администратора, логин - "Admin", пароль - "1111".
                      <ul>
-                        <li>В режиме администратора пункт меню "Customer support" меняется на "Administrator tools".</li>
+                        <li>В режиме администратора пункт меню "Support" меняется на "Admin tools".</li>
                         <li>Cтановиться доступно меню добавления товара, для открытия нажмите на сайдбар справа.</li>
                         <li>Появляется возможность путешествовать по состояниям через дополнительные кнопки на левом сайдбаре </li>
                      </ul>

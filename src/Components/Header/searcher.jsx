@@ -14,6 +14,9 @@ export default class Searcher extends Component {
    componentDidMount(){
       this.revealer = $("#Revealer-search");
       this.form = $("#Searcher");
+
+      let array = [1, 2, 3, 4];
+      console.log(array.slice(0, -1))
    }
    
    reveal = () => {
