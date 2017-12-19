@@ -5,16 +5,20 @@ import loomp from './Assets/Images/loomp.svg';
 import $ from 'jquery';
 
 export default class Searcher extends Component {
+   constructor(){
+      super();
+      this.revealer = null;
+      this.form = null;
+   }
+
    componentDidMount(){
-      this.setState({
-         revealer: $("#Revealer-search"),
-         form: $("#Searcher"),
-      });
+      this.revealer = $("#Revealer-search");
+      this.form = $("#Searcher");
    }
    
    reveal = () => {
-      this.state.revealer.toggleClass("search-opened");
-      this.state.form.toggleClass("search-block-opened");
+      this.revealer.toggleClass("search-opened");
+      this.form.toggleClass("search-block-opened");
    }
 
    render() {

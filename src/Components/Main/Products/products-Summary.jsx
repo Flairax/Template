@@ -8,16 +8,20 @@ import circles from '../Assets/Images/circles.svg';
 import $ from 'jquery';
 
 class productsummary extends Component {
+   constructor(){
+      super();
+      this.revealer = null;
+      this.form = null;
+   }
+   
    componentDidMount() {
-      this.setState({
-         revealer: $("#Revealer-summary"),
-         form: $("#Summary-sidebar"),
-      });
+      this.revealer = $("#Revealer-summary");
+      this.form = $("#Summary-sidebar");
    }
 
    reveal = () => {
-      this.state.revealer.toggleClass("summary-opened");
-      this.state.form.toggleClass("summary-block-opened");
+      this.revealer.toggleClass("summary-opened");
+      this.form.toggleClass("summary-block-opened");
    }
 
    render() {

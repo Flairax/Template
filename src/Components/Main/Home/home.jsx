@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { enterAsAdmin, quitAdmin } from '../../../Reducers/roles-Action';
+import { login, exit } from '../../../Reducers/Roles/roles-Action';
+
+//<p hidden className={!this.props.loginVal && !this.props.passwordVal && "notValidDesc"}>Wrong login</p>
 
 class Home extends Component {
    render() {
@@ -11,11 +13,20 @@ class Home extends Component {
             <h1>Home</h1>
             <section className="switcherRole">
                <h4>Switch role</h4>
-               {this.props.acces ?
-                  <button onClick={this.handleQuitAdmin}>Quit admin mode</button>
+               {this.props.logined ?
+                  <button onClick={this.exit}>Quit</button>
                   :
-                  <form onSubmit={this.handleAdmin}>
-                     <input className={this.props.validation ? "input" : "input invalid"} type="password" required placeholder="password" ref="adminPass" />
+                  <form onSubmit={this.login}>
+                     <input className={this.props.loginVal ? "input" : "input invalid"} 
+                        type="text" required placeholder="Login" ref="Login" />
+                     <p  className={
+                           !this.props.loginVal ? "notValidDesc" : 
+                           !this.props.passwordVal ? "validDesc" : ""
+                        }>
+                     login</p>
+                     <input className={this.props.passwordVal ? "input" : "input invalid"} 
+                        type="password" required placeholder="Password" ref="Password" />
+                     <p  className={!this.props.passwordVal && "notValidDesc"}>password</p>
                      <button type="submit">Enter admin mode</button>
                   </form>
                }
@@ -43,23 +54,28 @@ class Home extends Component {
       );
    }
 
-   handleAdmin = (event) => {
+   login = (event) => {
       event.preventDefault();
-      this.props.enterAsAdmin(this.refs.adminPass.value);
-      this.refs.adminPass.value = "";
+      this.props.login({
+         login: this.refs.Login.value,
+         password: this.refs.Password.value,
+      });     
+      this.refs.Password.value = "";
    }
 
-   handleQuitAdmin = () => {
-      this.props.quitAdmin();
+   exit = () => {
+      this.props.exit();
    }
 }
 
 function matchDispatchToProps(dispatch) {
-   return bindActionCreators({ enterAsAdmin, quitAdmin }, dispatch)
+   return bindActionCreators({ login, exit }, dispatch)
 }
 
 export default connect(
-   state => ({
-      acces: state.roles.accesability,
-      validation: state.roles.passwordValidation,
+   state => ({     
+      acces: state.roles.CurrentUser.accesability,
+      logined: state.roles.Chekker.logined,
+      loginVal: state.roles.Chekker.loginVal,
+      passwordVal: state.roles.Chekker.passwordVal,
    }), matchDispatchToProps)(Home);

@@ -13,32 +13,30 @@ import Searcher from './searcher';
 import ProductsSummary from '../Main/Products/products-Summary';
 import ProductsForm from '../Main/Products/products-Form';
 
-import { initCashes, allRefsLeaderTop, scrollWatcher } from './MediaShifter/mediaShifter';
+import { 
+   initCashes, hideAdditional,
+   allRefsLeaderTop, scrollWatcher 
+}from './MediaShifter/mediaShifter';
 
 
 import $ from "jquery";
 
-class Header extends Component {
+class Header extends Component {  
+   constructor(){
+      super();
+      this.mainMenu = null;
+   }
+  
    componentDidMount() {
-      this.setState({
-         navigation: $("#Navigation"),
-         menu_main:  $("#Menu"),
-         menu_subS: $(".menu-sub"),
-         sub_rvlrS: $(".sub-opener"),
-         hideAllMenus() {
-            this.menu_main.toggleClass("opened-menu");
-            this.menu_subS.removeClass("opened-menu");
-            this.sub_rvlrS.removeClass("opener-clicked");
-         }
-      });
+      this.menu_main = $("#Menu");
       initCashes();
       scrollWatcher();
       allRefsLeaderTop();
-      console.log(true && undefined)
    }
 
    aggregatorClick = () => {
-      this.state.hideAllMenus();   
+      this.menu_main.toggleClass("opened-menu"); 
+      hideAdditional();
    }
 
    render() {
@@ -62,7 +60,7 @@ class Header extends Component {
                   {this.props.acces ?
                      <Ref name="Admin tools" type="ref-main" />
                      :
-                     <Ref name="Support"  type="ref-main" />
+                     <Ref name="Support"  type="ref-main" last="true"/>
                   }
                </ul>
                <Searcher />
@@ -78,5 +76,5 @@ class Header extends Component {
 
 export default connect(
    state => ({
-      acces: state.roles.accesability,
+      acces: state.roles.CurrentUser.accesability,
    }))(Header);

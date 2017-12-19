@@ -106,16 +106,40 @@ main{
       @extend %flex-template;
       flex-direction: column;
    }
+
+   p{
+      transform: scale(0);
+      transition: 0.4s;
+   }
+
+   .notValidDesc{
+      &::before{
+         content: "Wrong ";
+      }
+      transform: scale(1);
+      color: red;
+   }
+   .validDesc{
+      &::before{
+         content: "Correct ";
+      }
+      transform: scale(1);
+      color: green;
+   }
 }
 
 .invalid{
    box-shadow: 0px 0px 14px 0px rgb(95, 25, 40);
+   &:focus{
+      box-shadow: 0px 0px 14px 0px rgb(95, 25, 40);
+   }
 }
 
 /*=============================
         Form styles
   =============================*/
 .input{
+   font-family: 'Cuprum';
    font-size: 110%;
    color: #757575;
    background-color: #fafafa;
@@ -124,9 +148,7 @@ main{
    border-radius: 5px;
    outline: none;
    margin: 10px;
-   &:focus{
-      box-shadow: 0px 0px 14px 0px rgba(44,110,122,1);
-   }        
+    
 }
 
 button{

@@ -1,0 +1,29 @@
+{
+   "UsersList" : [
+      {
+         "name": "Anonymous",         
+         "password": "",
+         "accesability": false
+      },
+      {
+         "name": "Admin",       
+         "password": "1111",
+         "accesability": true
+      },
+      {
+         "name": "Vasya",       
+         "password": "123",
+         "accesability": false
+      },
+      {
+         "name": "Kolya",       
+         "password": "321",
+         "accesability": false
+      },
+      {
+         "name": "Petya",       
+         "password": "2222",
+         "accesability": false
+      }
+   ]   
+}

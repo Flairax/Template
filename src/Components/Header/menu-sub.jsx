@@ -30,7 +30,7 @@ export default class Menu_sub extends Component {
             </div>
             <ul id={"Menu-sub-" + this.props.order} className="menu-sub">
                {this.props.subPoints.map(subPoint => {
-                  return <Ref key={subPoint.id} link={subPoint.link} name={subPoint.name} type="ref-sub" />
+                  return <Ref key={subPoint.id} link={"/"+subPoint.name} name={subPoint.name} type="ref-sub" />
                })}
             </ul>
          </li>

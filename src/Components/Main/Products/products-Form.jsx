@@ -8,16 +8,20 @@ import circles from '../Assets/Images/circles.svg';
 import $ from 'jquery';
 
 class TodoForm extends Component {
+   constructor(){
+      super();
+      this.revealer = null;
+      this.form = null;
+   }
+   
    componentDidMount() {
-      this.setState({
-         revealer: $("#Revealer-adder-product"),
-         form: $("#Adder-product"),
-      });
+      this.revealer = $("#Revealer-adder-product");
+      this.form = $("#Adder-product");
    }
 
    reveal = () => {
-      this.state.revealer.toggleClass("adder-opened");
-      this.state.form.toggleClass("adder-block-opened");
+      this.revealer.toggleClass("adder-opened");
+      this.form.toggleClass("adder-block-opened");
    }
 
    render() {

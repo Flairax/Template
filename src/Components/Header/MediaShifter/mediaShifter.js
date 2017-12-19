@@ -1,7 +1,11 @@
 import $ from 'jquery';
 
 let navigation = null;
-
+let menu_main = null;
+let menu_subS = null;
+let sub_rvlrS = null;
+let searcher = null;
+let searcher_rvlr = null;
 
 let scrollLimit;
 let scrolled;
@@ -9,7 +13,24 @@ let scrolled;
 /*==============Cashes initalization==============*/
 export function initCashes() {
    navigation = $("#Navigation");
+   menu_main = $("#Menu");
+   menu_subS = $(".menu-sub");
+   sub_rvlrS = $(".sub-opener");
+   searcher = $("#Searcher");
+   searcher_rvlr = $("#Revealer-search");
    scrollLimit = $("#Banner").attr("data-height");
+}
+
+export function hideAdditional() {
+   menu_subS.removeClass("opened-menu");
+   sub_rvlrS.removeClass("opener-clicked");
+   searcher.removeClass("search-block-opened");
+   searcher_rvlr.removeClass("search-opened");
+}
+
+export function hideAll(){
+   menu_main.removeClass("opened-menu");
+   hideAdditional();
 }
 
 /*==============Scroller==============*/
@@ -32,7 +53,6 @@ export function scrollWatcher() {
    ADAPTIVE.addListener(changes => {
       if (changes.matches) {
          window.addEventListener('scroll', scroller);
-         document.documentElement.scrollTop = scrolled;
       } else {
          window.removeEventListener('scroll', scroller);
       }
@@ -46,7 +66,7 @@ export function scrollWatcher() {
       All refs points top
   =============================*/
 export function allRefsLeaderTop() {
-   $(".refs-main, .refs-sub").bind('click', () => {
+   $(".ref-main, .ref-sub").bind('click', () => {
       document.documentElement.scrollTop = 0;
       $("#Menu").removeClass("opened-menu");
    });
