@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
+
 export default class Notfound extends Component {
+   /*================RENDER==================*/ 
    render() {
       return (
          <article>

@@ -1,5 +1,5 @@
 /*==========================
-            Preset - All Header inner items pre-flex x/y centered, default transition + font-color
+            Preset
   ==========================
 header 
    ul , ol , li, a, div 
@@ -22,7 +22,7 @@ header
       color: $font-cl
 
 /*=============================
-           Influenced - both mobile&destop versions have same offset because of menu-main in desktop height: 60px, so as mobile aggregator
+           Influenced
   =============================
 main, footer
    position: relative
@@ -34,15 +34,14 @@ main, footer
 .navigation
    width: 100%
    user-select: none
-   z-index: 10
 
 .banner
    height: 350px
 
 /*=============================
-           Aggregator
+           RL-menu-main
   =============================*/
-.agregator
+.RL-menu-main
    opacity: 0.95
    font-size: 110%
    background-color: $bg-cl
@@ -56,6 +55,7 @@ main, footer
       height: 25px
       width: 25px
       margin: 15px
+
 /*==========================
          Menu-main
   ==========================
@@ -63,33 +63,19 @@ main, footer
    font-family: 'Anton'
    background-color: $bg-cl
 
-/*==========Arrow========*/
-.arrow
-   background-color: $font-cl
-   border-radius: 100%
-   border: 3px solid $font-cl
-   transform: rotate(90deg)
-   margin-right: 15px
-   
-/*==========================
-         Menu-sub
-  ==========================
-.menu-sub
-   position: absolute
-
 /*==========================
             Media
   ==========================
 @media screen and (min-width:  $frontier)
-   @import './header-desktop-R.sass'
-
+   @import './header-desktop.sass'
 
 @media screen and (min-width: 200px)and(max-width:  $frontier)
-   @import './header-mobile-R.sass'
+   @import './header-mobile.sass'
 
 /*==========================
             Additions
   ==========================
+@import './menu-sub.sass'
 @import './searcher.sass'
-@import './product-adder.sass'
-@import './product-summary.sass'
+@import './product-ADD.sass'
+@import './product-SUM.sass'

@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 
 import ProducList from './products-List';
 
-export default class TodoView extends Component {
+export default class ProductView extends Component {
+   /*================RENDER==================*/
    render() {
       return (
          <article>
-            <section>
-               <h1>Products:</h1>
-               <ProducList />
-            </section>
+            <h1>Products:</h1>
+            <ProducList />
          </article>
       );
    }

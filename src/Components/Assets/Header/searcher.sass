@@ -1,25 +1,40 @@
 /*=============================
-            Search-box
+            Searcher
   =============================*/
-.search-box
+.searcher
    display: flex
    position: absolute   
    width: 100%
    transform-origin: right top;
    transform: scale(0);
    transition: $transition 
-   z-index: 12;
+   input, button
+      outline: 0
+      font-size: 110%;   
+      border: none;
+      height: 60px;
+      border-bottom: 1px solid $bg-cl;
+   input
+      color: $bg-cl;
+      padding-left: 40px;
+      outline: 0px;
+   button
+      font-family: 'Anton';
+      color: $font-cl
+      justify-content: center;
+      background-color: $bg-cl;
+      &:hover
+         background-color: $hover-cl;
+         cursor: pointer;
+         box-shadow: $shadow;
    
-/*=============================
-         Search-revealer
-  =============================*/ 
-.revealer-search
+/*================Revealer================
+.RL-searcher
    width: 60px;
    height: 80px;
    position: absolute
    top: 20px; 
    left: calc(100% - 100px) ;
-   z-index: 13;
    transition: $transition
    background-color: $font-cl;
    box-shadow: $shadow;
@@ -29,58 +44,30 @@
    &:hover
       background-color: $hover-cl;
       cursor: pointer;
-
-/*=============================
-            Form
-  =============================*/
-#field, #submit
-   font-size: 110%;   
-   border: none;
-   height: 60px;
-   border-bottom: 1px solid $bg-cl;
-
-#field 
-   color: $bg-cl;
-   padding-left: 40px;
-   outline: 0px;
-
-#submit
-   font-family: 'Anton';
-   color: $font-cl
-   justify-content: center;
-   background-color: $bg-cl;
-   &:hover
-      background-color: $hover-cl;
-      cursor: pointer;
-      box-shadow: $shadow;
-
-/*=============================
-            Animation
-  =============================*/
-.search-opened
-   border-radius: 50% 50% 0 0;
-
-
-.search-block-opened
-   transform: scale(1);   
-
+  
 /*==========================
             Media
   ==========================
 @media screen and (min-width: $frontier)
-   .search-box
+   .searcher
+      flex-direction: row-reverse;
       top: 100%;
+      input
+         width: 80%;  
+      button  
+         width: 20%;
 
-   #field
-      width: 80%;  
+@media screen and (min-width: 200px)and(max-width: $frontier)
+   .searcher
+      flex-direction: column;
+      input, button
+         width: 100%;
 
-   #submit
-      width: 20%;
+/*=============================
+            Animation
+  =============================*/
+.RL-searcher-CLK
+   border-radius: 50% 50% 0 0;
 
-@media screen and (min-width: 200px)and(max-width: 800px)
-   .search-box
-      flex-direction: column-reverse;
-      z-index: 12;
-
-   #submit, #field
-      width: 100%;
+.searcher-RVL
+   transform: scale(1);   

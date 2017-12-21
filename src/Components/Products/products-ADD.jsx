@@ -7,16 +7,21 @@ import circles from '../Assets/Header/Images/circles.svg';
 
 import $ from 'jquery';
 
-class TodoForm extends Component {
+class ProductADD extends Component {
+   /*=============Action handlers=============*/
    reveal = () => {
-      $("#Revealer-product-adder").toggleClass("adder-opened");
-      $("#Product-adder-box").toggleClass("adder-block-opened");
+      $(".RL-product-ADD").toggleClass("RL-product-ADD-CLK");
+      $(".product-ADD").toggleClass("product-ADD-RVL");
+      if(window.matchMedia("(max-width: 420px)").matches){
+         $(".product-SUM").toggleClass("product-SUM-HDN");
+      }
    }
 
+   /*================RENDER==================*/
    render() {
       return (
-         <aside id="Product-adder-box" className="product-adder-box" > 
-            <div id="Revealer-product-adder" className="revealer-product-adder" onClick={this.reveal}>
+         <aside className="product-ADD" > 
+            <div className="RL-product-ADD" onClick={this.reveal}>
                <img src={circles} alt="circles" />
             </div>
             <form onSubmit={this.handleSubmit}>
@@ -46,9 +51,10 @@ class TodoForm extends Component {
    }
 }
 
+/*=============Store connection============*/
 function matchDispatchToProps(dispatch) {
    return bindActionCreators({ addProduct }, dispatch)
 }
 
 export default connect(
-   state => ({}), matchDispatchToProps)(TodoForm);
+   state => ({}), matchDispatchToProps)(ProductADD);

@@ -1,10 +1,10 @@
 /*=============================
             adder-product
   =============================*/
-.product-adder-box
+.product-ADD
    position: fixed
    right: 10px
-   top: 300px
+   top: $sidebars-offset
    width: 270px
    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75)
    border-radius: 20px
@@ -12,7 +12,6 @@
    padding: 15px
    transition: $transition
    opacity: 0.95
-   z-index: 14
    transform: translateX(110%)
    form
       display: flex
@@ -26,7 +25,7 @@
       @include button-colors(rgba(32, 4, 133, 0.815), rgba(85, 10, 206, 0.815))
          
 /*===============Revealer==============      
-.revealer-product-adder
+.RL-product-ADD
    justify-content: center  
    width: 65px
    height: 180px 
@@ -40,7 +39,6 @@
    box-shadow: $shadow
    opacity: 0.8 
    outline: 0px   
-   z-index: 11
    &:hover
       background-color: $hover-cl
       cursor: pointer
@@ -48,11 +46,26 @@
       transform: rotate(90deg) translate(-3px,+9px)  
 
 /* =========================
+            Media
+   =========================*/ 
+@media screen and (min-width:  $frontier)
+   .product-ADD
+      top: $sidebars-offset+20%
+
+@media screen and (min-width: 200px)and(max-width:  $frontier)  
+   .product-ADD
+      top: $sidebars-offset
+
+@media screen and (max-width: 410px)
+   .product-ADD-HDN
+      transform: translateX(130%)
+
+/* =========================
         Animation
    =========================*/ 
-.adder-block-opened
-   transform: translateX(0)
-
-.adder-opened
+.RL-product-ADD-CLK
    border-radius: 5px 50% 50% 5px
    transform: translateX(10px)
+
+.product-ADD-RVL
+   transform: translateX(0)

@@ -16,7 +16,7 @@ $bot-bor-h: 5px//For point-main animation and center-balancing the inner content
    position: absolute
    a, ul, li
       justify-content: center 
-   li
+   li:not(.spinner-box)
       height: 100% 
 
 /*==========Banner=======*/
@@ -29,7 +29,7 @@ $bot-bor-h: 5px//For point-main animation and center-balancing the inner content
    transform-origin: left center
 
 /*==========Aggregator========*/
-.agregator
+.RL-menu-main
    transform: scale(0)
    position: absolute  
 
@@ -62,31 +62,7 @@ $bot-bor-h: 5px//For point-main animation and center-balancing the inner content
       .menu-sub
          transform: skew(0) scale(1)
       
-/*=============================
-            Menu-sub
-  =============================
-.menu-sub
-   flex-wrap: wrap
-   background: rgba(0, 0, 0, 0.575)  
-   box-shadow: $shadow    
-   top: 100%
-   left: 10%
-   right: 10%
-   margin: auto
-   padding: 10px 130px
-   border-radius: 0 0 25% 25%
-   transform: skew(-60deg) scale(0)
-   transform-origin: top center      
 
-/*==========ref-sub========*/
-.ref-sub
-   height: 40px
-   width: 120px
-   justify-content: center
-   border-radius: 10%
-   &:hover
-      box-shadow: $shadow
-      background-color: $hover-cl
      
 /*=============================
             Spinner
@@ -106,6 +82,33 @@ $bot-bor-h: 5px//For point-main animation and center-balancing the inner content
    to { transform: rotate(360deg) } 
 
 /*=============================
+            Media
+  =============================*/
+@media screen and (min-width: $frontier)and(max-width:  1000px)
+   .points-main:first-child, .points-main:last-child
+      position: absolute
+      top: 100%
+      background-color: $bg-cl
+      width: 110px
+      z-index: 12
+   .points-main:first-child
+      left: 35%
+      border-bottom-left-radius: 35%
+   .points-main:last-child
+      right: 35%
+      border-bottom-right-radius: 35%
+   #Spinner
+      z-index: 13
+
+   .spinner-box
+      position: relative
+      top: 50%
+      height: 120px
+      width: 80px
+      background-color: $bg-cl
+      
+
+/*=============================
             Animation
   =============================*/
 /*==========Navigation=========== 
@@ -115,10 +118,12 @@ $bot-bor-h: 5px//For point-main animation and center-balancing the inner content
    .menu-main
       height: 45px
       opacity: 0.9   
-   .revealer-search
+   .RL-searcher
       top: 10px  
-   .summary-sidebar, .adder-product
+   .product-SUM, .product-ADD
       top: 25%
    #Spinner
-      width: 25px
-      height: 25px
+      width: 30px
+      height: 30px
+   .spinner-box
+      height: 90px

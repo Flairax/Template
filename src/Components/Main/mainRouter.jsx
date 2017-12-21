@@ -1,23 +1,27 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+/*=============Components=============*/
 import Home from './Home/home';
-import ProductsView from '../Products/products-View';
+import ProductsView from '../Products/products.VIEW';
 import AdminPage from './AdminPage/adminPage';
 import NotFound from './notFound';
 
-import { hideAll } from '../Header/Service/header-Service';
+/*=============Services=============*/
+import { hideAll } from '../Header/Services/header.SER';
 
 export default class Main extends Component {
+   /*=============Action handlers=============*/
    closeAllMenus = () => {
       if(window.matchMedia("(max-width: 800px)").matches){
          hideAll();
       }      
    }
 
+   /*================RENDER==================*/
    render() {
       return (
-         <main id="content" onClick={this.closeAllMenus}>
+         <main onClick={this.closeAllMenus}>
             <Switch>
                <Route exact path='/' component={Home} />
                <Route exact path='/Home' component={Home} />

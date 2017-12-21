@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 export default class Searcher extends Component {
+   /*================RENDER==================*/
    render() {
       return (
          <li className={this.props.type === "ref-main" ? "points-main" : ""}>

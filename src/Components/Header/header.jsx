@@ -1,45 +1,48 @@
+import $ from "jquery";
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+/*=============Components=============*/
+import Ref from './ref';
+import MenuSub from './menu-sub';
+import Searcher from './searcher';
+import ProductsSummary from '../Products/products-SUM';
+import ProductsForm from '../Products/products-ADD';
+
+/*=============Initializers=============*/
+import { SubInfoOne, SubInfoTwo } from './Services/sub-menu.INFO';
+
+/*=============Services=============*/
+import { hideAdditional, allRefsLeadTop }from './Services/header.SER';
+
+/*=============Images=============*/
 import Gear from '../Assets/Header/Images/gear.svg';
 import Ager from '../Assets/Header/Images/ager.png';
 
-import Ref from './ref';
-import MenuSub from './menu-sub';
-import { SubInfoOne, SubInfoTwo } from './Services/sub-menu-INFO';
-
-import Searcher from './searcher';
-import ProductsSummary from '../Products/products-Summary';
-import ProductsForm from '../Products/products-Form';
-
-import { 
-   hideAdditional,
-   allRefsLeadTop, navFixation 
-}from './Services/header-Service';
-
-import $ from "jquery";
 
 class Header extends Component {  
+   /*=============Component lifecycle=============*/
    componentDidMount() {
-      navFixation();
       allRefsLeadTop();
    }
 
-   aggregatorClick = () => {
-      $("#Menu").toggleClass("opened-menu"); 
+   /*=============Action handlers=============*/
+   reveal = () => {
+      $(".menu-main").toggleClass("menu-main-RVL"); 
       hideAdditional();
    }
 
+   /*================RENDER==================*/
    render() {
       return (
          <header>
             <div id="Banner" className="banner" data-height="400">
             </div>
-            <nav id="Navigation" className="navigation">
-               <aside id="Aggregator" className="agregator" onClick={this.aggregatorClick}>
+            <nav className="navigation">
+               <aside className="RL-menu-main" onClick={this.reveal}>
                   <img src={Ager} alt="ager" />
                </aside>
-               <ul id="Menu" className="menu-main" >
+               <ul className="menu-main" >
                   <Ref name="Home" type="ref-main"/>
                   <MenuSub name="MulLorem" order="1" subPoints={SubInfoOne} />
                   <Ref name="Products" type="ref-main"/>
@@ -65,14 +68,8 @@ class Header extends Component {
    }
 }
 
+/*=============Store connection============*/
 export default connect(
    state => ({
       acces: state.roles.CurrentUser.accesability,
    }))(Header);
-
-
-   /*<Searcher />
-   <ProductsSummary />
-   {this.props.acces &&
-      <ProductsForm />
-   }*/
