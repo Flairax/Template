@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
  /*=============Actions=============*/
-import { addProduct } from './products.ACT';
+import { addProduct } from '../../Reducers/Products/products.ACT';
 
  /*=============Images=============*/
 import circles from '../Assets/Header/Images/circles.svg';
@@ -58,5 +58,6 @@ function matchDispatchToProps(dispatch) {
    return bindActionCreators({ addProduct }, dispatch)
 }
 
-export default connect(
-   state => ({}), matchDispatchToProps)(ProductADD);
+export default connect(state => ({
+
+}), matchDispatchToProps)(ProductADD);

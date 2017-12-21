@@ -25,7 +25,6 @@ class Header extends Component {
    /*=============Component lifecycle=============*/
    componentDidMount() {
       allRefsLeadTop();
-      console.log(this.props.authorised)
    }
 
    /*=============Action handlers=============*/
@@ -58,7 +57,7 @@ class Header extends Component {
                      <img id="Spinner" src={Gear} alt="gear" />
                   </li>
                   <MenuSub name="MulLorem" order="2" subPoints={SubInfoTwo} />
-                  <Ref name="Lorem" type="ref-main"/>
+                  <Ref name="Ratings" type="ref-main"/>
                   {this.props.acces ?
                      <Ref name="Admin tools" type="ref-main" />
                      :
