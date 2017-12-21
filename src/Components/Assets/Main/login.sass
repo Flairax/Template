@@ -19,17 +19,16 @@
       flex-direction: column;
       input
          @extend %input-template 
-      button
-         color: $font-cl
-         @extend %button-template 
-         @include button-colors($click-cl, $hover-cl)
+   button
+      color: $font-cl
+      @extend %button-template 
+      @include button-colors($click-cl, $hover-cl)  
    p
       margin: 3px
       transform: scale(0);
       transition: 0.4s;
       font-size: 70%;
   
-
    .notValidDesc
       &::before
          content: "Wrong ";
