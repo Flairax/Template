@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { login, exit } from '../../../Reducers/Roles/roles-Action';
+import { login, exit } from '../../../Reducers/Roles/roles.ACT';
 
-//<p hidden className={!this.props.loginVal && !this.props.passwordVal && "notValidDesc"}>Wrong login</p>
 
 class Home extends Component {
    render() {

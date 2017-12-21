@@ -1,0 +1,129 @@
+
+$bot-bor-h: 5px//For point-main animation and center-balancing the inner content
+/*=============================
+            TEMPLATES
+  =============================
+/*==========POINTS-TEMPLATE========*/
+%point-template
+   border-bottom: $bot-bor-h solid $bg-cl
+   &:hover
+      border-bottom-color: $hover-cl
+
+/*=============================
+           Navigation
+  =============================
+.navigation
+   position: absolute
+   a, ul, li
+      justify-content: center 
+   li:not(.spinner-box)
+      height: 100% 
+
+/*==========Banner=======*/
+.banner
+   background-color: $font-cl
+   background-image: url("./Header/Images/logo.svg")
+   background-repeat: no-repeat
+   background-position: center
+   transform: scale(1)
+   transform-origin: left center
+
+/*==========Aggregator========*/
+.RL-menu-main
+   transform: scale(0)
+   position: absolute  
+
+/*=============================
+            Menu-main
+  =============================
+.menu-main
+   height: $m-main-H 
+  
+/*==========Points-main========*/
+.points-main     
+   @extend %point-template
+   width: 110px      
+   .ref-main
+      padding-top: $bot-bor-h 
+
+/*==========Points-main-openable========*/
+.points-main-openable
+   @extend %point-template
+   width: 140px
+   .ref-main
+      padding-top: $bot-bor-h
+   .arrow
+      margin-top: $bot-bor-h  
+   &:hover
+      .arrow
+         transform: rotate(270deg)
+         background-color: $hover-cl
+         border-color: $hover-cl     
+      .menu-sub
+         transform: skew(0) scale(1)
+      
+
+     
+/*=============================
+            Spinner
+  =============================
+.spinner-box
+   width: 60px
+
+#Spinner
+   width: 35px
+   height: 35px
+   background-color: $font-cl 
+   border-radius: 100%
+   animation: spin 8s linear infinite
+
+@keyframes spin
+   from { transform: rotate(0) }
+   to { transform: rotate(360deg) } 
+
+/*=============================
+            Media
+  =============================*/
+@media screen and (min-width: $frontier)and(max-width:  1000px)
+   .points-main:first-child, .points-main:last-child
+      position: absolute
+      top: 100%
+      background-color: $bg-cl
+      width: 110px
+      z-index: 12
+   .points-main:first-child
+      left: 35%
+      border-bottom-left-radius: 35%
+   .points-main:last-child
+      right: 35%
+      border-bottom-right-radius: 35%
+   #Spinner
+      z-index: 13
+
+   .spinner-box
+      position: relative
+      top: 50%
+      height: 120px
+      width: 80px
+      background-color: $bg-cl
+      
+
+/*=============================
+            Animation
+  =============================*/
+/*==========Navigation=========== 
+.navigation-fixed
+   position: fixed
+   top: 0
+   .menu-main
+      height: 45px
+      opacity: 0.9   
+   .RL-searcher
+      top: 10px  
+   .product-SUM, .product-ADD
+      top: 25%
+   #Spinner
+      width: 30px
+      height: 30px
+   .spinner-box
+      height: 90px

@@ -1,0 +1,71 @@
+/*=============================
+            adder-product
+  =============================*/
+.product-ADD
+   position: fixed
+   right: 10px
+   top: $sidebars-offset
+   width: 270px
+   box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75)
+   border-radius: 20px
+   background-color: $font-cl
+   padding: 15px
+   transition: $transition
+   opacity: 0.95
+   transform: translateX(110%)
+   form
+      display: flex
+      flex-direction: column
+   input
+      @extend %input-template
+   button
+      @extend %button-template
+      align-self: center
+      margin-top: 15px
+      @include button-colors(rgba(32, 4, 133, 0.815), rgba(85, 10, 206, 0.815))
+         
+/*===============Revealer==============      
+.RL-product-ADD
+   justify-content: center  
+   width: 65px
+   height: 180px 
+   position: absolute
+   left: -22%
+   top: 40px
+   border: 2px solid $bg-cl    
+   border-radius: 20px 0 0 20px
+   border-right: 4px solid $bg-cl
+   background-color: white
+   box-shadow: $shadow
+   opacity: 0.8 
+   outline: 0px   
+   &:hover
+      background-color: $hover-cl
+      cursor: pointer
+   img
+      transform: rotate(90deg) translate(-3px,+9px)  
+
+/* =========================
+            Media
+   =========================*/ 
+@media screen and (min-width:  $frontier)
+   .product-ADD
+      top: $sidebars-offset+20%
+
+@media screen and (min-width: 200px)and(max-width:  $frontier)  
+   .product-ADD
+      top: $sidebars-offset
+
+@media screen and (max-width: 410px)
+   .product-ADD-HDN
+      transform: translateX(130%)
+
+/* =========================
+        Animation
+   =========================*/ 
+.RL-product-ADD-CLK
+   border-radius: 5px 50% 50% 5px
+   transform: translateX(10px)
+
+.product-ADD-RVL
+   transform: translateX(0)

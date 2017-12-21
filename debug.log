@@ -16,3 +16,18 @@
 [1218/162848.592:ERROR:process_info.cc(632)] range at 0xe7b370d200000000, size 0x20 fully unreadable
 [1218/162848.592:ERROR:process_info.cc(632)] range at 0xe7b3713400000000, size 0x20 fully unreadable
 [1218/162848.592:ERROR:process_info.cc(632)] range at 0x0, size 0x20 fully unreadable
+[1220/130704.544:ERROR:process_info.cc(632)] range at 0xa8a970bc00000000, size 0x1d fully unreadable
+[1220/130704.556:ERROR:process_info.cc(632)] range at 0xa8a9711e00000000, size 0x1d fully unreadable
+[1220/130704.556:ERROR:process_info.cc(632)] range at 0x0, size 0x1d fully unreadable
+[1220/130704.567:ERROR:process_info.cc(380)] UncheckedAllocate
+[1220/130705.116:ERROR:process_info.cc(632)] range at 0x8c4d70e000000000, size 0x6f fully unreadable
+[1220/130705.116:ERROR:process_info.cc(632)] range at 0x8c4d714200000000, size 0x6f fully unreadable
+[1220/130705.116:ERROR:process_info.cc(632)] range at 0x0, size 0x6f fully unreadable
+[1220/130705.127:ERROR:process_info.cc(380)] UncheckedAllocate
+[1220/204148.087:ERROR:process_info.cc(632)] range at 0x2cb70be00000000, size 0x1 fully unreadable
+[1220/204148.087:ERROR:process_info.cc(632)] range at 0x2cb712000000000, size 0x1 fully unreadable
+[1220/204148.087:ERROR:process_info.cc(632)] range at 0x0, size 0x1 fully unreadable
+[1220/204148.102:ERROR:process_info.cc(380)] UncheckedAllocate
+[1220/204148.220:ERROR:process_info.cc(632)] range at 0xcf6b612c00000000, size 0xaa fully unreadable
+[1220/204148.220:ERROR:process_info.cc(632)] range at 0xcf6b614c00000000, size 0xaa fully unreadable
+[1220/204148.220:ERROR:process_info.cc(632)] range at 0x0, size 0xaa fully unreadable

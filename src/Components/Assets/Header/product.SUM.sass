@@ -1,0 +1,91 @@
+/*=============================
+            Summary
+  =============================*/
+.product-SUM
+   display: flex
+   flex-direction: column
+   align-items: center
+   position: fixed
+   left: 10px
+   top: $sidebars-offset
+   width: 300px
+   padding: 20px
+   background-color: white
+   border-radius: 10%
+   box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75)
+   transition: $transition
+   transform: translateX(-110%)
+   opacity: 0.95
+   h1
+      margin-top: 0
+
+/*===============Info===============    
+.product-SUM-info
+   font-family: 'Roboto'
+   display: grid
+   grid-template-columns: repeat(2, 1fr) 
+   grid-template-rows: repeat(3, 55px)
+   align-items: center
+   p
+      background-color: rgba(187, 187, 187, 0.815) 
+      border-radius: 15px
+      padding: 10px
+
+/*===============Revealer==============    
+.RL-product-SUM
+   justify-content: center  
+   position: absolute
+   top: 40px
+   left: 100%
+   width: 65px
+   height: 180px   
+   border: 2px solid $bg-cl  
+   border-left: 4px solid $bg-cl  
+   border-radius: 0 20px 20px 0
+   background-color: white
+   &:hover
+      background-color: $hover-cl
+      cursor: pointer
+   img
+      transform: rotate(90deg) translate(-3px,-8px)        
+
+/*===============Controls==============    
+.product-vault-actions
+   display: flex
+   flex-direction: column
+   button
+      @extend %button-template
+      margin: 10px
+   button:first-child     
+      @include button-colors( rgba(112, 5, 126, 0.815), rgba(153, 7, 167, 0.815))
+   
+   button:nth-child(2)
+      @include button-colors(rgba(49, 146, 10, 0.815), rgba(9, 223, 38, 0.815))
+   
+   button:last-child
+      @include button-colors(rgba(133, 4, 4, 0.815), rgba(204, 6, 6, 0.815))
+
+/* =========================
+            Media
+   =========================*/ 
+@media screen and (min-width:  $frontier)
+   .product-SUM
+      top: $sidebars-offset+20%
+
+@media screen and (min-width: 200px)and(max-width:  $frontier)  
+   .product-SUM
+      top: $sidebars-offset
+
+@media screen and (max-width: 410px)
+   .product-SUM-HDN
+      transform: translateX(-130%)
+
+/* =========================
+        Animation
+   =========================*/ 
+.RL-product-SUM-CLK
+   border-radius: 50% 5px 5px 50% 
+   transform: translateX(-15px)
+
+.product-SUM-RVL
+   transform: translateX(0)

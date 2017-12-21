@@ -1,0 +1,18 @@
+@import './variables-R.sass'
+@import './templates.sass'
+
+html, body, header, footer, main, nav
+   margin: 0
+   padding: 0
+
+body  
+   height: 2200px
+   scroll-behavior: smooth
+   *
+      box-sizing: border-box
+   @include scroll(5px)
+
+@import './Header/header.ROOT.sass'
+@import './Main/main.ROOT.sass'
+@import './Footer/footer.ROOT.sass'
+@import './layouts.sass'
