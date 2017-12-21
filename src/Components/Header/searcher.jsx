@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import loomp from './Assets/Images/loomp.svg';
+import loomp from '../Assets/Header/Images/loomp.svg';
 
 import $ from 'jquery';
 
@@ -13,7 +13,7 @@ export default class Searcher extends Component {
 
    componentDidMount(){
       this.revealer = $("#Revealer-search");
-      this.form = $("#Searcher");
+      this.form = $("#Search-box");
 
       let array = [1, 2, 3, 4];
       console.log(array.slice(0, -1))
@@ -30,7 +30,7 @@ export default class Searcher extends Component {
             <button id="Revealer-search" className="revealer-search" onClick={this.reveal}>
                <img src={loomp} alt="loomp" />
             </button>
-            <form id="Searcher" className="search-box">
+            <form id="Search-box" className="search-box">
                <input type="submit" id="submit" value="Search" />
                <input type="search" id="field" placeholder="Enter query" />
             </form>

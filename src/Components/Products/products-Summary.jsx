@@ -4,37 +4,29 @@ import { bindActionCreators } from 'redux';
 
 import { removeAllProduct, restoreAllProduct, restoreLastProduct } from './products-Actions';
 
-import circles from '../Assets/Images/circles.svg';
+import circles from '../Assets/Header/Images/circles.svg';
 import $ from 'jquery';
 
 class productsummary extends Component {
-   constructor(){
-      super();
-      this.revealer = null;
-      this.form = null;
-   }
-   
-   componentDidMount() {
-      this.revealer = $("#Revealer-summary");
-      this.form = $("#Summary-sidebar");
-   }
-
    reveal = () => {
-      this.revealer.toggleClass("summary-opened");
-      this.form.toggleClass("summary-block-opened");
+      $("#Revealer-product-summary").toggleClass("revealer-product-summary-clicked");
+      $("#Product-summary-box").toggleClass("product-summary-box-revealed");
    }
 
    render() {
       return (
-         <aside id="Summary-sidebar" className="summary-sidebar">
-            <h1>Summary</h1><hr />
-            <section className="summary-products">
+         <aside id="Product-summary-box" className="product-summary-box">
+            <div id="Revealer-product-summary" className="revealer-product-summary" onClick={this.reveal}>
+               <img src={circles} alt="circles" />
+            </div>
+            <h1>Summary</h1>
+            <section className="product-summary-info">               
                <h4>Products available:</h4><p>{this.summaryCounter("totalProducts")}</p>
                <h4>Total price:</h4><p>{this.summaryCounter("totalPrice")}</p>
                <h4>Average price:</h4><p>{this.summaryCounter("averagePrice")}</p>
-            </section>
+            </section>           
             {this.props.acces &&
-               <div className="productActions">
+               <section className="product-vault-actions">
                   <button onClick={this.props.restoreLastProduct}>
                      Restore last
                   </button>
@@ -44,11 +36,8 @@ class productsummary extends Component {
                   <button onClick={this.props.removeAllProduct}>
                      Delete All
                   </button>
-               </div>
-            }
-            <div id="Revealer-summary" className="revealer-summary" onClick={this.reveal}>
-               <img src={circles} alt="circles" />
-            </div>
+               </section>
+            }            
          </aside>
       );
    }

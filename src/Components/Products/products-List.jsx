@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import { removeProduct } from './products-Actions';
 
-import deleter from '../Assets/Images/deleter.svg'
+import deleter from '../Assets/Main/Images/deleter.svg'
 
 class ProductList extends Component {
    showList() {

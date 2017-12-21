@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Home from './Home/home';
-import ProductsView from './Products/products-View';
+import ProductsView from '../Products/products-View';
 import AdminPage from './AdminPage/adminPage';
 import NotFound from './notFound';
 
-import './Assets/Styles/main.scss';
-import '../SharedAssets/root.scss';
-
-import { hideAll } from '../Header/MediaShifter/mediaShifter';
+import { hideAll } from '../Header/Service/header-Service';
 
 export default class Main extends Component {
    closeAllMenus = () => {
@@ -17,7 +14,7 @@ export default class Main extends Component {
          hideAll();
       }      
    }
-   
+
    render() {
       return (
          <main id="content" onClick={this.closeAllMenus}>

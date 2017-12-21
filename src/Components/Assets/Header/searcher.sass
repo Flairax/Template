@@ -1,0 +1,86 @@
+/*=============================
+            Search-box
+  =============================*/
+.search-box
+   display: flex
+   position: absolute   
+   width: 100%
+   transform-origin: right top;
+   transform: scale(0);
+   transition: $transition 
+   z-index: 12;
+   
+/*=============================
+         Search-revealer
+  =============================*/ 
+.revealer-search
+   width: 60px;
+   height: 80px;
+   position: absolute
+   top: 20px; 
+   left: calc(100% - 100px) ;
+   z-index: 13;
+   transition: $transition
+   background-color: $font-cl;
+   box-shadow: $shadow;
+   border: 2px solid $bg-cl;  
+   border-radius: 0 0 50% 50%; 
+   outline: 0px;  
+   &:hover
+      background-color: $hover-cl;
+      cursor: pointer;
+
+/*=============================
+            Form
+  =============================*/
+#field, #submit
+   font-size: 110%;   
+   border: none;
+   height: 60px;
+   border-bottom: 1px solid $bg-cl;
+
+#field 
+   color: $bg-cl;
+   padding-left: 40px;
+   outline: 0px;
+
+#submit
+   font-family: 'Anton';
+   color: $font-cl
+   justify-content: center;
+   background-color: $bg-cl;
+   &:hover
+      background-color: $hover-cl;
+      cursor: pointer;
+      box-shadow: $shadow;
+
+/*=============================
+            Animation
+  =============================*/
+.search-opened
+   border-radius: 50% 50% 0 0;
+
+
+.search-block-opened
+   transform: scale(1);   
+
+/*==========================
+            Media
+  ==========================
+@media screen and (min-width: $frontier)
+   .search-box
+      top: 100%;
+
+   #field
+      width: 80%;  
+
+   #submit
+      width: 20%;
+
+@media screen and (min-width: 200px)and(max-width: 800px)
+   .search-box
+      flex-direction: column-reverse;
+      z-index: 12;
+
+   #submit, #field
+      width: 100%;

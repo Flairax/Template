@@ -1,0 +1,95 @@
+/*==========================
+            Preset - All Header inner items pre-flex x/y centered, default transition + font-color
+  ==========================
+header 
+   ul , ol , li, a, div 
+      display: flex
+      align-items: center
+      margin: 0
+      padding: 0
+      transition: $transition
+   ul, ol, li
+      list-style: none 
+   li:hover   
+      cursor: pointer
+   a
+      color: $font-cl
+      text-decoration: none
+      width: 100%
+   img
+      transition: $transition
+   div
+      color: $font-cl
+
+/*=============================
+           Influenced - both mobile&destop versions have same offset because of menu-main in desktop height: 60px, so as mobile aggregator
+  =============================
+main, footer
+   position: relative
+   top: $m-main-H
+
+/*==========================
+         Navigation
+  ==========================
+.navigation
+   width: 100%
+   user-select: none
+   z-index: 10
+
+.banner
+   height: 350px
+
+/*=============================
+           Aggregator
+  =============================*/
+.agregator
+   opacity: 0.95
+   font-size: 110%
+   background-color: $bg-cl
+   border-bottom: 3px solid $bg-cl
+   height: $m-main-H
+   transition: $transition
+   &:hover
+      background-color: $hover-cl   
+      cursor: pointer 
+   img
+      height: 25px
+      width: 25px
+      margin: 15px
+/*==========================
+         Menu-main
+  ==========================
+.menu-main
+   font-family: 'Anton'
+   background-color: $bg-cl
+
+/*==========Arrow========*/
+.arrow
+   background-color: $font-cl
+   border-radius: 100%
+   border: 3px solid $font-cl
+   transform: rotate(90deg)
+   margin-right: 15px
+   
+/*==========================
+         Menu-sub
+  ==========================
+.menu-sub
+   position: absolute
+
+/*==========================
+            Media
+  ==========================
+@media screen and (min-width:  $frontier)
+   @import './header-desktop-R.sass'
+
+
+@media screen and (min-width: 200px)and(max-width:  $frontier)
+   @import './header-mobile-R.sass'
+
+/*==========================
+            Additions
+  ==========================
+@import './searcher.sass'
+@import './product-adder.sass'
+@import './product-summary.sass'

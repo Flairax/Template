@@ -1,0 +1,124 @@
+
+$bot-bor-h: 5px//For point-main animation and center-balancing the inner content
+/*=============================
+            TEMPLATES
+  =============================
+/*==========POINTS-TEMPLATE========*/
+%point-template
+   border-bottom: $bot-bor-h solid $bg-cl
+   &:hover
+      border-bottom-color: $hover-cl
+
+/*=============================
+           Navigation
+  =============================
+.navigation
+   position: absolute
+   a, ul, li
+      justify-content: center 
+   li
+      height: 100% 
+
+/*==========Banner=======*/
+.banner
+   background-color: $font-cl
+   background-image: url("./Header/Images/logo.svg")
+   background-repeat: no-repeat
+   background-position: center
+   transform: scale(1)
+   transform-origin: left center
+
+/*==========Aggregator========*/
+.agregator
+   transform: scale(0)
+   position: absolute  
+
+/*=============================
+            Menu-main
+  =============================
+.menu-main
+   height: $m-main-H 
+  
+/*==========Points-main========*/
+.points-main     
+   @extend %point-template
+   width: 110px      
+   .ref-main
+      padding-top: $bot-bor-h 
+
+/*==========Points-main-openable========*/
+.points-main-openable
+   @extend %point-template
+   width: 140px
+   .ref-main
+      padding-top: $bot-bor-h
+   .arrow
+      margin-top: $bot-bor-h  
+   &:hover
+      .arrow
+         transform: rotate(270deg)
+         background-color: $hover-cl
+         border-color: $hover-cl     
+      .menu-sub
+         transform: skew(0) scale(1)
+      
+/*=============================
+            Menu-sub
+  =============================
+.menu-sub
+   flex-wrap: wrap
+   background: rgba(0, 0, 0, 0.575)  
+   box-shadow: $shadow    
+   top: 100%
+   left: 10%
+   right: 10%
+   margin: auto
+   padding: 10px 130px
+   border-radius: 0 0 25% 25%
+   transform: skew(-60deg) scale(0)
+   transform-origin: top center      
+
+/*==========ref-sub========*/
+.ref-sub
+   height: 40px
+   width: 120px
+   justify-content: center
+   border-radius: 10%
+   &:hover
+      box-shadow: $shadow
+      background-color: $hover-cl
+     
+/*=============================
+            Spinner
+  =============================
+.spinner-box
+   width: 60px
+
+#Spinner
+   width: 35px
+   height: 35px
+   background-color: $font-cl 
+   border-radius: 100%
+   animation: spin 8s linear infinite
+
+@keyframes spin
+   from { transform: rotate(0) }
+   to { transform: rotate(360deg) } 
+
+/*=============================
+            Animation
+  =============================*/
+/*==========Navigation=========== 
+.navigation-fixed
+   position: fixed
+   top: 0
+   .menu-main
+      height: 45px
+      opacity: 0.9   
+   .revealer-search
+      top: 10px  
+   .summary-sidebar, .adder-product
+      top: 25%
+   #Spinner
+      width: 25px
+      height: 25px
