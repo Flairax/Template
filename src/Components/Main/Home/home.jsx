@@ -12,7 +12,7 @@ class Home extends Component {
             <h1>Home</h1>
             <section className="switcherRole">
               
-               {this.props.logined ?
+               {this.props.authorised ?
                   <button onClick={this.exit}>Quit</button>
                   :
                   <form onSubmit={this.login}>
@@ -74,7 +74,7 @@ function matchDispatchToProps(dispatch) {
 export default connect(
    state => ({     
       acces: state.roles.CurrentUser.accesability,
-      logined: state.roles.Chekker.logined,
+      authorised: state.roles.Chekker.authorised,
       loginVal: state.roles.Chekker.loginVal,
       passwordVal: state.roles.Chekker.passwordVal,
    }), matchDispatchToProps)(Home);
