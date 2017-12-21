@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { removeProduct } from './products-Actions';
+ /*=============Actions=============*/
+import { removeProduct } from './products.ACT';
 
+ /*=============Images============*/
 import deleter from '../Assets/Main/Images/deleter.svg'
 
 class ProductList extends Component {
@@ -19,8 +21,8 @@ class ProductList extends Component {
                }
                <h1>{product.name}</h1>
                <img src={product.image} alt={product.name} className="product-Image"/>
-               <h4>Price:</h4><p> {parseInt(product.price, 10)}</p>
-               <h4 >Decription:</h4><p>{product.description}</p>
+               <p><b>Price:</b> {parseInt(product.price, 10)}</p>
+               <p className="descr"><b>Decription:</b><br/>{product.description}</p>
             </li>
          );
       });

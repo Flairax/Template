@@ -1,11 +1,13 @@
+import $ from 'jquery';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { addProduct } from './products-Actions';
-import circles from '../Assets/Header/Images/circles.svg';
+ /*=============Actions=============*/
+import { addProduct } from './products.ACT';
 
-import $ from 'jquery';
+ /*=============Images=============*/
+import circles from '../Assets/Header/Images/circles.svg';
 
 class ProductADD extends Component {
    /*=============Action handlers=============*/

@@ -1,15 +1,24 @@
+import $ from 'jquery';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { removeAllProduct, restoreAllProduct, restoreLastProduct } from './products-Actions';
+ /*=============Actions=============*/
+import { 
+   removeAllProduct, restoreAllProduct, 
+   restoreLastProduct 
+} from './products.ACT';
 
-import { getTotalProducts, getTotalPrice, getAveragePrice } from './Services/Summary.SER';
+ /*=============Services=============*/
+import { 
+   getTotalProducts, getTotalPrice, 
+   getAveragePrice
+} from './Services/Summary.SER';
 
+ /*=============Images============*/
 import circles from '../Assets/Header/Images/circles.svg';
-import $ from 'jquery';
 
-class productsummary extends Component {
+class ProductSUM extends Component {
    /*=============Action handlers=============*/
    reveal = () => {
       $(".RL-product-SUM").toggleClass("RL-product-SUM-CLK");
@@ -62,4 +71,4 @@ export default connect(
       productStore: state.products.productVault,
       acces: state.roles.CurrentUser.accesability,
    }),
-   matchDispatchToProps)(productsummary);
+   matchDispatchToProps)(ProductSUM);

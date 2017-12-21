@@ -1,4 +1,4 @@
-import AllUser from './roles-Init.json'
+import AllUser from './roles.INIT.json'
 
 let USERS_LIST =[];
 
@@ -41,7 +41,7 @@ const initialState = {
    Chekker: {
       loginVal: true,
       passwordVal: true,    
-      logined: false,
+      authorised: false,
    }  
 }
 
@@ -63,7 +63,7 @@ const roles = (state = initialState, action) => {
                Chekker: {
                   loginVal: true,
                   passwordVal: true,   
-                  logined: true, 
+                  authorised: true, 
                }  
             }           
          } else {
@@ -76,7 +76,7 @@ const roles = (state = initialState, action) => {
                Chekker: {
                   loginVal: loginBuffer.validation,
                   passwordVal: false,  
-                  logined: false,  
+                  authorised: false,  
                }  
             }
          }
@@ -90,7 +90,7 @@ const roles = (state = initialState, action) => {
             Chekker: {
                loginVal: true,
                passwordVal: true,    
-               logined: false,
+               authorised: false,
             }  
          }
       default:

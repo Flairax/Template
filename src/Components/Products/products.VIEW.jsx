@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ProducList from './products-List';
+import ProducList from './products.LIST';
 
 export default class ProductView extends Component {
    /*================RENDER==================*/

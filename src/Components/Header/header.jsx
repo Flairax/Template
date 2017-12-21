@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 import Ref from './ref';
 import MenuSub from './menu-sub';
 import Searcher from './searcher';
-import ProductsSummary from '../Products/products-SUM';
-import ProductsForm from '../Products/products-ADD';
+import ProductsSummary from '../Products/products.SUM';
+import ProductsForm from '../Products/products.ADD';
 
 /*=============Initializers=============*/
 import { SubInfoOne, SubInfoTwo } from './Services/sub-menu.INFO';
@@ -18,12 +18,14 @@ import { hideAdditional, allRefsLeadTop }from './Services/header.SER';
 /*=============Images=============*/
 import Gear from '../Assets/Header/Images/gear.svg';
 import Ager from '../Assets/Header/Images/ager.png';
+import Avatar from '../Assets/Header/Images/avatar.svg'
 
 
 class Header extends Component {  
    /*=============Component lifecycle=============*/
    componentDidMount() {
       allRefsLeadTop();
+      console.log(this.props.authorised)
    }
 
    /*=============Action handlers=============*/
@@ -32,6 +34,9 @@ class Header extends Component {
       hideAdditional();
    }
 
+   openLogIn = () => {
+
+   }
    /*================RENDER==================*/
    render() {
       return (
@@ -41,6 +46,9 @@ class Header extends Component {
             <nav className="navigation">
                <aside className="RL-menu-main" onClick={this.reveal}>
                   <img src={Ager} alt="ager" />
+               </aside>
+               <aside className="authorization" onClick={()=>{}}>
+                  <img src={Avatar} alt="avatar"/>
                </aside>
                <ul className="menu-main" >
                   <Ref name="Home" type="ref-main"/>
@@ -71,5 +79,7 @@ class Header extends Component {
 /*=============Store connection============*/
 export default connect(
    state => ({
+      authorised: state.roles.Chekker.authorised,
       acces: state.roles.CurrentUser.accesability,
+      name: state.roles.CurrentUser.name,
    }))(Header);

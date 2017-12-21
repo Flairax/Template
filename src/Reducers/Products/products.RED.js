@@ -1,4 +1,4 @@
-import initialStateJson from './products-Init.json';
+import initialStateJson from './products.INIT.json';
 
 const initialState = {
    productVault: [],

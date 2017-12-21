@@ -1,10 +1,11 @@
 /*=============================
          Role switcher
   =============================*/
-.switcherRole{
-   @extend %flex-template;
+.switcherRole
+   display: flex
    flex-direction: column;
    align-items: center;
+   justify-content: center
    color: $bg-cl;
    position: relative;
    left: 1%;
@@ -13,36 +14,36 @@
    padding: 20px;
    margin: auto;
    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
-   form{
-      @extend %flex-template;
+   border-radius: 10%
+   form
       flex-direction: column;
-   }
-
-   p{
+      input
+         @extend %input-template 
+      button
+         color: $font-cl
+         @extend %button-template 
+         @include button-colors($click-cl, $hover-cl)
+   p
+      margin: 3px
       transform: scale(0);
       transition: 0.4s;
       font-size: 70%;
-   }
+  
 
-   .notValidDesc{
-      &::before{
+   .notValidDesc
+      &::before
          content: "Wrong ";
-      }
       transform: scale(1);
       color: red;
-   }
-   .validDesc{
-      &::before{
+  
+   .validDesc
+      &::before
          content: "Correct ";
-      }
       transform: scale(1);
       color: green;
-   }
-}
 
-.invalid{
+.invalid
    box-shadow: 0px 0px 14px 0px rgb(95, 25, 40);
-   &:focus{
+   &:focus
       box-shadow: 0px 0px 14px 0px rgb(95, 25, 40);
-   }
-}
+  
