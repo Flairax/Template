@@ -16,7 +16,7 @@ class Ratings extends Component {
    constructor() {
       super();
       this.counter = 0;
-      this.ansvered = 0;
+      this.answered = 0;
       this.handlers = [
          this.rateOne,
          this.rateTwo,
@@ -29,16 +29,16 @@ class Ratings extends Component {
    componentWillMount(){
       this.props.ratings.forEach(question => {
          if (question.mark === 0) {
-            this.ansvered++;
+            this.answered++;
          }
       });
    }
    /*================Handlers==================*/
-   rateOne = () => { this.props.rate({ currQues: this.props.ratings[this.counter], mark: 1 }); this.ansvered--; this.chekNext() }
-   rateTwo = () => { this.props.rate({ currQues: this.props.ratings[this.counter], mark: 2 }); this.ansvered--; this.chekNext() }
-   rateThree = () => { this.props.rate({ currQues: this.props.ratings[this.counter], mark: 3 }); this.ansvered--;  this.chekNext() }
-   rateFour = () => { this.props.rate({ currQues: this.props.ratings[this.counter], mark: 4 }); this.ansvered--; this.chekNext() }
-   rateFive = () => { this.props.rate({ currQues: this.props.ratings[this.counter], mark: 5 }); this.ansvered--; this.chekNext() }
+   rateOne = () => { this.props.rate({ currQues: this.props.ratings[this.counter], mark: 1 }); this.answered--; this.chekNext() }
+   rateTwo = () => { this.props.rate({ currQues: this.props.ratings[this.counter], mark: 2 }); this.answered--; this.chekNext() }
+   rateThree = () => { this.props.rate({ currQues: this.props.ratings[this.counter], mark: 3 }); this.answered--;  this.chekNext() }
+   rateFour = () => { this.props.rate({ currQues: this.props.ratings[this.counter], mark: 4 }); this.answered--; this.chekNext() }
+   rateFive = () => { this.props.rate({ currQues: this.props.ratings[this.counter], mark: 5 }); this.answered--; this.chekNext() }
 
    next = () => {
       this.chekNext()
@@ -57,8 +57,10 @@ class Ratings extends Component {
             <aside className="prev"><img src={arrow} alt="nav-arrow" onClick={this.prev} /></aside>
             <div>              
                <h3>Question #{this.counter+1}</h3>
-               <h5>Remain: {this.ansvered}</h5>
-               <div className="question">{this.props.ratings[this.counter].text}</div>
+               <h5>Remain: {this.answered}</h5>
+               <div className={this.props.ratings[this.counter].mark === 0 ? "question" : "question answered"}>
+                  {this.props.ratings[this.counter].text}
+               </div>
                <div className="star-container">
                   {[4, 3, 2, 1, 0].map(star => {
                      return (                      
