@@ -10,12 +10,10 @@ import './Assets/ROOT.sass'
 
 export default class App extends Component {  
    render() {
-      return (
-         <div id="AppWrapper">
-            <Header />
-            <Main />
-            <Footer />
-         </div>
-      );
+      return [
+         <Header key="header"/>,
+         <Main key="main"/>,
+         <Footer key="footer"/>,
+      ];
    }
 }

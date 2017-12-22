@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './Home/home';
 import ProductsView from '../Products/products.VIEW';
 import AdminPage from './AdminPage/adminPage';
+import Ratings from '../Ratings/ratings.VIEW';
 import NotFound from './notFound';
 
 /*=============Services=============*/
@@ -26,6 +27,7 @@ export default class Main extends Component {
                <Route exact path='/' component={Home} />
                <Route exact path='/Home' component={Home} />
                <Route exact path='/products' component={ProductsView} />
+               <Route exact path='/Ratings' component={Ratings} />
                <Route exact path='/AdminPage' component={AdminPage} />
                <Route component={NotFound} />
             </Switch>

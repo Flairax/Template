@@ -8,6 +8,8 @@ import MenuSub from './menu-sub';
 import Searcher from './searcher';
 import ProductsSummary from '../Products/products.SUM';
 import ProductsForm from '../Products/products.ADD';
+import Modal from '../Modal/modal';
+import Login from '../Login/login.VIEW';
 
 /*=============Initializers=============*/
 import { SubInfoOne, SubInfoTwo } from './Services/sub-menu.INFO';
@@ -25,7 +27,6 @@ class Header extends Component {
    /*=============Component lifecycle=============*/
    componentDidMount() {
       allRefsLeadTop();
-      console.log(this.props.authorised)
    }
 
    /*=============Action handlers=============*/
@@ -41,15 +42,19 @@ class Header extends Component {
    render() {
       return (
          <header>
+            <Modal order="login" text={<Login />}/>
             <div id="Banner" className="banner" data-height="400">
             </div>
+            
             <nav className="navigation">
-               <aside className="RL-menu-main" onClick={this.reveal}>
+               <aside className="RL-menu-main" onClick={this.reveal}>     
                   <img src={Ager} alt="ager" />
                </aside>
-               <aside className="authorization" onClick={()=>{}}>
+
+               <aside className="authorization" onClick={()=>{ $(".modal#login").addClass("modal-RVL") }}>              
                   <img src={Avatar} alt="avatar"/>
                </aside>
+
                <ul className="menu-main" >
                   <Ref name="Home" type="ref-main"/>
                   <MenuSub name="MulLorem" order="1" subPoints={SubInfoOne} />
@@ -58,13 +63,14 @@ class Header extends Component {
                      <img id="Spinner" src={Gear} alt="gear" />
                   </li>
                   <MenuSub name="MulLorem" order="2" subPoints={SubInfoTwo} />
-                  <Ref name="Lorem" type="ref-main"/>
+                  <Ref name="Ratings" type="ref-main"/>
                   {this.props.acces ?
                      <Ref name="Admin tools" type="ref-main" />
                      :
                      <Ref name="Support"  type="ref-main"/>
                   }                 
                </ul>
+
                <Searcher />
                <ProductsSummary />
                {this.props.acces &&
