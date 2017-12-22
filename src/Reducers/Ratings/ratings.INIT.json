@@ -2,27 +2,52 @@
    "Questions" : [
       {
          "id": 1,
-         "text": "How do you like For Honor",         
+         "text": "For Honor",         
          "mark": 0
       },
       {
          "id": 2,
-         "text": "Mark Warframe grind expiriense by scale",       
+         "text": "Warframe",       
          "mark": 0
       },
       {
          "id": 3,
-         "text": "How do you find the dog companion from Fallout 4 ?",       
+         "text": "Fallout 4",       
          "mark": 0
       },
       {
          "id": 4,
-         "text": "Mark greediness of the EA",       
+         "text": "Wolfenstein: The new Colossus",       
          "mark": 0
       },
       {
          "id": 5,
-         "text": "Your opinion about react 5 - excellent, 1 - awful",       
+         "text": "Endless Space 2",       
+         "mark": 0
+      },
+      {
+         "id": 6,
+         "text": "XCom 2",       
+         "mark": 0
+      },
+      {
+         "id": 7,
+         "text": "Dawn of War 3",       
+         "mark": 0
+      },
+      {
+         "id": 8,
+         "text": "Nier Automata",       
+         "mark": 0
+      },
+      {
+         "id": 9,
+         "text": "The Surge",       
+         "mark": 0
+      },
+      {
+         "id": 10,
+         "text": "Star Craft 2",       
          "mark": 0
       }
    ]   

@@ -1,0 +1,39 @@
+/*=================Container=================*/
+.greeting
+   position: fixed
+   top: 0
+   width: 30%
+   height: 30%
+   display: flex
+   justify-content: center
+   align-items: center
+   background-color: rgba(0, 0, 0, 0)
+   transform: translateY(-100%);
+   z-index: -1
+   transition: $transition
+   border: none
+
+/*=================Text=================*/   
+.info
+   display: flex
+   flex-direction: column
+   justify-content: center
+   align-items: center
+   background-color: white
+   border-radius: 15px
+   width: 300px
+   height: 300px
+   padding: 15px
+   button
+      @extend %button-template
+      @include button-colors(rgb(114, 20, 4), rgb(163, 27, 3))
+   h4
+      margin: 3px
+
+/*=================Animation=================*/
+.modal-RVL
+   width: 100%
+   height: 100%
+   background-color: rgba(0, 0, 0, 0.774)
+   transform: translateY(0);
+   z-index: 20

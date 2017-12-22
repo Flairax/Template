@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+/*================Components==================*/
+import Modal from '../Modal/modal';
+
 /*================Actions==================*/
 import { rate } from '../../Reducers/Ratings/ratings.ACT'
 
 /*================Images==================*/
 import arrow from '../Assets/Main/Images/nav-arr.svg'
 import rate_star from '../Assets/Main/Images/star.svg'
+
+/*================Jauery==================*/
+import $ from 'jquery'
 
 class Ratings extends Component {
    constructor() {
@@ -20,6 +26,10 @@ class Ratings extends Component {
          this.rateFour,
          this.rateFive,
       ];
+   }
+
+   componentDidMount(){
+      $(".greeting#start").addClass("modal-RVL");
    }
 
    /*================Handlers==================*/
@@ -43,16 +53,24 @@ class Ratings extends Component {
    render() {
       return (
          <section className="ratings">
-            <dialog>
-               gdggdfgdfgdf
-            </dialog>
+            <Modal order="start" text = {[
+               <h4 key="h4">Hello</h4>,
+               <p key="p">Here you will see the list of games, which we need your opinion about,
+                     so tell as how much do you like every one of them by clicking on stars,
+                     <br /> 1 - Totaly dislike
+                     <br /> 5 - I adore it!
+               </p>
+            ]}/>
+            <Modal order="finish" text = {[
+               <h4  key="h4">Job is done!</h4>,
+               <p key="p">
+                  You can start over to see what marks you gave an change them if needed
+               </p>
+            ]}/>
+
             <aside className="prev"><img src={arrow} alt="nav-arrow" onClick={this.prev} /></aside>
             <div>
-               <p>Here you will see the list of some games, which we need your opinion about, 
-                  so tell as how much do you like every one of them by clicking on stars, 
-                  <br/> 1 - Totaly dislike
-                  <br/> 5 - I adore it!
-               </p>
+               
                <h3>Question #{this.counter+1}</h3>
                <div className="question">{this.props.ratings[this.counter].text}</div>
                <div className="star-container">
@@ -79,7 +97,10 @@ class Ratings extends Component {
    }
 
    chekNext(){
-      if (this.counter === this.props.ratings.length - 1) { this.counter = 0; }
+      if (this.counter === this.props.ratings.length - 1) { 
+         $(".greeting#finish").addClass("modal-RVL");
+         this.counter = 0; 
+      }
       else { this.counter++; }
    }
 }
