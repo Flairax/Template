@@ -7,7 +7,6 @@ for (let key in Object.keys(AllUser.UsersList)) {
 }
 
 function loginChek(login){
-   console.log(login);
    for (let i = 0; i < USERS_LIST.length; i++) {
       if(login === USERS_LIST[i].name){
          return {
@@ -23,8 +22,6 @@ function loginChek(login){
 }
 
 function passworChek(record, password){
-   console.log(record);
-   console.log(password);
    if(record === null) return false;
    if(password === record.password){
       return true;
@@ -54,7 +51,6 @@ const roles = (state = initialState, action) => {
          loginBuffer = loginChek(action.payload.login);
          passwordBuffer = (passworChek(loginBuffer.record, action.payload.password));
          if(loginBuffer && passwordBuffer){
-            console.log("passed");
             return {
                CurrentUser: {
                   name: action.payload.login,
@@ -67,7 +63,6 @@ const roles = (state = initialState, action) => {
                }  
             }           
          } else {
-            console.log("Not passed");
             return {
                CurrentUser: {
                   name: "Anonymous",
