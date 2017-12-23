@@ -21,7 +21,6 @@ import circles from '../Assets/Header/Images/circles.svg';
 class ProductSUM extends Component {
    componentWillUpdate(){
       resetValues();
-      console.log(0/0);
    }
    
    /*=============Action handlers=============*/
@@ -73,7 +72,7 @@ function matchDispatchToProps(dispatch) {
 
 export default connect(
    state => ({
-      productStore: state.products.productVault,
+      productStore: state.products.mainVault,
       acces: state.roles.CurrentUser.accesability,
    }),
    matchDispatchToProps)(ProductSUM);

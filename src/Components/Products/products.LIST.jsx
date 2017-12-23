@@ -47,6 +47,6 @@ function matchDispatchToProps(dispatch) {
 
 export default connect(
    state => ({
-      productStore: state.products.productVault,
+      productStore: state.products.mainVault,
       acces: state.roles.CurrentUser.accesability,
    }), matchDispatchToProps)(ProductList);

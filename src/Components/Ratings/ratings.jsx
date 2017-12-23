@@ -64,7 +64,7 @@ class Ratings extends Component {
             <aside className="prev"><img src={arrow} alt="nav-arrow" onClick={this.prev} /></aside>
             <div>              
                <h3>Question #{this.counter+1}</h3>
-               <h5>Remain: {this.answered}</h5>
+               <h5>{this.answered > 0 ? `Remain: ${this.answered}` : "Complete"}</h5>
                <div className={this.props.ratings[this.counter].mark === 0 ? "question" : "question answered"}>
                   {this.props.ratings[this.counter].text}
                </div>

@@ -1,3 +1,5 @@
+import DefAvatar from "../../Components/Assets/Header/Images/avatar.svg"
+
 import AllUser from './roles.INIT.json'
 
 let USERS_LIST =[];
@@ -34,6 +36,7 @@ const initialState = {
    CurrentUser: {
       name: "Anonymous",
       accesability: false,
+      avatar: DefAvatar,
    },
    Chekker: {
       loginVal: true,
@@ -54,7 +57,8 @@ const roles = (state = initialState, action) => {
             return {
                CurrentUser: {
                   name: action.payload.login,
-                  accesability: loginBuffer.record.accesability,                  
+                  accesability: loginBuffer.record.accesability,      
+                  avatar: loginBuffer.record.avatar,              
                },
                Chekker: {
                   loginVal: true,
@@ -81,6 +85,7 @@ const roles = (state = initialState, action) => {
             CurrentUser: {
                name: "Anonymous",
                accesability: false,
+               avatar: DefAvatar,
             },
             Chekker: {
                loginVal: true,

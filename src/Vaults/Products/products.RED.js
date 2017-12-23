@@ -1,14 +1,14 @@
 import initialStateJson from './products.INIT.json';
 
 const initialState = {
-   productVault: [],
+   mainVault: [],
    restoreVault: [],
 }
 
 let idCounter = 0;
 
 for (let key in Object.keys(initialStateJson.Products)) {
-   initialState.productVault.push(initialStateJson.Products[key]);
+   initialState.mainVault.push(initialStateJson.Products[key]);
 }
 
 const products = (state = initialState, action) => {
@@ -17,8 +17,8 @@ const products = (state = initialState, action) => {
    switch (action.type) {
       case 'ADD_PRODUCT':
          return {
-            productVault: [
-               ...state.productVault,
+            mainVault: [
+               ...state.mainVault,
                {
                   id: idCounter++,
                   name: action.payload.name,
@@ -27,12 +27,12 @@ const products = (state = initialState, action) => {
                   price: action.payload.price,
                }
             ],
-            restoreVault: state.restoreVault
+            restoreVault: [ ...state.restoreVault ] 
          }
       case 'REMOVE_PRODUCT': {
          return {
-            productVault: [
-               ...state.productVault.filter(product => product.id !== action.payload.id)
+            mainVault: [
+               ...state.mainVault.filter(product => product.id !== action.payload.id)
             ],
             restoreVault: [
                ...state.restoreVault, action.payload
@@ -42,9 +42,9 @@ const products = (state = initialState, action) => {
 
       case 'REMOVE_ALL_PRODUCTS': {
          return {
-            productVault: [],
+            mainVault: [],
             restoreVault:[
-               ...state.restoreVault, ...state.productVault
+               ...state.restoreVault, ...state.mainVault
             ]
          };
       }
@@ -53,8 +53,8 @@ const products = (state = initialState, action) => {
          console.log(state.restoreVault.length)
          if (state.restoreVault.length) {
             return {
-               productVault: [
-                  ...state.productVault, ...state.restoreVault.slice(-1)      
+               mainVault: [
+                  ...state.mainVault, ...state.restoreVault.slice(-1)      
                ],
                restoreVault:[
                   ...state.restoreVault.slice(0, -1)
@@ -67,8 +67,8 @@ const products = (state = initialState, action) => {
       case 'RESTORE_ALL_PRODUCTS': {
          if (state.restoreVault.length) {
             return {
-               productVault:[
-                  ...state.productVault, ...state.restoreVault.slice(0)
+               mainVault:[
+                  ...state.mainVault, ...state.restoreVault.slice(0)
                ],
                restoreVault: []
             }

@@ -24,7 +24,7 @@ const modals = () => {
          <Modal name="Finish-voting" text={[
             <h4 key="h4">Job is done!</h4>,
             <p key="p">
-               You can start over to see what marks you gave change them if needed.
+               You can start over to see what marks you gave and change them if needed.
                </p>
          ]} closeBy="button" />
       </Fragment>

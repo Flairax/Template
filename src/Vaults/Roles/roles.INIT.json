@@ -8,6 +8,7 @@
       {
          "name": "Admin",       
          "password": "1111",
+         "avatar": "https://d30y9cdsu7xlg0.cloudfront.net/png/99475-200.png",
          "accesability": true
       },
       {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { login, exit } from '../../Vaults/Roles/roles.ACT';
@@ -8,7 +8,7 @@ import { LoginAutoClose } from '../Modal/modals.VIEW';
 class Login extends Component {
    /*================Lifecycle==================*/
    componentDidUpdate(){
-      if (this.props.loginVal && this.props.passwordVal) {
+      if (this.props.authorised) {
          LoginAutoClose();
       }     
    }
@@ -29,7 +29,7 @@ class Login extends Component {
    /*================RENDER==================*/
    render() {
       return (
-         <section className="switcherRole">
+         <Fragment>
             {this.props.authorised ? (
                <button onClick={this.exit}>Quit</button>
             ) : (
@@ -47,7 +47,7 @@ class Login extends Component {
                      <button type="submit">Sign in</button>
                   </form>
                )}
-         </section>
+         </Fragment>
       );
    }
 }

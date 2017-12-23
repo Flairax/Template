@@ -10,12 +10,22 @@ import arrow from '../Assets/Header/Images/arrow.svg';
 
 
 export default class Menu_sub extends Component {
-   /*=============Component lifecycle=============*/
+   /*=============lifecycle=============*/
    componentDidMount() {
-      $(`#Menu-sub-${this.props.order}`).css("z-index",`${30 - this.props.order}`)
+      $(`#Menu-sub-${this.props.order}`).css("z-index",`${30 - this.props.order}`);
+      
    }
 
-   /*=============Action handlers=============*/
+   componentWillUpdate(){
+      console.log(this.props.subPoints)
+   }
+
+   componentWillReceiveProps(){
+      console.log(this.props.subPoints)
+   }
+
+   com
+   /*=============Handlers=============*/
    reveal = () => {
       $(`#RL-menu-sub-${this.props.order}`).toggleClass("RL-menu-sub-CLK");
       $(`#Menu-sub-${this.props.order}`).toggleClass("menu-sub-RVL");
