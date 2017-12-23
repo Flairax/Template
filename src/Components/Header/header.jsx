@@ -8,14 +8,15 @@ import MenuSub from './menu-sub';
 import Searcher from './searcher';
 import ProductsSummary from '../Products/products.SUM';
 import ProductsForm from '../Products/products.ADD';
-import Modal from '../Modal/modal';
-import Login from '../Login/login.VIEW';
 
 /*=============Initializers=============*/
 import { SubInfoOne, SubInfoTwo } from './Services/sub-menu.INFO';
 
 /*=============Services=============*/
 import { hideAdditional, allRefsLeadTop }from './Services/header.SER';
+
+/*=============Modals=============*/
+import { LoginMOD } from '../Modal/modals.VIEW'
 
 /*=============Images=============*/
 import Gear from '../Assets/Header/Images/gear.svg';
@@ -35,14 +36,11 @@ class Header extends Component {
       hideAdditional();
    }
 
-   openLogIn = () => {
-
-   }
    /*================RENDER==================*/
    render() {
       return (
          <header>
-            <Modal order="login" text={<Login />}/>
+            
             <div id="Banner" className="banner" data-height="400">
             </div>
             
@@ -51,7 +49,7 @@ class Header extends Component {
                   <img src={Ager} alt="ager" />
                </aside>
 
-               <aside className="authorization" onClick={()=>{ $(".modal#login").addClass("modal-RVL") }}>              
+               <aside className="authorization" onClick={LoginMOD}>              
                   <img src={Avatar} alt="avatar"/>
                </aside>
 
@@ -65,9 +63,11 @@ class Header extends Component {
                   <MenuSub name="MulLorem" order="2" subPoints={SubInfoTwo} />
                   <Ref name="Ratings" type="ref-main"/>
                   {this.props.acces ?
-                     <Ref name="Admin tools" type="ref-main" />
-                     :
-                     <Ref name="Support"  type="ref-main"/>
+                     (
+                        <Ref name="Admin tools" type="ref-main" />
+                     ) : (
+                        <Ref name="Support"  type="ref-main"/>
+                     )
                   }                 
                </ul>
 
@@ -77,6 +77,8 @@ class Header extends Component {
                   <ProductsForm />
                }
             </nav>
+
+            
          </header>
       );
    }

@@ -10,27 +10,28 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 
 import App from './Components/App';
+
 import store from './store';
 
 const root = document.getElementById('root');
 
-const render = Component => {
-    ReactDOM.render(
+const render = App => {
+   ReactDOM.render(
       <AppContainer>
-        <Provider store = {store}>
-          <BrowserRouter>
-            <Component />
-          </BrowserRouter>
-        </Provider>       
+         <Provider store={store}>
+            <BrowserRouter>
+               <App />
+            </BrowserRouter>
+         </Provider>
       </AppContainer>,
       root
-    )
-  }
+   )
+}
 
 render(App);
 
 if (module.hot) {
-    module.hot.accept('./Components/App', () => { render(App) })
+   module.hot.accept('./Components/App', () => { render(App) })
 }
 
 registerServiceWorker();

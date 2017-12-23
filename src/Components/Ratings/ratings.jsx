@@ -3,14 +3,15 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 /*================Actions==================*/
-import { rate } from '../../Reducers/Ratings/ratings.ACT'
+import { rate } from '../../Vaults/Ratings/ratings.ACT'
 
 /*================Images==================*/
 import arrow from '../Assets/Main/Images/nav-arr.svg'
 import rate_star from '../Assets/Main/Images/star.svg'
 
-/*================Jauery==================*/
-import $ from 'jquery'
+/*================Modals==================*/
+import { RatingsStartMOD, RatingsFinishtMOD } from '../Modal/modals.VIEW'
+
 
 class Ratings extends Component {
    constructor() {
@@ -26,6 +27,11 @@ class Ratings extends Component {
       ];
    }
 
+   /*================Lifecycle==================*/      
+   componentDidMount(){
+      RatingsStartMOD();      
+   }
+   
    componentWillMount(){
       this.props.ratings.forEach(question => {
          if (question.mark === 0) {
@@ -33,6 +39,7 @@ class Ratings extends Component {
          }
       });
    }
+
    /*================Handlers==================*/
    rateOne = () => { this.props.rate({ currQues: this.props.ratings[this.counter], mark: 1 }); this.answered--; this.chekNext() }
    rateTwo = () => { this.props.rate({ currQues: this.props.ratings[this.counter], mark: 2 }); this.answered--; this.chekNext() }
@@ -86,7 +93,7 @@ class Ratings extends Component {
 
    chekNext(){
       if (this.counter === this.props.ratings.length - 1) { 
-         $(".modal#finish").addClass("modal-RVL");
+         RatingsFinishtMOD();
          this.counter = 0; 
       }
       else { this.counter++; }

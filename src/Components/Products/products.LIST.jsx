@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
  /*=============Actions=============*/
-import { removeProduct } from '../../Reducers/Products/products.ACT';
+import { removeProduct } from '../../Vaults/Products/products.ACT';
 
  /*=============Images============*/
 import deleter from '../Assets/Main/Images/deleter.svg'

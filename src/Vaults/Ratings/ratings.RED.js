@@ -12,19 +12,6 @@ const ratings = (state = questions, action) => {
 
    switch (action.type) {
       case 'RATE': {
-         console.log(state.indexOf(action.payload.currQues));
-         console.log(state.slice(0, state.indexOf(action.payload.currQues)));
-
-         console.log(state.slice(state.indexOf(action.payload.currQues)+1, state.length));
-         console.log("state: "+state);
-         /*return [
-            ...state.filter(question => question.id !== action.payload.currQues.id),
-            {
-               id: action.payload.currQues.id,
-               text: action.payload.currQues.text,         
-               mark: action.payload.mark
-            },
-         ]*/
          return [
             ...state.slice(0, state.indexOf(action.payload.currQues)),
             {
@@ -32,11 +19,10 @@ const ratings = (state = questions, action) => {
                text: action.payload.currQues.text,         
                mark: action.payload.mark
             },
-            ...state.slice(state.indexOf(action.payload.currQues)+1, state.length)
+            ...state.slice(state.indexOf(action.payload.currQues) + 1)
          ]
       }
-
-     
+    
       default:
          return state;
    }

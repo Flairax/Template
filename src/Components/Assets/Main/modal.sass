@@ -2,13 +2,12 @@
 .modal
    position: fixed
    top: 0
-   width: 30%
-   height: 30%
+   width: 100%
+   height: 100%
    display: flex
    justify-content: center
    align-items: center
    background-color: rgba(0, 0, 0, 0)
-   transform: translateY(-100%);
    z-index: -1
    transition: $transition
    border: none
@@ -16,6 +15,7 @@
 
 /*=================Text=================*/   
 .info
+   font-family: 'Roboto'
    position: relative
    display: flex
    flex-direction: column
@@ -26,6 +26,8 @@
    width: 300px
    height: 300px
    padding: 15px
+   transform: scale(0)
+   transition: $transition
    button
       @extend %button-template
       @include button-colors(rgb(114, 20, 4), rgb(163, 27, 3))
@@ -40,8 +42,8 @@
 
 /*=================Animation=================*/
 .modal-RVL
-   width: 100%
-   height: 100%
-   background-color: rgba(0, 0, 0, 0.774)
-   transform: translateY(0);
+   transform: scale(1)
+   
+.modal-shadow-RVL
+   background-color: rgba(0, 0, 0, 0.555)
    z-index: 30

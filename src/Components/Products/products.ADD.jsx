@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
  /*=============Actions=============*/
-import { addProduct } from '../../Reducers/Products/products.ACT';
+import { addProduct } from '../../Vaults/Products/products.ACT';
 
  /*=============Images=============*/
 import circles from '../Assets/Header/Images/circles.svg';

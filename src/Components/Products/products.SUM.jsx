@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { 
    removeAllProduct, restoreAllProduct, 
    restoreLastProduct 
-} from '../../Reducers/Products/products.ACT';
+} from '../../Vaults/Products/products.ACT';
 
  /*=============Services=============*/
 import { 
