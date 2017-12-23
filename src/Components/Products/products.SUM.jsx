@@ -11,14 +11,19 @@ import {
 
  /*=============Services=============*/
 import { 
-   getTotalProducts, getTotalPrice, 
-   getAveragePrice
+   resetValues, getTotalProducts, 
+   getTotalPrice, getAveragePrice
 } from './Services/Summary.SER';
 
  /*=============Images============*/
 import circles from '../Assets/Header/Images/circles.svg';
 
 class ProductSUM extends Component {
+   componentWillUpdate(){
+      resetValues();
+      console.log(0/0);
+   }
+   
    /*=============Action handlers=============*/
    reveal = () => {
       $(".RL-product-SUM").toggleClass("RL-product-SUM-CLK");
