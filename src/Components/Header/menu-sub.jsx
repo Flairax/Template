@@ -12,19 +12,9 @@ import arrow from '../Assets/Header/Images/arrow.svg';
 export default class Menu_sub extends Component {
    /*=============lifecycle=============*/
    componentDidMount() {
-      $(`#Menu-sub-${this.props.order}`).css("z-index",`${30 - this.props.order}`);
-      
+      $(`#Menu-sub-${this.props.order}`).css("z-index",`${30 - this.props.order}`);     
    }
 
-   componentWillUpdate(){
-      console.log(this.props.subPoints)
-   }
-
-   componentWillReceiveProps(){
-      console.log(this.props.subPoints)
-   }
-
-   com
    /*=============Handlers=============*/
    reveal = () => {
       $(`#RL-menu-sub-${this.props.order}`).toggleClass("RL-menu-sub-CLK");
