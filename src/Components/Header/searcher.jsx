@@ -15,7 +15,7 @@ export default class Searcher extends Component {
    /*================RENDER==================*/
    render() {
       return (
-         <aside >
+         <aside>
             <button className="RL-searcher" onClick={this.reveal}>
                <img src={loomp} alt="loomp" />
             </button>

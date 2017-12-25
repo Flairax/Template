@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { login, exit } from '../../Vaults/Roles/roles.ACT';
 
-import { LoginAutoClose } from '../Modal/modals.VIEW';
+import { hideModal } from '../Modals/modal';
 
 class Login extends Component {
    /*================Lifecycle==================*/
    componentDidUpdate(){
       if (this.props.authorised) {
-         LoginAutoClose();
+         hideModal("Login");
       }     
    }
 
@@ -30,23 +30,23 @@ class Login extends Component {
    render() {
       return (
          <Fragment>
-            {this.props.authorised ? (
+            {this.props.authorised ? 
                <button onClick={this.exit}>Quit</button>
-            ) : (
-                  <form onSubmit={this.login}>
-                     <input className={this.props.loginVal ? "input" : "input invalid"}
-                        type="text" required placeholder="Login" ref="Login" />
-                     <p className={
-                        !this.props.loginVal ? "notValidDesc" :
-                           !this.props.passwordVal ? "validDesc" : ""
-                     }>
-                        login</p>
-                     <input className={this.props.passwordVal ? "input" : "input invalid"}
-                        type="password" required placeholder="Password" ref="Password" />
-                     <p className={!this.props.passwordVal ? "notValidDesc" : ""}>password</p>
-                     <button type="submit">Sign in</button>
-                  </form>
-               )}
+               : 
+               <form onSubmit={this.login}>
+                  <input className={this.props.loginVal ? "input" : "input invalid"}
+                     type="text" required placeholder="Login" ref="Login" />
+                  <p className={
+                     !this.props.loginVal ? "notValidDesc" :
+                        !this.props.passwordVal ? "validDesc" : ""
+                  }>
+                     login</p>
+                  <input className={this.props.passwordVal ? "input" : "input invalid"}
+                     type="password" required placeholder="Password" ref="Password" />
+                  <p className={!this.props.passwordVal ? "notValidDesc" : ""}>password</p>
+                  <button type="submit">Sign in</button>
+               </form>
+            }
          </Fragment>
       );
    }

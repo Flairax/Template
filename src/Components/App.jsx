@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import Header from './Header/header';
 import Main from './Main/mainRouter';
 import Footer from './Footer/footer';
-import Modals from './Modal/modals.VIEW';
+import Modals from './Modals/modals.VIEW';
 
 /*=============Styles===========*/
 import './Assets/ROOT.sass'

@@ -19,24 +19,6 @@ class ProductADD extends Component {
       }
    }
 
-   /*================RENDER==================*/
-   render() {
-      return (
-         <aside className="product-ADD" > 
-            <div className="RL-product-ADD" onClick={this.reveal}>
-               <img src={circles} alt="circles" />
-            </div>
-            <form onSubmit={this.handleSubmit}>
-               <input type="text" placeholder="Name"   ref="name" required/>
-               <input type="url" placeholder="URL to image"  ref="image" />
-               <input type="number" placeholder="Price"  ref="price" required/>
-               <input type="text" placeholder="Description"  ref="description" />
-               <button type="submit">Add product</button>
-            </form>
-         </aside>
-      );
-   }
-
    handleSubmit = (event) => {
       event.preventDefault();
       this.props.addProduct({
@@ -51,6 +33,27 @@ class ProductADD extends Component {
       this.refs.price.value = "";
       this.refs.description.value = "";
    }
+
+   /*================RENDER==================*/
+   render() {
+      return (
+         <aside className="product-ADD" > 
+            {/*==============Revealer===============*/}
+            <div className="RL-product-ADD" onClick={this.reveal}>
+               <img src={circles} alt="circles" />
+            </div>
+
+            {/*==============Form===============*/}
+            <form onSubmit={this.handleSubmit}>
+               <input type="text" placeholder="Name"   ref="name" required/>
+               <input type="url" placeholder="URL to image"  ref="image" />
+               <input type="number" placeholder="Price"  ref="price" required/>
+               <input type="text" placeholder="Description"  ref="description" />
+               <button type="submit">Add product</button>
+            </form>
+         </aside>
+      );
+   } 
 }
 
 /*=============Store connection============*/

@@ -31,3 +31,13 @@ export default class Modal extends Component {
       );
    }
 }
+
+export function showModal(id){
+   $(`#${id}`).addClass("modal-shadow-RVL");
+   $(`#${id}>.info`).addClass("modal-RVL");
+}
+
+export function hideModal(id){
+   $(`#${id}`).removeClass("modal-shadow-RVL");
+   $(`#${id}>.info`).removeClass("modal-RVL");
+}

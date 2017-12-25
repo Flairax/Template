@@ -26,10 +26,14 @@ export default class Menu_sub extends Component {
       return (
          <li className="points-main-openable">
             <Link to={`/`+this.props.name} className="ref-main">{this.props.name}</Link>
+
+            {/*=============Revealer=============*/}
             <div id={"RL-menu-sub-" + this.props.order} className="RL-menu-sub" onClick={this.reveal}>             
                <span></span>
                <img src={arrow} alt="arrow" className="arrow" />
             </div>
+
+            {/*=============Sub menu=============*/}
             <ul id={"Menu-sub-" + this.props.order} className="menu-sub">
                {this.props.subPoints.map(subPoint => {
                   return <Ref key={subPoint.id} link={"/"+subPoint.name} name={subPoint.name} type="ref-sub" />

@@ -3,7 +3,6 @@
    align-items: center
    justify-content: center
    position: relative
-   width: 460px
    border-radius: 20px
    margin: auto
 
@@ -14,8 +13,6 @@
 
 /*===============Arrows==============*/ 
 .next, .prev,
-   position: relative
-   top: 10px
    margin: 0 10px
    width: 55px
    height: 55px
@@ -74,6 +71,10 @@
 .included
    background-color: orange
 
+
+/*=======================
+         Media
+   ======================*/
 @media screen and (min-width: 200px)and(max-width:  $frontier)
    .ratings
       width: 340px
@@ -91,3 +92,11 @@
 
    .star-container
       margin-top: 90px
+
+@media screen and (min-width: $frontier)
+   .ratings
+      width: 460px
+
+   .next, .prev
+      position: relative
+      top: 10px

@@ -61,9 +61,7 @@ $bot-bor-h: 5px//For point-main animation and center-balancing the inner content
          border-color: $hover-cl     
       .menu-sub
          transform: skew(0) scale(1)
-      
-
-     
+         
 /*=============================
             Spinner
   =============================
@@ -84,21 +82,22 @@ $bot-bor-h: 5px//For point-main animation and center-balancing the inner content
 /*=============================
             Media
   =============================*/
-@media screen and (min-width: $frontier)and(max-width:  1000px)
-   
-   
+@media screen and (min-width: $frontier)and(max-width:  1000px) 
    .points-main:first-child, .points-main:last-child
       position: absolute
       top: 100%
       background-color: $bg-cl
       width: 110px
       z-index: 12
+   
    .points-main:first-child
       left: 35%
       border-bottom-left-radius: 35%
+   
    .points-main:last-child
       right: 35%
       border-bottom-right-radius: 35%
+   
    #Spinner
       z-index: 13
 

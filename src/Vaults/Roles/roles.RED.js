@@ -71,6 +71,7 @@ const roles = (state = initialState, action) => {
                CurrentUser: {
                   name: "Anonymous",
                   accesability: false,
+                  avatar: DefAvatar,
                },
                Chekker: {
                   loginVal: loginBuffer.validation,

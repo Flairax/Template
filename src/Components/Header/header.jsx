@@ -10,13 +10,13 @@ import ProductsSummary from '../Products/products.SUM';
 import ProductsForm from '../Products/products.ADD';
 
 /*=============Initializers=============*/
-import { SubInfoOne, SubInfoTwo } from './Services/sub-menu.INFO';
+import { SubInfoTwo } from './Services/sub-menu.INFO';
 
 /*=============Services=============*/
 import { hideAdditional, allRefsLeadTop }from './Services/header.SER';
 
 /*=============Modals=============*/
-import { LoginMOD } from '../Modal/modals.VIEW'
+import { showModal } from '../Modals/modal'
 
 /*=============Images=============*/
 import Gear from '../Assets/Header/Images/gear.svg';
@@ -27,31 +27,38 @@ class Header extends Component {
    /*=============Component lifecycle=============*/
    componentDidMount() {
       allRefsLeadTop();   
+      console.log(this.props.children)
    }
 
    /*=============Action handlers=============*/
+   //Mobile menu toggle
    reveal = () => {
       $(".menu-main").toggleClass("menu-main-RVL"); 
       hideAdditional();
    }
 
+   //Login modal toggle
+   revealLogin = () => {
+      showModal("Login");
+   }
    /*================RENDER==================*/
    render() {
       return (
-         <header>
-            
+         <header>           
             <div id="Banner">
             </div>
-            
             <nav className="navigation">
+               {/*=============Mobile menu revealer=============*/}
                <aside className="RL-menu-main" onClick={this.reveal}>             
                   <img src={Ager} alt="ager" />
                </aside>
 
-               <aside className="authorization" onClick={LoginMOD}>   
+               {/*=============Authorization=============*/}
+               <aside className="authorization" onClick={this.revealLogin}>   
                   <img src={this.props.avatar} alt="avatar"/>  
                </aside>
 
+               {/*=============Main menu=============*/}
                <ul className="menu-main" >
                   <Ref name="Home" type="ref-main"/>
                   <MenuSub name="Products" order="1" subPoints={this.props.productStore} />
@@ -62,14 +69,13 @@ class Header extends Component {
                   <MenuSub name="MulLorem" order="2" subPoints={SubInfoTwo} />
                   <Ref name="Ratings" type="ref-main"/>
                   {this.props.acces ?
-                     (
                         <Ref name="Admin tools" type="ref-main" />
-                     ) : (
+                     : 
                         <Ref name="Support"  type="ref-main"/>
-                     )
                   }                 
                </ul>
-
+               
+               {/*=============Sidebars=============*/}
                <Searcher />
                <ProductsSummary />
                {this.props.acces &&
@@ -84,9 +90,7 @@ class Header extends Component {
 /*=============Store connection============*/
 export default connect(
    state => ({
-      authorised: state.roles.Chekker.authorised,
       acces: state.roles.CurrentUser.accesability,
-      name: state.roles.CurrentUser.name,
       avatar: state.roles.CurrentUser.avatar,
       productStore: state.products.mainVault,
    })

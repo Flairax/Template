@@ -6,7 +6,7 @@ import arrow from '../Assets/Main/Images/nav-arr.svg'
 import rate_star from '../Assets/Main/Images/star.svg'
 
 /*================Modals==================*/
-import { RatingsStartMOD, RatingsFinishtMOD } from '../Modal/modals.VIEW'
+import { showModal } from '../Modals/modal'
 
 
 export default class Ratings extends Component {
@@ -19,7 +19,7 @@ export default class Ratings extends Component {
 
    /*================Lifecycle==================*/      
    componentDidMount(){
-      RatingsStartMOD();   
+      showModal("Start-voting");   
    }
    
    componentWillMount(){
@@ -44,15 +44,14 @@ export default class Ratings extends Component {
    }
 
    prev = () => {
-      if (this.counter === 0) { this.counter =  this.questCount; }
-      else { this.counter--; }
+      this.counter = this.counter === 0 ? this.questCount :  this.counter - 1;
       this.forceUpdate();
    }
    /*================RENDER==================*/
    render() {
       return (
          <section className="ratings">
-            <aside className="prev"><img src={arrow} alt="nav-arrow" onClick={this.prev} /></aside>
+            <nav className="prev"><img src={arrow} alt="nav-arrow" onClick={this.prev} /></nav>
             <div>              
                <h3>Question #{this.counter+1}</h3>
                <h5>{this.answered > 0 ? `Remain: ${this.answered}` : "Complete"}</h5>
@@ -69,7 +68,7 @@ export default class Ratings extends Component {
                   })}
                </div>
             </div>
-            <aside className="next"><img src={arrow} alt="nav-arrow" onClick={this.next} /></aside>
+            <nav className="next"><img src={arrow} alt="nav-arrow" onClick={this.next} /></nav>
          </section>
       );
    }
@@ -84,7 +83,7 @@ export default class Ratings extends Component {
 
    chekNext(){
       if (this.counter ===  this.questCount) { 
-         RatingsFinishtMOD();
+         showModal("Finish-voting");
          this.counter = 0; 
       }
       else { this.counter++; }
