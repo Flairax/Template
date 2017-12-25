@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Product from './product';
+import Product from './product.ITEM';
 
 /*=============Actions=============*/
 import { removeProduct } from '../../Vaults/Products/products.ACT';
