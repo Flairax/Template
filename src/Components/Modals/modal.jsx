@@ -20,7 +20,6 @@ export default class Modal extends Component {
    }
 
    componentWillReceiveProps(nextProps){
-      console.log("Props reciving", nextProps)
       if(nextProps.opened !== this.props.opened){
          if(nextProps.opened){
             this.open();

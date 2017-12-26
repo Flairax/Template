@@ -40,11 +40,17 @@ $bot-bor-h: 5px//For point-main animation and center-balancing the inner content
    height: $m-main-H 
   
 /*==========Points-main========*/
-.points-main     
+.points-main
    @extend %point-template
    width: 110px      
    .ref-main
       padding-top: $bot-bor-h 
+
+/*----------Last child----------*/
+.points-main:last-child
+   border-bottom: $bot-bor-h solid $click-cl
+   &:hover
+      border-bottom-color: $hover-cl
 
 /*==========Points-main-openable========*/
 .points-main-openable
