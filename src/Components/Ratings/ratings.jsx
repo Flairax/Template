@@ -7,7 +7,6 @@ import rate_star from '../Assets/Main/Images/star.svg'
 
 /*================Modals==================*/
 import Modal from '../Modals/modal';
-import { StartGamesVoting, FinishGamesVoting } from '../Modals/modals.VAULT';
 
 export default class Ratings extends Component {
    constructor(props) {
@@ -72,8 +71,8 @@ export default class Ratings extends Component {
          <section className="ratings">
             {/*=============Prev arrow=============*/}
             <nav className="prev"><img src={arrow} alt="nav-arrow" onClick={this.prev} /></nav>
+            
             <div>
-
                {/*=============Description=============*/}
                <h3>Question #{this.counter + 1}</h3>
                <h5>{this.answered > 0 ? `Remain: ${this.answered}` : "Complete"}</h5>
@@ -108,7 +107,7 @@ export default class Ratings extends Component {
                      closeBy="button"
                      opened={this.state.startMOD}
                      callback={this.closeMODStart}
-                  ><StartGamesVoting />
+                  >{this.props.startMOD}
                   </Modal>
 
                   {/*=============Finish=============*/}
@@ -116,7 +115,7 @@ export default class Ratings extends Component {
                      closeBy="button"
                      opened={this.state.finishMOD}
                      callback={this.closeMODFinish}
-                  ><FinishGamesVoting />
+                  >{this.props.finishMOD}
                   </Modal>
                </Fragment>,
                document.getElementById("modals")

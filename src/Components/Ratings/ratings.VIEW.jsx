@@ -8,12 +8,19 @@ import { rate } from '../../Vaults/Ratings/ratings.ACT'
 /*================Components==================*/
 import Ratings from './ratings';
 
+import { StartGamesVoting, FinishGamesVoting } from '../Modals/modals.VAULT';
+
 class RatingsView extends Component {
    /*================RENDER==================*/
    render() {
       return (
          <article>
-            <Ratings questions={this.props.games} action={this.props.rate}/>                      
+            <Ratings 
+               questions={this.props.games} 
+               action={this.props.rate} 
+               startMOD={<StartGamesVoting />}
+               finishMOD={<FinishGamesVoting />}
+            />                      
          </article>
       );
    }
