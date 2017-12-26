@@ -29,7 +29,7 @@ class Header extends Component {
       super(props);
       this.state = {
          blockClass: "",
-         authrOpen: "false",
+         authrOpen: false,
       }
    }
    /*=============Component lifecycle=============*/

@@ -1,19 +1,24 @@
 main
-   font-family: 'Roboto';
-   width: 80%;
-   margin: 0 auto;
+   font-family: 'Roboto'
+   margin: 0 auto
    padding: 10px 20px
-   background-color: white;
+   background-color: white
    box-shadow: $shadow
    min-height: 1500px
    line-height: 25px
 
 
-@media screen and (max-width: 800px)
+@media screen and (max-width: $frontier)
    main
       width: 100%;
+
+@media screen and (min-width: $frontier)
+   main
+      width: 80%;
  
+
+
 @import './product.LIST.sass'
-@import './login.sass'
 @import './modal.sass'
+@import './login.sass'
 @import './ratings.sass'

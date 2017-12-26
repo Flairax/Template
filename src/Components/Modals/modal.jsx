@@ -1,44 +1,36 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 /*================Images==================*/
 import deleter from '../Assets/Main/Images/deleter.svg'
 
-export default class Modal extends Component {
+export default class Modal extends PureComponent {
    constructor(props) {
       super(props);
-      this.state = {        
-         shadow: "",
-         info: ""
-      }     
-   }
-
-   /*================Lifecycle==================*/  
-   componentDidMount(){
-      if(this.props.opened === true){
-         this.open();
+      this.state = {
+         shadow: props.opened === true ? "modal-shadow-RVL" : "",
+         info: props.opened === true ? "modal-RVL" : ""
       }
    }
 
-   componentWillReceiveProps(nextProps){
-      if(nextProps.opened !== this.props.opened){
-         if(nextProps.opened){
+   /*================Lifecycle==================*/
+   componentWillReceiveProps(nextProps) {     
+         if (nextProps.opened) {
             this.open();
-         }else{
+         } else {
             this.close();
          }
-      }
    }
 
-   /*================Handlers==================*/    
+   /*================Handlers==================*/
    open = () => {
-      this.setState({                    
+      this.setState({
          shadow: "modal-shadow-RVL",
          info: "modal-RVL",
       });
    }
 
    close = () => {
-      this.setState({          
+      this.setState({
          shadow: "",
          info: "",
       });
@@ -51,15 +43,15 @@ export default class Modal extends Component {
             <section className={`window ${this.props.type ? this.props.type : "info"} ${this.state.info}`}>
                {this.props.children}
                {/*================Closer type==================*/
-               this.props.closeBy === "button" ? 
-                  <button onClick={this.props.callback}>Understand</button>
-                  : 
-                  <img 
-                     src={deleter} 
-                     alt="deleter" 
-                     className="deleter"
-                     onClick={this.props.callback}
-                  />
+                  this.props.closeBy === "button" ?
+                     <button onClick={this.props.callback}>Understand</button>
+                     :
+                     <img
+                        src={deleter}
+                        alt="deleter"
+                        className="deleter"
+                        onClick={this.props.callback}
+                     />
                }
             </section>
          </dialog>
