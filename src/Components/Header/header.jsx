@@ -7,7 +7,7 @@ import Ref from './ref';
 import MenuSub from './menu-sub';
 import Searcher from './searcher';
 import ProductsSummary from '../Products/products.SUM';
-import ProductsForm from '../Products/products.ADD';
+import ProductsAdder from '../Products/products.ADD';
 
 /*=============Modals=============*/
 import Modal from '../Modals/modal';
@@ -118,7 +118,7 @@ class Header extends Component {
                <Searcher />
                <ProductsSummary />
                {this.props.acces &&
-                  <ProductsForm />
+                  <ProductsAdder />
                }
             </nav>
          </header>
@@ -127,10 +127,8 @@ class Header extends Component {
 }
 
 /*=============Store connection============*/
-export default connect(
-   state => ({
-      acces: state.roles.CurrentUser.accesability,
-      avatar: state.roles.CurrentUser.avatar,
-      productStore: state.products.mainVault,
-   })
-)(Header);
+export default connect(state => ({
+   acces: state.roles.CurrentUser.accesability,
+   avatar: state.roles.CurrentUser.avatar,
+   productStore: state.products.mainVault,
+}))(Header);
