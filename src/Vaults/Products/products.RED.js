@@ -76,6 +76,7 @@ const products = (state = initialState, action) => {
          alert("No elemts have been removed yet / restore vault is empty");
          return state;
       }
+      
       default:
          return state;
    }

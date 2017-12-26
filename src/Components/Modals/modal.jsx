@@ -3,41 +3,67 @@ import React, { Component } from 'react';
 /*================Images==================*/
 import deleter from '../Assets/Main/Images/deleter.svg'
 
-/*================Jauery==================*/
-import $ from 'jquery'
-
 export default class Modal extends Component {
-   /*================Handlers==================*/
+   constructor(props) {
+      super(props);
+      this.state = {        
+         shadow: "",
+         info: ""
+      }     
+   }
+
+   /*================Lifecycle==================*/  
+   componentDidMount(){
+      if(this.props.opened === true){
+         this.open();
+      }
+   }
+
+   componentWillReceiveProps(nextProps){
+      console.log("Props reciving", nextProps)
+      if(nextProps.opened !== this.props.opened){
+         if(nextProps.opened){
+            this.open();
+         }else{
+            this.close();
+         }
+      }
+   }
+
+   /*================Handlers==================*/    
+   open = () => {
+      this.setState({                    
+         shadow: "modal-shadow-RVL",
+         info: "modal-RVL",
+      });
+   }
+
    close = () => {
-      $(`#${this.props.name}`).removeClass("modal-shadow-RVL");
-      $(`#${this.props.name}>.info`).removeClass("modal-RVL");
+      this.setState({          
+         shadow: "",
+         info: "",
+      });
    }
 
    /*================RENDER==================*/
    render() {
       return (
-         <dialog id={this.props.name} className="modal">
-            <section className="info">
-               {this.props.text}
-               {this.props.closeBy === "button" ? (
-                  <button onClick={this.close}>Understand</button>
-               ) : (
-                  <img src={deleter} alt="deleter" className="deleter"
-                     onClick={this.close}>
-                  </img>
-               )}
+         <dialog className={`modal ${this.state.shadow}`}>
+            <section className={`window ${this.props.type ? this.props.type : "info"} ${this.state.info}`}>
+               {this.props.children}
+               {/*================Closer type==================*/
+               this.props.closeBy === "button" ? 
+                  <button onClick={this.props.callback}>Understand</button>
+                  : 
+                  <img 
+                     src={deleter} 
+                     alt="deleter" 
+                     className="deleter"
+                     onClick={this.props.callback}
+                  />
+               }
             </section>
          </dialog>
       );
    }
-}
-
-export function showModal(id){
-   $(`#${id}`).addClass("modal-shadow-RVL");
-   $(`#${id}>.info`).addClass("modal-RVL");
-}
-
-export function hideModal(id){
-   $(`#${id}`).removeClass("modal-shadow-RVL");
-   $(`#${id}>.info`).removeClass("modal-RVL");
 }

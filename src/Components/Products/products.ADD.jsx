@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -10,13 +9,22 @@ import { addProduct } from '../../Vaults/Products/products.ACT';
 import circles from '../Assets/Header/Images/circles.svg';
 
 class ProductADD extends Component {
+   constructor(props) {
+      super(props);
+      this.state = {
+         btnClass: "",
+         blockClass: ""
+      }
+   }
+
    /*=============Action handlers=============*/
    reveal = () => {
-      $(".RL-product-ADD").toggleClass("RL-product-ADD-CLK");
-      $(".product-ADD").toggleClass("product-ADD-RVL");
-      if(window.matchMedia("(max-width: 420px)").matches){
-         $(".product-SUM").toggleClass("product-SUM-HDN");
-      }
+      this.setState(prevState => {
+         return {
+            btnClass: prevState.btnClass === "" ? "RL-product-ADD-CLK" : "",
+            blockClass: prevState.blockClass === "" ? "product-ADD-RVL" : "",
+         };
+      });
    }
 
    handleSubmit = (event) => {
@@ -37,18 +45,18 @@ class ProductADD extends Component {
    /*================RENDER==================*/
    render() {
       return (
-         <aside className="product-ADD" > 
+         <aside className={"product-ADD "+this.state.blockClass} > 
             {/*==============Revealer===============*/}
-            <div className="RL-product-ADD" onClick={this.reveal}>
+            <div className={"RL-product-ADD "+this.state.btnClass} onClick={this.reveal}>
                <img src={circles} alt="circles" />
             </div>
 
             {/*==============Form===============*/}
             <form onSubmit={this.handleSubmit}>
-               <input type="text" placeholder="Name"   ref="name" required/>
-               <input type="url" placeholder="URL to image"  ref="image" />
-               <input type="number" placeholder="Price"  ref="price" required/>
-               <input type="text" placeholder="Description"  ref="description" />
+               <input type="text" placeholder="Name" ref="name" required/>
+               <input type="url" placeholder="URL to image" ref="image" />
+               <input type="number" placeholder="Price" ref="price" required/>
+               <input type="text" placeholder="Description" ref="description" />
                <button type="submit">Add product</button>
             </form>
          </aside>

@@ -14,32 +14,33 @@
    
 
 /*=================Text=================*/   
-.info
-   font-family: 'Roboto'
-   position: relative
+.window
    display: flex
    flex-direction: column
    justify-content: center
    align-items: center
-   background-color: white
-   border-radius: 15px
    width: 300px
    height: 300px
    padding: 15px
+   border-radius: 15px
    transform: scale(0)
+   background-color: white
    transition: $transition
-   button
-      @extend %button-template
-      @include button-colors(rgb(114, 20, 4), rgb(163, 27, 3))
-   h4
-      margin: 3px
    .deleter
       height: 25px
       width: 25px
       position: absolute
       top: 20px
       right: 20px
+   button
+      @extend %button-template
+      @include button-colors(rgb(114, 20, 4), rgb(163, 27, 3))
 
+.info
+   font-family: 'Roboto'      
+   h4
+      margin: 3px
+   
 /*=================Animation=================*/
 .modal-RVL
    transform: scale(1)

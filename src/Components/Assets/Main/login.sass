@@ -1,9 +1,9 @@
 /*=============================
          Role switcher
   =============================*/
-#Login
+.login
    form
-      flex-direction: column;
+      flex-direction: column
       input
          @extend %input-template 
    button
@@ -11,23 +11,24 @@
       @include button-colors($click-cl, $hover-cl)  
    p
       margin: 3px
-      transform: scale(0);
-      transition: 0.4s;
-      font-size: 70%;
+      transform: scale(0)
+      transition: 0.4s
+      font-size: 70%
   
+   /*=================Validation=================*/   
    .notValidDesc
       &::before
-         content: "Wrong ";
-      transform: scale(1);
-      color: red;
-  
+         content: "Wrong "
+      transform: scale(1)
+      color: red
+   
    .validDesc
       &::before
-         content: "Correct ";
-      transform: scale(1);
-      color: green;
+         content: "Correct "
+      transform: scale(1)
+      color: green
 
 .invalid
-   box-shadow: 0px 0px 14px 0px rgb(95, 25, 40);
+   box-shadow: 0px 0px 14px 0px rgb(95, 25, 40)
    &:focus
-      box-shadow: 0px 0px 14px 0px rgb(95, 25, 40);
+      box-shadow: 0px 0px 14px 0px rgb(95, 25, 40)

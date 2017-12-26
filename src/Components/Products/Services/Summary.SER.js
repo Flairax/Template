@@ -14,7 +14,9 @@ export function getTotalProducts(productStore){
       totalPrice += parseFloat(product.price, 10);
    });
 
-   averagePrice = totalPrice / totalProducts;
+   if(totalProducts !== 0){
+      averagePrice = totalPrice / totalProducts;
+   } 
 
    return totalProducts;
 }
@@ -24,8 +26,5 @@ export function getTotalPrice(){
 }
 
 export function getAveragePrice(){
-   if(isNaN(averagePrice)){
-      return "0.00";
-   }
    return averagePrice.toFixed(2);
 }

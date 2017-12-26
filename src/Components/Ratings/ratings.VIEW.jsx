@@ -13,7 +13,7 @@ class RatingsView extends Component {
    render() {
       return (
          <article>
-            <Ratings questions={this.props.games} action={this.props.rate}/>           
+            <Ratings questions={this.props.games} action={this.props.rate}/>                      
          </article>
       );
    }

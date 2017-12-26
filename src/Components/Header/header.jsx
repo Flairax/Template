@@ -1,5 +1,5 @@
-import $ from "jquery";
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
 /*=============Components=============*/
@@ -9,79 +9,118 @@ import Searcher from './searcher';
 import ProductsSummary from '../Products/products.SUM';
 import ProductsForm from '../Products/products.ADD';
 
+/*=============Modals=============*/
+import Modal from '../Modals/modal';
+import Login from '../Login/login';
+
 /*=============Initializers=============*/
 import { SubInfoTwo } from './Services/sub-menu.INFO';
 
 /*=============Services=============*/
-import { hideAdditional, allRefsLeadTop }from './Services/header.SER';
-
-/*=============Modals=============*/
-import { showModal } from '../Modals/modal'
+import { allRefsLeadTop } from './Services/header.SER';
 
 /*=============Images=============*/
 import Gear from '../Assets/Header/Images/gear.svg';
-import Ager from '../Assets/Header/Images/ager.png';
+import MobIcon from '../Assets/Header/Images/ager.png';
 
 
-class Header extends Component {  
+class Header extends Component {
+   constructor(props) {
+      super(props);
+      this.state = {
+         blockClass: "",
+         authrOpen: "false",
+      }
+   }
    /*=============Component lifecycle=============*/
    componentDidMount() {
-      allRefsLeadTop();   
-      console.log(this.props.children)
+      allRefsLeadTop();
    }
 
    /*=============Action handlers=============*/
-   //Mobile menu toggle
-   reveal = () => {
-      $(".menu-main").toggleClass("menu-main-RVL"); 
-      hideAdditional();
+   /*-------------Main menu-------------*/
+   close = () => {
+      this.setState({
+         blockClass: "",
+      });
    }
 
-   //Login modal toggle
-   revealLogin = () => {
-      showModal("Login");
+   toggle = () => {
+      this.setState(prevState => {
+         return {
+            blockClass: prevState.blockClass === "" ? "menu-main-RVL" : "",
+         };
+      });
    }
+
+   /*-------------Login-------------*/
+   openLogin = () => {
+      this.setState({
+         authrOpen: true,
+      });
+   }
+
+   closelLogin = () => {
+      this.setState({
+         authrOpen: false,
+      });
+   }
+
    /*================RENDER==================*/
    render() {
       return (
-         <header>           
+         <header>
             <div id="Banner">
             </div>
             <nav className="navigation">
                {/*=============Mobile menu revealer=============*/}
-               <aside className="RL-menu-main" onClick={this.reveal}>             
-                  <img src={Ager} alt="ager" />
+               <aside className="RL-menu-main" onClick={this.toggle}>
+                  <img src={MobIcon} alt="MobIcon" />
                </aside>
 
                {/*=============Authorization=============*/}
-               <aside className="authorization" onClick={this.revealLogin}>   
-                  <img src={this.props.avatar} alt="avatar"/>  
+               <aside className="authorization" >
+                  <img src={this.props.avatar} alt="avatar" onClick={this.openLogin} />
+                  {ReactDOM.createPortal(
+                     <Modal opened={this.state.authrOpen} callback={this.closelLogin} type="login">
+                        <Login callback={this.closelLogin}/>
+                     </Modal>,
+                     document.getElementById("modals")
+                  )}
                </aside>
 
                {/*=============Main menu=============*/}
-               <ul className="menu-main" >
-                  <Ref name="Home" type="ref-main"/>
-                  <MenuSub name="Products" order="1" subPoints={this.props.productStore} />
-                  <Ref name="Lorem" type="ref-main"/>
+               <ul className={"menu-main " + this.state.blockClass} >
+                  <Ref name="Home" type="ref-main" closeParent={this.close} />
+                  <MenuSub
+                     name="Products"
+                     subPoints={this.props.productStore}
+                     closeParent={this.close}
+                  />
+                  <Ref name="Lorem" type="ref-main" closeParent={this.close} />
                   <li className="spinner-box" hidden>
                      <img id="Spinner" src={Gear} alt="gear" />
                   </li>
-                  <MenuSub name="MulLorem" order="2" subPoints={SubInfoTwo} />
-                  <Ref name="Ratings" type="ref-main"/>
+                  <MenuSub
+                     name="MulLorem"
+                     subPoints={SubInfoTwo}
+                     closeParent={this.close}
+                  />
+                  <Ref name="Ratings" type="ref-main" closeParent={this.close} />
                   {this.props.acces ?
-                        <Ref name="Admin tools" type="ref-main" />
-                     : 
-                        <Ref name="Support"  type="ref-main"/>
-                  }                 
+                     <Ref name="Admin tools" type="ref-main" />
+                     :
+                     <Ref name="Support" type="ref-main" />
+                  }
                </ul>
-               
+
                {/*=============Sidebars=============*/}
                <Searcher />
                <ProductsSummary />
                {this.props.acces &&
                   <ProductsForm />
                }
-            </nav>            
+            </nav>
          </header>
       );
    }

@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -8,33 +7,54 @@ import Ref from './ref';
 /*=============Images=============*/
 import arrow from '../Assets/Header/Images/arrow.svg';
 
-
 export default class Menu_sub extends Component {
-   /*=============lifecycle=============*/
-   componentDidMount() {
-      $(`#Menu-sub-${this.props.order}`).css("z-index",`${30 - this.props.order}`);     
+   constructor(props){
+      super(props);
+      this.state = {
+         btnClass: "",
+         blockClass: ""
+      }
+   }
+   
+   componentWillReceiveProps(){
+      this.close();         
    }
 
    /*=============Handlers=============*/
-   reveal = () => {
-      $(`#RL-menu-sub-${this.props.order}`).toggleClass("RL-menu-sub-CLK");
-      $(`#Menu-sub-${this.props.order}`).toggleClass("menu-sub-RVL");
+   close = () =>{
+      this.setState({
+         btnClass: "",
+         blockClass: "",
+      });
+   }
+      
+   toggle = () => {
+      this.setState(prevState => {
+         return {
+            btnClass: prevState.btnClass === "" ? "RL-menu-sub-CLK" : "",
+            blockClass: prevState.blockClass === "" ? "menu-sub-RVL" : "",
+         };
+      });
    }
 
    /*================RENDER==================*/
    render() {
       return (
          <li className="points-main-openable">
-            <Link to={`/`+this.props.name} className="ref-main">{this.props.name}</Link>
-
+            <Link 
+               to={`/`+this.props.name} 
+               className="ref-main"
+               onClick={this.props.closeParent}
+            >{this.props.name}</Link>
+            
             {/*=============Revealer=============*/}
-            <div id={"RL-menu-sub-" + this.props.order} className="RL-menu-sub" onClick={this.reveal}>             
+            <div className={"RL-menu-sub "+this.state.btnClass} onClick={this.toggle}>             
                <span></span>
                <img src={arrow} alt="arrow" className="arrow" />
             </div>
 
             {/*=============Sub menu=============*/}
-            <ul id={"Menu-sub-" + this.props.order} className="menu-sub">
+            <ul className={"menu-sub "+this.state.blockClass}>
                {this.props.subPoints.map(subPoint => {
                   return <Ref key={subPoint.id} link={"/"+subPoint.name} name={subPoint.name} type="ref-sub" />
                })}
@@ -43,3 +63,4 @@ export default class Menu_sub extends Component {
       );
    }
 }
+

@@ -1,21 +1,6 @@
 import $ from 'jquery';
 
 /*=============================
-            Hiders
-  =============================*/
-export function hideAdditional() {
-   $(".menu-sub").removeClass("menu-sub-RVL");
-   $(".RL-menu-sub").removeClass("RL-menu-sub-CLK");
-   $(".RL-searcher").removeClass("RL-searcher-CLK");
-   $(".searcher").removeClass("searcher-RVL");   
-}
-
-export function hideAll(){
-   $(".menu-main").removeClass("menu-main-RVL"); 
-   hideAdditional();
-}
-
-/*=============================
          Scroll watcher
   =============================*/
 let scrolled = 0;
@@ -43,6 +28,5 @@ window.addEventListener('scroll', navFixation);
 export function allRefsLeadTop() {
    $(".ref-main, .ref-sub").bind('click', () => {
       document.documentElement.scrollTop = 0;
-      hideAll();
    });
 }

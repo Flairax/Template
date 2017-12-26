@@ -8,27 +8,17 @@ import AdminPage from './AdminPage/adminPage';
 import Ratings from '../Ratings/ratings.VIEW';
 import NotFound from './notFound';
 
-/*=============Services=============*/
-import { hideAll } from '../Header/Services/header.SER';
-
 export default class Main extends Component {
-   /*=============Action handlers=============*/
-   closeAllMenus = () => {
-      if(window.matchMedia("(max-width: 800px)").matches){
-         hideAll();
-      }      
-   }
-
    /*================RENDER==================*/
    render() {
       return (
-         <main onClick={this.closeAllMenus}>
+         <main >
             <Switch>
                <Route exact path='/' component={Home} />
                <Route exact path='/Home' component={Home} />
                <Route exact path='/products' component={ProductsView} />
                <Route exact path='/Ratings' component={Ratings} />
-               <Route exact path='/AdminPage' component={AdminPage} />
+               <Route exact path='/Admin tools' component={AdminPage} />
                <Route component={NotFound} />
             </Switch>
          </main>

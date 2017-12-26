@@ -6,6 +6,7 @@ import deleter from '../Assets/Main/Images/deleter.svg'
 const product = (props) => {
    return (
       <li className="product">
+          {/*=============Delete button=============*/}
          {props.acces &&
             <img 
                src={deleter} 
@@ -14,11 +15,13 @@ const product = (props) => {
                onClick={() => props.remove(props.product)}
             />
          }
+
+         {/*=============Info=============*/}
          <h1>{props.product.name}</h1>
          <img src={props.product.image} alt={props.product.name} className="product-Image" />
          <p>
             <b>Price:</b> 
-            {parseInt(props.product.price, 10)}
+            {props.product.price.toFixed(2)}
          </p>
          <p className="descr">
             <b>Decription:</b>

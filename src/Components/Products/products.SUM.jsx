@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -19,32 +18,48 @@ import {
 import circles from '../Assets/Header/Images/circles.svg';
 
 class ProductSUM extends Component {
+   constructor(props) {
+      super(props);
+      this.state = {
+         btnClass: "",
+         blockClass: ""
+      }
+   }
+
+   /*=============Lifecycle=============*/
    componentWillUpdate(){
       resetValues();
    }
    
    /*=============Action handlers=============*/
    reveal = () => {
-      $(".RL-product-SUM").toggleClass("RL-product-SUM-CLK");
-      $(".product-SUM").toggleClass("product-SUM-RVL");
-      if(window.matchMedia("(max-width: 420px)").matches){
-         $(".product-ADD").toggleClass("product-ADD-HDN");
-      }        
+      this.setState(prevState => {
+         return {
+            btnClass: prevState.btnClass === "" ? "RL-product-SUM-CLK" : "",
+            blockClass: prevState.blockClass === "" ? "product-SUM-RVL" : "",
+         };
+      });
    }
 
    /*================RENDER==================*/
    render() {
       return (
-         <aside className="product-SUM">
-            <div className="RL-product-SUM" onClick={this.reveal}>
+         <aside className={"product-SUM "+this.state.blockClass}>
+            <h1>Summary</h1>
+            
+             {/*=============Revealer=============*/}
+            <div className={"RL-product-SUM "+this.state.btnClass} onClick={this.reveal}>
                <img src={circles} alt="circles" />
             </div>
-            <h1>Summary</h1>
+            
+            {/*=============Info=============*/}
             <section className="product-SUM-info">               
                <h4>Products available:</h4><p>{getTotalProducts(this.props.productStore)}</p>
                <h4>Total price:</h4><p>{getTotalPrice()}</p>
                <h4>Average price:</h4><p>{getAveragePrice()}</p>
-            </section>           
+            </section>  
+
+            {/*=============Admin buttons=============*/}         
             {this.props.acces &&
                <section className="product-vault-actions">
                   <button onClick={this.props.restoreLastProduct}>
@@ -70,9 +85,7 @@ function matchDispatchToProps(dispatch) {
    }, dispatch)
 }
 
-export default connect(
-   state => ({
-      productStore: state.products.mainVault,
-      acces: state.roles.CurrentUser.accesability,
-   }),
-   matchDispatchToProps)(ProductSUM);
+export default connect(state => ({
+   productStore: state.products.mainVault,
+   acces: state.roles.CurrentUser.accesability,
+}), matchDispatchToProps)(ProductSUM);

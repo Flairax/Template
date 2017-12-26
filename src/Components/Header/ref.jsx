@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default class Searcher extends Component {
-   /*================RENDER==================*/
-   render() {
-      return (
-         <li className={this.props.type === "ref-main" ? "points-main" : ""}>
-            <Link to={"/"+this.props.name} className={this.props.type}>{this.props.name}</Link>   
-         </li>  
-      );
-   }
+const ref = (props) => {
+   return (
+      <li className={props.type === "ref-main" ? "points-main" : ""}>
+         <Link
+            to={"/" + props.name}
+            className={props.type}
+            onClick={props.closeParent}
+         >{props.name}</Link>
+      </li>
+   );
 }
+
+export default ref;

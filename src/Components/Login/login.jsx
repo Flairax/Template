@@ -3,14 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { login, exit } from '../../Vaults/Roles/roles.ACT';
 
-import { hideModal } from '../Modals/modal';
-
 class Login extends Component {
    /*================Lifecycle==================*/
    componentDidUpdate(){
       if (this.props.authorised) {
-         hideModal("Login");
-      }     
+         this.props.callback();
+      } 
    }
 
    /*================Handlers==================*/
@@ -31,8 +29,10 @@ class Login extends Component {
       return (
          <Fragment>
             {this.props.authorised ? 
+               /*================Exit button==================*/
                <button onClick={this.exit}>Quit</button>
                : 
+               /*================Entring form==================*/
                <form onSubmit={this.login}>
                   <input className={this.props.loginVal ? "input" : "input invalid"}
                      type="text" required placeholder="Login" ref="Login" />
