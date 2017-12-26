@@ -20,8 +20,8 @@ const product = (props) => {
          <h1>{props.product.name}</h1>
          <img src={props.product.image} alt={props.product.name} className="product-Image" />
          <p>
-            <b>Price:</b> 
-            {props.product.price.toFixed(2)}
+            <b>Price: </b> 
+            {parseFloat(props.product.price).toFixed(2)}
          </p>
          <p className="descr">
             <b>Decription:</b>

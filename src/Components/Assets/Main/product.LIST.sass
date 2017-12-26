@@ -2,6 +2,8 @@
             Product list
   =============================*/
 .product-List
+   margin: 0
+   padding: 0
    list-style: none;
    display: flex;
    justify-content: center;
@@ -9,21 +11,24 @@
 
 /*=================Item=================*/
 .product
+   position: relative
    display: flex;
    flex-direction: column;   
    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
    background-color: white;
    margin: 10px;
-   width: 330px;
-   height: 600px;      
+   height: 700px;      
    padding: 30px;
-   border-radius: 10%;   
+   border-radius: 10%;  
+   transition: $transition; 
    .descr
       overflow: auto;
       @include scroll(5px)
    
 /*=================Deleter=================*/
 .deleter
+   position: absolute
+   top: 10px
    width: 30px;
    border-radius: 100%;
    transition: $transition;
@@ -37,3 +42,14 @@
    align-self: center;
    height: 250px;
    width: 250px;    
+
+/* =========================
+            Media
+   =========================*/ 
+@media screen and (min-width: 200px)and(max-width:  $frontier)
+   .product
+      width: 290px;
+
+@media screen and (min-width: $frontier)
+   .product
+      width: 400px;
