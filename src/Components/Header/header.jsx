@@ -33,10 +33,6 @@ class Header extends PureComponent {
       }
    }
 
-   componentDidUpdate(){
-      console.log("menu m upd")
-   }
-
    /*=============Action handlers=============*/
    /*-------------Main menu-------------*/
    close = () => {
