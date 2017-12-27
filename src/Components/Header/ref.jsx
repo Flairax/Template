@@ -1,7 +1,7 @@
-import React,{Component} from 'react';
+import React,{PureComponent} from 'react';
 import { Link } from 'react-router-dom';
 
-export default class Ref extends Component{
+export default class Ref extends PureComponent{
    /*=============Action handlers=============*/ 
    click = () => {
       this.props.closeParent();

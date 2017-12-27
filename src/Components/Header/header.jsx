@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
@@ -24,13 +24,17 @@ import Gear from '../Assets/Header/Images/gear.svg';
 import MobIcon from '../Assets/Header/Images/ager.png';
 
 
-class Header extends Component {
+class Header extends PureComponent {
    constructor(props) {
       super(props);
       this.state = {
          blockClass: "",
          authrOpen: false,
       }
+   }
+
+   componentDidUpdate(){
+      console.log("menu m upd")
    }
 
    /*=============Action handlers=============*/

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 
 /*=============Components=============*/
@@ -7,7 +7,7 @@ import Ref from './ref';
 /*=============Images=============*/
 import arrow from '../Assets/Header/Images/arrow.svg';
 
-export default class Menu_sub extends Component {
+export default class Menu_sub extends PureComponent {
    constructor(props){
       super(props);
       this.state = {
