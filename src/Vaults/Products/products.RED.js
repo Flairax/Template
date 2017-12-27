@@ -50,7 +50,6 @@ const products = (state = initialState, action) => {
       }
 
       case 'RESTORE_LAST_PRODUCT': {
-         console.log(state.restoreVault.length)
          if (state.restoreVault.length) {
             return {
                mainVault: [

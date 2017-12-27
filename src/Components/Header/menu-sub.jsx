@@ -37,6 +37,12 @@ export default class Menu_sub extends Component {
       });
    }
 
+   /*------------Ref click------------*/
+   refClick = () => {
+      this.props.closeParent();
+      document.documentElement.scrollTop = 0;
+   }
+
    /*================RENDER==================*/
    render() {
       return (
@@ -44,7 +50,7 @@ export default class Menu_sub extends Component {
             <Link 
                to={`/`+this.props.name} 
                className="ref-main"
-               onClick={this.props.closeParent}
+               onClick={this.refClick}
             >{this.props.name}</Link>
             
             {/*=============Revealer=============*/}

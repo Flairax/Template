@@ -17,7 +17,7 @@ import Login from '../Login/login';
 import { SubInfoTwo } from './Services/sub-menu.INFO';
 
 /*=============Services=============*/
-import { allRefsLeadTop } from './Services/header.SER';
+import './Services/header.SER';
 
 /*=============Images=============*/
 import Gear from '../Assets/Header/Images/gear.svg';
@@ -31,10 +31,6 @@ class Header extends Component {
          blockClass: "",
          authrOpen: false,
       }
-   }
-   /*=============Component lifecycle=============*/
-   componentDidMount() {
-      allRefsLeadTop();
    }
 
    /*=============Action handlers=============*/
@@ -108,9 +104,9 @@ class Header extends Component {
                   />
                   <Ref name="Ratings" type="ref-main" closeParent={this.close} />
                   {this.props.acces ?
-                     <Ref name="Admin tools" type="ref-main" />
+                     <Ref name="Admin tools" type="ref-main" closeParent={this.close} />
                      :
-                     <Ref name="Support" type="ref-main" />
+                     <Ref name="Support" type="ref-main" closeParent={this.close} />
                   }
                </ul>
 

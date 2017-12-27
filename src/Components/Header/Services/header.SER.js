@@ -21,12 +21,3 @@ function navFixation() {
 
 window.addEventListener('scroll', rememberScroll);
 window.addEventListener('scroll', navFixation);
-
-/*=============================
-      All refs points top
-  =============================*/
-export function allRefsLeadTop() {
-   $(".ref-main, .ref-sub").bind('click', () => {
-      document.documentElement.scrollTop = 0;
-   });
-}
