@@ -62,7 +62,15 @@ export default class Menu_sub extends Component {
             {/*=============Sub menu=============*/}
             <ul className={"menu-sub "+this.state.blockClass}>
                {this.props.subPoints.map(subPoint => {
-                  return <Ref key={subPoint.id} link={"/"+subPoint.name} name={subPoint.name} type="ref-sub" />
+                  return (
+                     <Ref 
+                        key={subPoint.id} 
+                        link={"/"+subPoint.name} 
+                        name={subPoint.name} 
+                        type="ref-sub" 
+                        closeParent={this.props.closeParent}
+                     />
+                  )        
                })}
             </ul>
          </li>
