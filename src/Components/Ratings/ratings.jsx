@@ -70,7 +70,11 @@ export default class Ratings extends Component {
       return (
          <section className="ratings">
             {/*=============Prev arrow=============*/}
-            <nav className="prev"><img src={arrow} alt="nav-arrow" onClick={this.prev} /></nav>
+            {this.counter !== 0 ?          
+               <nav className="prev"><img src={arrow} alt="nav-arrow" onClick={this.prev} /></nav>
+               :
+               <nav className="hiddenArrow"></nav>        
+            }
             
             <div>
                {/*=============Description=============*/}
