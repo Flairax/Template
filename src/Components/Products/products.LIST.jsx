@@ -2,22 +2,25 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+
+/*=============Components=============*/
 import Product from './product.ITEM';
 
 /*=============Actions=============*/
-import { removeProduct } from '../../Vaults/Products/products.ACT';
+import { removeProduct, selectProduct } from '../../Vaults/Products/products.ACT';
 
 const productList = (props) => {
    return (
       <ul className="product-List">
          {props.productStore.map(product => {
             return (
+               <li className="product" onClick={() => props.selectProduct(product)} key={product.id}>
                <Product
                   product={product}
                   remove={props.removeProduct}
-                  acces={props.acces}
-                  key={product.id}
+                  acces={props.acces}           
                />
+               </li>
             );
          })}
       </ul>
@@ -28,6 +31,7 @@ const productList = (props) => {
 function matchDispatchToProps(dispatch) {
    return bindActionCreators({
       removeProduct,
+      selectProduct
    }, dispatch)
 }
 

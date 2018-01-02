@@ -3,6 +3,7 @@ import initialStateJson from './products.INIT.json';
 const initialState = {
    mainVault: [],
    restoreVault: [],
+   selected: {}
 }
 
 let idCounter = 0;
@@ -15,6 +16,7 @@ const products = (state = initialState, action) => {
    if (action.payload === "") return state
 
    switch (action.type) {
+      /*=============================================================*/   
       case 'ADD_PRODUCT':
          return {
             mainVault: [
@@ -27,8 +29,10 @@ const products = (state = initialState, action) => {
                   price: action.payload.price,
                }
             ],
-            restoreVault: [ ...state.restoreVault ] 
+            restoreVault: [ ...state.restoreVault ], 
+            selected: state.selected,
          }
+      /*=============================================================*/   
       case 'REMOVE_PRODUCT': {
          return {
             mainVault: [
@@ -36,19 +40,21 @@ const products = (state = initialState, action) => {
             ],
             restoreVault: [
                ...state.restoreVault, action.payload
-            ]
+            ],
+            selected: state.selected,
          }
       }
-
+      /*=============================================================*/   
       case 'REMOVE_ALL_PRODUCTS': {
          return {
             mainVault: [],
             restoreVault:[
                ...state.restoreVault, ...state.mainVault
-            ]
+            ],
+            selected: state.selected,
          };
       }
-
+      /*=============================================================*/   
       case 'RESTORE_LAST_PRODUCT': {
          if (state.restoreVault.length) {
             return {
@@ -57,25 +63,36 @@ const products = (state = initialState, action) => {
                ],
                restoreVault:[
                   ...state.restoreVault.slice(0, -1)
-               ]
+               ],
+               selected: state.selected,
             }
          }
          alert("No elemts have been removed yet / restore vault is empty");
          return state;
       }
+      /*=============================================================*/   
       case 'RESTORE_ALL_PRODUCTS': {
          if (state.restoreVault.length) {
             return {
                mainVault:[
                   ...state.mainVault, ...state.restoreVault.slice(0)
                ],
-               restoreVault: []
+               restoreVault: [],
+               selected: state.selected,
             }
          }
          alert("No elemts have been removed yet / restore vault is empty");
          return state;
       }
-      
+      /*=============================================================*/  
+      case 'SELECT_PRODUCT': {
+         return{
+            mainVault: state.mainVault,
+            restoreVault: state.restoreVault,
+            selected: action.payload
+         }
+      }
+      /*=============================================================*/  
       default:
          return state;
    }

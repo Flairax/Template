@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {Fragment} from 'react';
+import {Link} from 'react-router-dom';
 
 /*=============Images============*/
 import deleter from '../Assets/Main/Images/deleter.svg'
 
 const product = (props) => {
    return (
-      <li className="product">
-          {/*=============Delete button=============*/}
+      <Fragment>
+         {/*=============Delete button=============*/}
          {props.acces &&
             <img 
                src={deleter} 
@@ -17,7 +18,7 @@ const product = (props) => {
          }
 
          {/*=============Info=============*/}
-         <h1>{props.product.name}</h1>
+         <Link to="/Product.PAGE"><h1>{props.product.name}</h1></Link>        
          <img src={props.product.image} alt={props.product.name} className="product-Image" />
          <p>
             <b>Price: </b> 
@@ -28,7 +29,7 @@ const product = (props) => {
             <br />
             {props.product.description}
          </p>
-      </li>
+      </Fragment>
    );
 }
 

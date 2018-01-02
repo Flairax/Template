@@ -11,6 +11,7 @@ const ratings = (state = questions, action) => {
    if (action.payload === "") return state
 
    switch (action.type) {
+      /*=============================================================*/   
       case 'RATE': {
          return [
             ...state.slice(0, state.indexOf(action.payload.currQues)),
@@ -22,7 +23,7 @@ const ratings = (state = questions, action) => {
             ...state.slice(state.indexOf(action.payload.currQues) + 1)
          ]
       }
-    
+      /*=============================================================*/   
       default:
          return state;
    }
