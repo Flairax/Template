@@ -2,26 +2,12 @@ import DefAvatar from "../../Components/Assets/Header/Images/avatar.svg"
 
 import AllUser from './roles.INIT.json'
 
-/*=======================Initial===========================*/   
 let USERS_LIST =[];
 
 for (let key in Object.keys(AllUser.UsersList)) {
    USERS_LIST.push(AllUser.UsersList[key]);
 }
 
-const initialState = {
-   CurrentUser: {
-      name: "Anonymous",
-      accesability: false,
-      avatar: DefAvatar,
-   },
-   Chekker: {
-      loginVal: true,
-      passwordVal: true,    
-      authorised: false,
-   }  
-}
-/*=======================Validation===========================*/   
 function loginChek(login){
    for (let i = 0; i < USERS_LIST.length; i++) {
       if(login === USERS_LIST[i].name){
@@ -46,14 +32,24 @@ function passworChek(record, password){
    }
 }
 
-/*=======================Reducer===========================*/   
+const initialState = {
+   CurrentUser: {
+      name: "Anonymous",
+      accesability: false,
+      avatar: DefAvatar,
+   },
+   Chekker: {
+      loginVal: true,
+      passwordVal: true,    
+      authorised: false,
+   }  
+}
 
 let loginBuffer;
 let passwordBuffer;
 
 const roles = (state = initialState, action) => {
    switch (action.type) {
-      /*=============================================================*/   
       case "LOGIN": {
          loginBuffer = loginChek(action.payload.login);
          passwordBuffer = (passworChek(loginBuffer.record, action.payload.password));
@@ -85,7 +81,6 @@ const roles = (state = initialState, action) => {
             }
          }
       }
-      /*=============================================================*/   
       case "EXIT":
          return {
             CurrentUser: {
@@ -99,7 +94,6 @@ const roles = (state = initialState, action) => {
                authorised: false,
             }  
          }
-      /*=============================================================*/   
       default:
          return state;
    }

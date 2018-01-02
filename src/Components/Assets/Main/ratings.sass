@@ -28,11 +28,6 @@
 .prev
    transform: rotate(180deg)
 
-.unactive
-   margin: 0 10px
-   width: 55px
-   height: 55px
-   padding: 10px
 /*=======================
         Question box
    ======================*/
@@ -66,6 +61,11 @@
    width: 50px
    height: 50px
    padding: 10px
+   &:hover
+      background-color: gold
+      cursor: pointer
+      ~ .rate-star
+         background-color: gold
 
 /*===============Voted style==============*/
 .included
@@ -93,8 +93,6 @@
    .star-container
       margin-top: 90px
 
-
-
 @media screen and (min-width: $frontier)
    .ratings
       width: 460px
@@ -102,9 +100,3 @@
    .next, .prev
       position: relative
       top: 10px
-
-   .rate-star:hover
-      background-color: gold
-      cursor: pointer
-      ~ .rate-star
-         background-color: gold

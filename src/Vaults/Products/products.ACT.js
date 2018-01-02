@@ -29,10 +29,3 @@ export const restoreAllProduct = () => {
       type: "RESTORE_ALL_PRODUCTS",
    }
 }
-
-export const selectProduct = (product) => {
-   return{
-      type: "SELECT_PRODUCT",
-      payload: product,
-   }
-}

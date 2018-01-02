@@ -44,7 +44,7 @@ export default class Modal extends PureComponent {
                {this.props.children}
                {/*================Closer type==================*/
                   this.props.closeBy === "button" ?
-                     <button onClick={this.props.callback}>Got it</button>
+                     <button onClick={this.props.callback}>Understand</button>
                      :
                      <img
                         src={deleter}
