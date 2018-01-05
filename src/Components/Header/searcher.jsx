@@ -8,8 +8,8 @@ export default class Searcher extends PureComponent {
    constructor(props) {
       super(props);
       this.state = {
-         btnClass: "",
-         blockClass: ""
+         btnClass: "RL-searcher",
+         blockClass: "searcher"
       }
    }
 
@@ -28,8 +28,10 @@ export default class Searcher extends PureComponent {
    reveal = () => {
       this.setState(prevState => {
          return {
-            btnClass: prevState.btnClass === "" ? "RL-searcher-CLK" : "",
-            blockClass: prevState.blockClass === "" ? "searcher-RVL" : "",
+            btnClass: prevState.btnClass === "RL-searcher" ? 
+               "RL-searcher-CLK" : "RL-searcher",
+            blockClass: prevState.blockClass === "searcher" ? 
+               "searcher-RVL" : "searcher",
          };
       });
    }
@@ -39,12 +41,12 @@ export default class Searcher extends PureComponent {
       return (
          <aside>
             {/*=============Revealer=============*/}
-            <button className={"RL-searcher " + this.state.btnClass} onClick={this.reveal}>
+            <button className={this.state.btnClass} onClick={this.reveal}>
                <img src={loomp} alt="loomp" />
             </button>
 
             {/*=============Searcher form=============*/}
-            <form className={"searcher " + this.state.blockClass}>
+            <form className={this.state.blockClass}>
                <input type="search" placeholder="Enter query" />
                <button type="submit">Search</button>
             </form>

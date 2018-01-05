@@ -1,12 +1,12 @@
 /*=============================
             Searcher
   =============================*/
-.searcher
+/*================Block================
+.searcher, .searcher-RVL
    display: flex
    position: absolute   
    width: 100%
    transform-origin: right top;
-   transform: scale(0);
    transition: $transition 
    input, button
       outline: 0
@@ -27,9 +27,16 @@
          background-color: $hover-cl;
          cursor: pointer;
          box-shadow: $shadow;
-   
+
+/*------------------Animation-------------------
+.searcher
+   transform: scale(0);
+
+.searcher-RVL
+   transform: scale(1);  
+
 /*================Revealer================
-.RL-searcher
+.RL-searcher, .RL-searcher-CLK
    width: 60px;
    height: 80px;
    position: absolute
@@ -39,17 +46,23 @@
    background-color: $font-cl;
    box-shadow: $shadow;
    border: 2px solid $bg-cl;  
-   border-radius: 0 0 50% 50%; 
    outline: 0px;  
    &:hover
       background-color: $hover-cl;
       cursor: pointer;
-  
+
+/*------------------Animation-------------------
+.RL-searcher
+   border-radius: 0 0 50% 50%; 
+
+.RL-searcher-CLK
+   border-radius: 50% 50% 0 0;
+
 /*==========================
             Media
   ==========================
 @media screen and (min-width: $frontier)
-   .searcher
+   .searcher, .searcher-RVL
       flex-direction: row-reverse;
       top: 100%;
       input
@@ -58,16 +71,7 @@
          width: 20%;
 
 @media screen and (min-width: 200px)and(max-width: $frontier)
-   .searcher
+   .searcher, .searcher-RVL
       flex-direction: column;
       input, button
          width: 100%;
-
-/*=============================
-            Animation
-  =============================*/
-.RL-searcher-CLK
-   border-radius: 50% 50% 0 0;
-
-.searcher-RVL
-   transform: scale(1);   
