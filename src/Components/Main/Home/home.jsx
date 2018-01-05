@@ -92,6 +92,7 @@ export default class Home extends Component {
                         ],
                      });
                      $(`.c3-target-${id}`).addClass("bolder-line");
+                     this.api.flush();
                   },300)
                   
                   //this.api.flush();
