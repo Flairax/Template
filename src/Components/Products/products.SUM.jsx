@@ -14,6 +14,10 @@ import {
    getTotalPrice, getAveragePrice
 } from './Services/Summary.SER';
 
+
+ /*=============Toggler============*/
+import { toggleACT } from '../Header/shared.ACT';
+
  /*=============Images============*/
 import circles from '../Assets/Header/Images/circles.svg';
 
@@ -32,23 +36,16 @@ class ProductSUM extends Component {
    }
    
    /*=============Action handlers=============*/
-   reveal = () => {
-      this.setState(prevState => {
-         return {
-            btnClass: prevState.btnClass === "" ? "RL-product-SUM-CLK" : "",
-            blockClass: prevState.blockClass === "" ? "product-SUM-RVL" : "",
-         };
-      });
-   }
+   toggle = () => toggleACT(this)
 
    /*================RENDER==================*/
    render() {
       return (
-         <aside className={"product-SUM "+this.state.blockClass}>
+         <aside className={"product-SUM"+this.state.blockClass}>
             <h1>Summary</h1>
             
              {/*=============Revealer=============*/}
-            <div className={"RL-product-SUM "+this.state.btnClass} onClick={this.reveal}>
+            <div className={"RL-product-SUM"+this.state.btnClass} onClick={this.toggle}>
                <img src={circles} alt="circles" />
             </div>
             

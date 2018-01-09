@@ -14,29 +14,23 @@ export default class Home extends Component {
 
       this.data = {
          columns: [
-            ['1', 30, 200, 100, 400, 150, 250],
-            ['2', 250, 30, 60, 320, 25, 35],
-            ['3', 50, 20, 10, 40, 15, 25],
-            ['4', 250, 30, 60, 320, 25, 35],
-            ['5', 250, 30, 60, 320, 25, 35],
-            ['6', 250, 30, 60, 320, 25, 35],
-
-           
+            ['Crelo', 30, 200, 100, 400, 150, 250],
+            ['Arlo', 250, 30, 60, 320, 25, 35],
+            ['Lokedo', 50, 20, 10, 40, 15, 25],
+            ['Bernali', 250, 30, 60, 320, 25, 35],
+            ['Axorfvido', 250, 30, 60, 320, 25, 35],
+            ['Menaxjeri', 250, 30, 60, 320, 25, 35],          
          ],
-         /*classes: {
-            '6': 'bolder-line'
-         }*/
+         
       };
 
+      this.tooltip = {
+         grouped: false
+       }
 
       this.legend = {
          item: {
             onclick: function(id){
-               
-
-              
-
-
                let legend_items = $(Array.from(document.getElementsByClassName('c3-legend-item'))
                   .filter(item => {
                      return !item.classList.contains(`c3-legend-item-${id}`);
@@ -53,7 +47,6 @@ export default class Home extends Component {
                   console.log(id)
 
                   $(`.c3-legend-item-${id}`).removeClass("shadow-legend");
-                  //$(`.c3-target-${prevItemId}`).removeClass("bolder-line");
 
                   legend_items.addClass("shadow-legend");
                   
@@ -65,18 +58,9 @@ export default class Home extends Component {
                      }
                      
                   }
-   
 
-               
-
-                  
                   this.api.unload(id);
-                  //this.api.unload();
    
-   
-                  let name = {
-                     
-                  };
                   let tempArr = [];
                   for (let i = 0; i < temp.values.length; i++) {
                      tempArr.push(temp.values[i].value)
@@ -87,22 +71,14 @@ export default class Home extends Component {
                   setTimeout(()=>{
                      this.api.load({
                         columns: [
-                           tempArr,
-                                             
+                           tempArr,                                           
                         ],
                      });
                      $(`.c3-target-${id}`).addClass("bolder-line");
-                     this.api.flush();
-                  },300)
-                  
-                  //this.api.flush();
-
-                  
-
-
-
-                  
-                  
+                     setTimeout(() => {
+                        this.api.flush();
+                     }, 500)
+                  },300)                   
                }
             },
             onmouseover: (id) => { },
@@ -137,7 +113,11 @@ export default class Home extends Component {
                   <li>Website is adaptable, try to change window size.</li>
                   <li><a href="https://github.com/Flairax/Template"> GitHub project</a></li>
                </ul>
-               <C3Chart data={this.data} legend={this.legend} unloadBeforeLoad={this.unloadable} />
+               <C3Chart 
+                  data={this.data} 
+                  legend={this.legend} 
+                  tooltip = {this.tooltip}
+               />
             </section>
          </article>
       );

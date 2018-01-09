@@ -24,7 +24,7 @@
 /*=============================
             Menu-main
   =============================*/
-.menu-main
+.menu-main, .menu-main-RVL
    position: absolute
    opacity: 0.95
    flex-direction: column
@@ -32,7 +32,13 @@
    border-bottom-right-radius: 25%
    border-bottom: 5px solid $hover-cl
    border-right: 5px solid $hover-cl
+   
+/*----------Animation----------*/   
+.menu-main
    transform: translateX(-120%)
+
+.menu-main-RVL
+   transform: translateX(0)
 
 /*----------Last child----------*/
 .points-main:last-child
@@ -56,9 +62,3 @@
    &:hover
       background-color: $hover-cl
       border-left-color: $click-cl
-
-/*=============================
-            Animation
-  =============================
-.menu-main-RVL
-   transform: translateX(0)

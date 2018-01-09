@@ -5,6 +5,9 @@ import { bindActionCreators } from 'redux';
  /*=============Actions=============*/
 import { addProduct } from '../../Vaults/Products/products.ACT';
 
+ /*=============Toggler============*/
+ import { toggleACT } from '../Header/shared.ACT';
+
  /*=============Images=============*/
 import circles from '../Assets/Header/Images/circles.svg';
 
@@ -18,14 +21,7 @@ class ProductADD extends Component {
    }
 
    /*=============Action handlers=============*/
-   reveal = () => {
-      this.setState(prevState => {
-         return {
-            btnClass: prevState.btnClass === "" ? "RL-product-ADD-CLK" : "",
-            blockClass: prevState.blockClass === "" ? "product-ADD-RVL" : "",
-         };
-      });
-   }
+   toggle = () => toggleACT(this)
 
    handleSubmit = (event) => {
       event.preventDefault();
@@ -45,9 +41,9 @@ class ProductADD extends Component {
    /*================RENDER==================*/
    render() {
       return (
-         <aside className={"product-ADD "+this.state.blockClass} > 
+         <aside className={"product-ADD"+this.state.blockClass} > 
             {/*==============Revealer===============*/}
-            <div className={"RL-product-ADD "+this.state.btnClass} onClick={this.reveal}>
+            <div className={"RL-product-ADD"+this.state.btnClass} onClick={this.toggle}>
                <img src={circles} alt="circles" />
             </div>
 

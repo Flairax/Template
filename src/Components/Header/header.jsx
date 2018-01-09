@@ -19,6 +19,8 @@ import { SubInfoTwo } from './Services/sub-menu.INFO';
 /*=============Services=============*/
 import './Services/header.SER';
 
+import {toggleACT, closeACT} from './shared.ACT';
+
 /*=============Images=============*/
 import Gear from '../Assets/Header/Images/gear.svg';
 import MobIcon from '../Assets/Header/Images/ager.png';
@@ -28,26 +30,43 @@ class Header extends PureComponent {
    constructor(props) {
       super(props);
       this.state = {
+         btnClass: "",
          blockClass: "",
+         fixedNav:"",
          authrOpen: false,
       }
    }
 
+   /*componentDidMount(){
+      let scrolled = 0;
+
+      function rememberScroll(){
+         scrolled = window.pageYOffset || document.documentElement.scrollTop;
+      }
+
+      function navFixation() {
+         if(window.matchMedia("(min-width: 700px)").matches){
+            if (scrolled > 350) {
+               console.log(this)
+               this.setState({
+                  fixedNav: "fixed"
+               })
+            } else if (scrolled < 350) {
+               this.setState({
+                  fixedNav: ""
+               })
+            }
+         }  
+      }
+
+      window.addEventListener('scroll', rememberScroll);
+      window.addEventListener('scroll', navFixation);
+   }*/
+
    /*=============Action handlers=============*/
    /*-------------Main menu-------------*/
-   close = () => {
-      this.setState({
-         blockClass: "",
-      });
-   }
-
-   toggle = () => {
-      this.setState(prevState => {
-         return {
-            blockClass: prevState.blockClass === "" ? "menu-main-RVL" : "",
-         };
-      });
-   }
+   close = () => closeACT(this)
+   toggle = () => toggleACT(this)
 
    /*-------------Login-------------*/
    openLogin = () => {
@@ -68,7 +87,7 @@ class Header extends PureComponent {
          <header>
             <div id="Banner">
             </div>
-            <nav className="navigation">
+            <nav className={"navigation"+this.state.fixedNav}>
                {/*=============Mobile menu revealer=============*/}
                <aside className="RL-menu-main" onClick={this.toggle}>
                   <img src={MobIcon} alt="MobIcon" />
@@ -86,7 +105,7 @@ class Header extends PureComponent {
                </aside>
 
                {/*=============Main menu=============*/}
-               <ul className={"menu-main " + this.state.blockClass} >
+               <ul className={"menu-main" + this.state.blockClass} >
                   <Ref name="Home" type="ref-main" closeParent={this.close} />
                   <MenuSub
                      name="Products"

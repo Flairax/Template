@@ -1,7 +1,7 @@
 /*=============================
             adder-product
   =============================*/
-.product-ADD
+.product-ADD, .product-ADD-RVL
    position: fixed
    right: 10px
    width: 260px
@@ -10,8 +10,7 @@
    background-color: $font-cl
    padding: 15px
    transition: $transition
-   opacity: 0.95
-   transform: translateX(110%)
+   opacity: 0.95 
    form
       display: flex
       flex-direction: column
@@ -22,17 +21,23 @@
       align-self: center
       margin-top: 15px
       @include button-colors(rgba(32, 4, 133, 0.815), rgba(85, 10, 206, 0.815))
-         
+
+/*----------Animation----------*/   
+.product-ADD
+   transform: translateX(110%)
+
+.product-ADD-RVL
+   transform: translateX(0)        
+
 /*===============Revealer==============      
-.RL-product-ADD
+.RL-product-ADD, .RL-product-ADD-CLK
    justify-content: center  
    width: 65px
    height: 180px 
    position: absolute
    right: 97%
    top: 40px
-   border: 2px solid $bg-cl    
-   border-radius: 20px 0 0 20px
+   border: 2px solid $bg-cl     
    border-right: 4px solid $bg-cl
    background-color: white
    box-shadow: $shadow
@@ -46,27 +51,21 @@
       height: 18px
       width: 60px     
 
-/* =========================
-            Media
-   =========================*/ 
-@media screen and (min-width:  $frontier)
-   .product-ADD
-      top: $sidebars-offset+20%
+/*----------Animation----------*/   
+.RL-product-ADD
+    border-radius: 20px 0 0 20px
 
-@media screen and (min-width: 200px)and(max-width:  $frontier)  
-   .product-ADD
-      top: $sidebars-offset
-
-@media screen and (max-width: 410px)
-   .product-ADD-HDN
-      transform: translateX(130%)
-
-/* =========================
-        Animation
-   =========================*/ 
 .RL-product-ADD-CLK
    border-radius: 5px 50% 50% 5px
    transform: translateX(10px)
 
-.product-ADD-RVL
-   transform: translateX(0)
+/* =========================
+            Media
+   =========================*/ 
+@media screen and (min-width:  $frontier)
+   .product-ADD, .product-ADD-RVL
+      top: $sidebars-offset+20%
+
+@media screen and (min-width: 200px)and(max-width:  $frontier)  
+   .product-ADD,.product-ADD-RVL
+      top: $sidebars-offset

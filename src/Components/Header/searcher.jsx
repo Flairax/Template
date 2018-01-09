@@ -3,50 +3,36 @@ import React, { PureComponent } from 'react';
 /*=============Images=============*/
 import loomp from '../Assets/Header/Images/loomp.svg';
 
+import { closeACT, toggleACT } from './shared.ACT';
 
 export default class Searcher extends PureComponent {
    constructor(props) {
       super(props);
       this.state = {
-         btnClass: "RL-searcher",
-         blockClass: "searcher"
+         btnClass: "",
+         blockClass: ""
       }
    }
 
    componentWillReceiveProps(){
-      this.close();         
+      this.close();
    }
 
    /*=============Handlers=============*/
-   close = () =>{
-      this.setState({
-         btnClass: "",
-         blockClass: "",
-      });
-   }
-
-   reveal = () => {
-      this.setState(prevState => {
-         return {
-            btnClass: prevState.btnClass === "RL-searcher" ? 
-               "RL-searcher-CLK" : "RL-searcher",
-            blockClass: prevState.blockClass === "searcher" ? 
-               "searcher-RVL" : "searcher",
-         };
-      });
-   }
+   close = () => closeACT(this)
+   toggle = () => toggleACT(this)
 
    /*================RENDER==================*/
    render() {
       return (
          <aside>
             {/*=============Revealer=============*/}
-            <button className={this.state.btnClass} onClick={this.reveal}>
+            <button className={"RL-searcher"+this.state.btnClass} onClick={this.toggle}>
                <img src={loomp} alt="loomp" />
             </button>
 
             {/*=============Searcher form=============*/}
-            <form className={this.state.blockClass}>
+            <form className={"searcher"+this.state.blockClass}>
                <input type="search" placeholder="Enter query" />
                <button type="submit">Search</button>
             </form>
