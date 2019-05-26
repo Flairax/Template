@@ -1,0 +1,96 @@
+/*=============================
+            Summary
+  =============================*/
+.product-SUM, .product-SUM-RVL
+   display: flex
+   flex-direction: column
+   align-items: center
+   position: fixed
+   left: 10px
+   width: 260px
+   padding: 20px
+   background-color: white
+   border-radius: 10%
+   box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75)
+   transition: $transition   
+   opacity: 0.95
+   h1
+      margin-top: 0
+
+/*----------Animation----------*/   
+.product-SUM
+   transform: translateX(-110%)
+
+.product-SUM-RVL
+   transform: translateX(0)
+
+/*===============Info===============    
+.product-SUM-info
+   font-family: 'Roboto'
+   display: grid
+   grid-template-columns: 70px 115px
+   grid-template-rows: repeat(3, 60px)
+   grid-column-gap: 5px
+   align-items: center
+   p
+      background-color: rgba(187, 187, 187, 0.815) 
+      border-radius: 15px
+      padding: 10px
+      height: 40px
+   h4
+      height: 40px
+      margin: 5px 0
+
+/*===============Revealer==============    
+.RL-product-SUM, .RL-product-SUM-CLK
+   justify-content: center  
+   position: absolute
+   top: 40px
+   left: 97%
+   width: 65px
+   height: 180px   
+   border: 2px solid $bg-cl  
+   border-left: 4px solid $bg-cl     
+   background-color: white
+   &:hover
+      background-color: $hover-cl
+      cursor: pointer
+   img
+      transform: rotate(90deg) translate(-3px,-8px)
+      height: 18px
+      width: 60px        
+
+/*----------Animation----------*/   
+.RL-product-SUM
+   border-radius: 0 20px 20px 0
+
+.RL-product-SUM-CLK
+   border-radius: 50% 5px 5px 50% 
+   transform: translateX(-15px)
+
+/*===============Buttons==============    
+.product-vault-actions
+   display: flex
+   flex-direction: column
+   button
+      @extend %button-template
+      margin: 10px
+   button:first-child     
+      @include button-colors( rgba(112, 5, 126, 0.815), rgba(153, 7, 167, 0.815))
+   
+   button:nth-child(2)
+      @include button-colors(rgba(49, 146, 10, 0.815), rgba(9, 223, 38, 0.815))
+   
+   button:last-child
+      @include button-colors(rgba(133, 4, 4, 0.815), rgba(204, 6, 6, 0.815))
+
+/* =========================
+            Media
+   =========================*/ 
+@media screen and (min-width:  $frontier)
+   .product-SUM, .product-SUM-RVL
+      top: $sidebars-offset+20%
+
+@media screen and (min-width: 200px)and(max-width:  $frontier)  
+   .product-SUM, .product-SUM-RVL
+      top: $sidebars-offset

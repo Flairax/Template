@@ -1,0 +1,86 @@
+/*==========================
+            Preset
+  ==========================
+header 
+   ul , ol , li, a, div 
+      display: flex
+      align-items: center
+      margin: 0
+      padding: 0
+      transition: $transition
+   ul, ol, li
+      list-style: none 
+   li:hover   
+      cursor: pointer
+   a
+      color: $font-cl
+      text-decoration: none
+      width: 100%
+   img
+      transition: $transition
+   div
+      color: $font-cl
+
+/*=============================
+           Influenced
+  =============================
+main, footer
+   position: relative
+   top: $m-main-H
+
+/*==========================
+         Navigation
+  ==========================
+.navigation, .navigation-fixed
+   width: 100%
+   user-select: none
+
+#Banner
+   height: 350px
+
+/*=============================
+           RL-menu-main
+  =============================*/
+.RL-menu-main
+   opacity: 0.95
+   font-size: 110%
+   background-color: $bg-cl
+   border-bottom: 3px solid $bg-cl
+   height: $m-main-H
+   transition: $transition
+   &:hover
+      background-color: $hover-cl   
+      cursor: pointer 
+   img
+      height: 25px
+      width: 25px
+      margin: 15px
+
+/*==========================
+         Menu-main
+  ==========================
+.menu-main, .menu-main-RVL
+   font-family: 'Anton'
+   background-color: $bg-cl
+   
+/*----------Last child----------*/
+.points-main:last-child
+   background-color: $click-cl
+
+/*==========================
+            Media
+  ==========================
+@media screen and (min-width:  $frontier)
+   @import './header.DESKTOP.sass'
+
+@media screen and (min-width: 200px)and(max-width:  $frontier)
+   @import './header.MOBILE.sass'
+
+/*==========================
+            Components
+  ==========================
+@import './menu-sub.sass'
+@import './Sidebars/searcher.sass'
+@import './Sidebars/profile.sass'
+@import './Sidebars/product.ADD.sass'
+@import './Sidebars/product.SUM.sass'

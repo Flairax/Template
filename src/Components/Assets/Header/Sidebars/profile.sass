@@ -1,0 +1,30 @@
+.authorization
+   display: flex
+   align-items: center
+   position: absolute
+   height: 35px
+   width: 35px
+   top: calc(50% - 17px)  
+   border: 3px solid $font-cl
+   border-radius: 100%
+   background-color: white
+   transition: $transition
+   &:hover
+      border-color: $hover-cl
+      cursor: pointer
+   img
+      height: 100%
+      width: 100%
+      background-color: white
+      border-radius: 100%
+
+/* =========================
+            Media
+   =========================*/ 
+@media screen and (min-width:  $frontier)
+   .authorization
+      left: 20px
+
+@media screen and (min-width: 200px)and(max-width:  $frontier)
+   .authorization
+      left: calc(50% - 20px)

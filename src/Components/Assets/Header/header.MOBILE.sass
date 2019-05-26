@@ -1,0 +1,64 @@
+/*=============================
+           Navigation
+  =============================*/
+.navigation
+   position: fixed
+   top: 0
+   li
+      width: 100%
+
+/*==========RL-menu-main===========  
+.RL-menu-main
+   transform: scale(1)
+
+/*==========Banner===========  
+#Banner
+   position: absolute
+   z-index: -1
+   transform: scale(0)
+
+/*==========Spinner===========  
+#Spinner
+   display: none
+
+/*=============================
+            Menu-main
+  =============================*/
+.menu-main, .menu-main-RVL
+   position: absolute
+   opacity: 0.95
+   flex-direction: column
+   width: 250px
+   border-bottom-right-radius: 25%
+   border-bottom: 5px solid $hover-cl
+   border-right: 5px solid $hover-cl
+   
+/*----------Animation----------*/   
+.menu-main
+   transform: translateX(-120%)
+
+.menu-main-RVL
+   transform: translateX(0)
+
+/*----------Last child----------*/
+.points-main:last-child
+   width: 85%
+   align-self: flex-start
+   border-radius: 0 20px 20px 0
+   .ref-main     
+      border-radius: 0 20px 20px 0 
+      border-left: 10px solid $click-cl
+
+
+/*==========Point-main-openable===========
+.points-main-openable
+   position: relative
+   
+/*==========ref-main===========
+.ref-main
+   padding-left: 15px
+   height: 55px   
+   border-left: 10px solid $bg-cl
+   &:hover
+      background-color: $hover-cl
+      border-left-color: $click-cl

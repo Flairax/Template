@@ -1,0 +1,60 @@
+/*==========================
+            Forms
+  ==========================
+%input-template
+   font-family: 'Cuprum'
+   font-size: 110%
+   color: $bg-cl
+   background-color: #fafafa
+   padding: 0.25em
+   border: 1px solid lightgray
+   border-radius: 5px
+   outline: none
+   margin: 7px
+   &::placeholder
+      font-weight: 500 
+      color: #adadad
+
+%button-template
+   font-family: 'Roboto'
+   color: $bg-cl
+   height: 35px
+   width: 200px
+   padding: 0 15px
+   border: none
+   border-radius: 25px
+   text-transform: uppercase
+   font-weight: bold
+   letter-spacing: 0
+   transition: 0.4s
+   outline: none
+   cursor: pointer
+
+@mixin button-colors($bg-color, $hov-color)
+   background-color: $bg-color   
+   &:hover
+      background-color: $hov-color
+
+/*==========================
+         Scrollbar
+  ==========================
+@mixin scroll($width)   
+   &::-webkit-scrollbar-button
+      width: 5px
+      height: 0px
+ 
+   &::-webkit-scrollbar-track
+      background-color: $font-cl
+      
+   &::-webkit-scrollbar-thumb
+      border-radius: 25px
+      background-color: $hover-cl
+      &:hover
+         background-color: $click-cl
+         
+   &::-webkit-resizer
+      width: 4px
+      height: 0px
+
+   &::-webkit-scrollbar
+      width: $width

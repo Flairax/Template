@@ -1,0 +1,77 @@
+/*=============================
+            Searcher
+  =============================*/
+/*================Block================
+.searcher, .searcher-RVL
+   display: flex
+   position: absolute   
+   width: 100%
+   transform-origin: right top;
+   transition: $transition 
+   input, button
+      outline: 0
+      font-size: 110%;   
+      border: none;
+      height: 60px;
+      border-bottom: 1px solid $bg-cl;
+   input
+      color: $bg-cl;
+      padding-left: 40px;
+      outline: 0px;
+   button
+      font-family: 'Anton';
+      color: $font-cl
+      justify-content: center;
+      background-color: $bg-cl;
+      &:hover
+         background-color: $hover-cl;
+         cursor: pointer;
+         box-shadow: $shadow;
+
+/*------------------Animation-------------------
+.searcher
+   transform: scale(0);
+
+.searcher-RVL
+   transform: scale(1);  
+
+/*================Revealer================
+.RL-searcher, .RL-searcher-CLK
+   width: 60px;
+   height: 80px;
+   position: absolute
+   top: 20px; 
+   left: calc(100% - 100px) ;
+   transition: $transition
+   background-color: $font-cl;
+   box-shadow: $shadow;
+   border: 2px solid $bg-cl;  
+   outline: 0px;  
+   &:hover
+      background-color: $hover-cl;
+      cursor: pointer;
+
+/*------------------Animation-------------------
+.RL-searcher
+   border-radius: 0 0 50% 50%; 
+
+.RL-searcher-CLK
+   border-radius: 50% 50% 0 0;
+
+/*==========================
+            Media
+  ==========================
+@media screen and (min-width: $frontier)
+   .searcher, .searcher-RVL
+      flex-direction: row-reverse;
+      top: 100%;
+      input
+         width: 80%;  
+      button  
+         width: 20%;
+
+@media screen and (min-width: 200px)and(max-width: $frontier)
+   .searcher, .searcher-RVL
+      flex-direction: column;
+      input, button
+         width: 100%;

@@ -1,0 +1,6 @@
+RL  - revealer, thing that opens something
+CLK - click, represents state when element has been clicked
+RVL - revealed, represents state when element has been revealed
+HDN - hidden, used when element should be pushed out from visible area
+ADD - form for adding something
+SUM - summary information about something

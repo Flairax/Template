@@ -1,19 +1,40 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-import loomp from './Assets/Images/loomp.svg';
+/*=============Images=============*/
+import loomp from '../Assets/Header/Images/loomp.svg';
 
-import { searcherShifter } from './MediaShifter/mediaShifter';
+import { closeACT, toggleACT } from './shared.ACT';
 
-export default class Searcher extends Component {
+export default class Searcher extends PureComponent {
+   constructor(props) {
+      super(props);
+      this.state = {
+         btnClass: "",
+         blockClass: ""
+      }
+   }
+
+   componentWillReceiveProps(){
+      this.close();
+   }
+
+   /*=============Handlers=============*/
+   close = () => closeACT(this)
+   toggle = () => toggleACT(this)
+
+   /*================RENDER==================*/
    render() {
       return (
-         <aside >
-            <button id="Revealer-search" className="revealer-search" onClick={searcherShifter}>
+         <aside>
+            {/*=============Revealer=============*/}
+            <button className={"RL-searcher"+this.state.btnClass} onClick={this.toggle}>
                <img src={loomp} alt="loomp" />
             </button>
-            <form id="Searcher" className="search-box">
-               <input type="submit" id="submit" value="Search" />
-               <input type="search" id="field" placeholder="Enter query" />
+
+            {/*=============Searcher form=============*/}
+            <form className={"searcher"+this.state.blockClass}>
+               <input type="search" placeholder="Enter query" />
+               <button type="submit">Search</button>
             </form>
          </aside>
       );
